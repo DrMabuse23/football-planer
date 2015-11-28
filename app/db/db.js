@@ -23,7 +23,6 @@ export default class DB {
         }
         console.log('enter auth success ');
         return resolve(data);
-
       });
     });
   }
