@@ -1,0 +1,47 @@
+{
+  "name": "football-planer",
+  "description": "Unser Stuttgart Fussbal wochenende planer",
+  "version": "0.0.1",
+  "author": {
+    "name" : "DrMabuse", 
+    "email" : "drmabuse@posteo.de", 
+    "url" : "https://github.com/DrMabuse23/football-planer"
+***REMOVED***,
+  "scripts": {
+    "webpack": "webpack",
+    "watch": "webpack --watch",
+    "server": "webpack-dev-server --content-base app/ --colors --display-error-details --port 3000",
+    "docs": "typedoc  --options typedoc.json  app/**/*.js",
+    "start": "npm run server",
+    "cordova": "node ./scripts/cordova.js --command",
+    "build": "gulp build && NODE_ENV=production webpack -p --config webpack.production.config.js --colors --json --progress --display-chunks --display-reasons --display-error-details --display-modules",
+    "bundle": "npm run build && npm run cordova --command build ios && npm run cordova --command run ios --device"
+***REMOVED***,
+  "dependencies": {
+    "ionic-framework": "2.0.0-alpha.35",
+    "livereload-js": "^2.2.2",
+    "moment": "^2.10.6"
+***REMOVED***,
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "awesome-typescript-loader": "0.12.0-rc.2",
+    "css-loader": "^0.22.0",
+    "del": "^2.1.0",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "typescript": "1.5.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1",
+    "chalk": "^1.1.1",
+    "cordova-lib": "^5.4.0"
+***REMOVED***,
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-device"
+  ],
+  "cordovaPlatforms": ["ios"]
+***REMOVED***
