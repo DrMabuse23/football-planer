@@ -23,7 +23,6 @@ export default class DB {
       ***REMOVED***
         console.log('enter auth success ');
         return resolve(data);
-
     ***REMOVED***);
   ***REMOVED***);
 ***REMOVED***

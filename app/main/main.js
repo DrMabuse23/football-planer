@@ -1,5 +1,5 @@
 import {App, IonicApp, Config***REMOVED*** from 'ionic/ionic';
-import {AuthPage***REMOVED*** from './../auth/auth';
+import {LoginPage***REMOVED*** from './../auth/login';
 import './main.scss';
 
 @App({
@@ -10,7 +10,8 @@ import './main.scss';
         navbarStyle: 'primary',
         tabbarStyle: 'primary'
     ***REMOVED***
-  ***REMOVED***
+  ***REMOVED***,
+    backButtonText: '',
 ***REMOVED***
 ***REMOVED***)
 
@@ -19,11 +20,11 @@ class App {
     this.app = app;
     // retrieve the conference data
     console.log('app', app, config);
-    this.root = AuthPage;
+    this.root = LoginPage;
     this.isMD = config.get('mode') == 'md' ? '' : null;
 
     this.pages = [
-      { title: 'Login', component: AuthPage, icon: 'log-in' ***REMOVED***
+      { title: 'Login', component: LoginPage, icon: 'log-in' ***REMOVED***
     ];
 ***REMOVED***
 ***REMOVED***

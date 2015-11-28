@@ -1,0 +1,29 @@
+.login-content{
+  background-image: url('../images/soccer-10.png');
+  background-size: contain;
+  background-position: bottom left; 
+  background-repeat: no-repeat;
+  background-color: #F6F6F6;
+  .item{
+    background-color: transparent;
+    border: none;
+***REMOVED***
+  .padding-top{
+    padding-top: 10%;
+***REMOVED***
+***REMOVED***
+.forget-password-content{
+  background-image: url('../images/soccer-13.png');
+  background-size: contain;
+  background-position: bottom left; 
+  background-repeat: no-repeat;
+  background-color: #3068B8;
+  .item{
+    background-color: #3068B8;
+    border: none;
+    input{
+      color: white;
+      @include placeholder(white); 
+  ***REMOVED***
+***REMOVED***
+***REMOVED***
