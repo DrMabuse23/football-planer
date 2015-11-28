@@ -7,7 +7,7 @@ module.exports = {
     "web-animations.min",
     "moment",
     "zone.js",
-    path.join(__dirname, 'app', 'main', 'main.ts')
+    path.join(__dirname, 'app', 'main', 'main.js')
   ],
   output: {
     path: path.join(__dirname, 'app', 'js'),

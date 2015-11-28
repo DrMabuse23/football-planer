@@ -10,7 +10,7 @@
   "scripts": {
     "webpack": "webpack",
     "watch": "webpack --watch",
-    "server": "webpack-dev-server --content-base app/ --colors --display-error-details --port 3000",
+    "server": "webpack-dev-server --content-base app/ --colors --hot --inline --display-error-details --port 3000",
     "docs": "typedoc  --options typedoc.json  app/**/*.js",
     "start": "npm run server",
     "cordova": "node ./scripts/cordova.js --command",
@@ -19,9 +19,10 @@
 ***REMOVED***,
   "dependencies": {
     "firebase": "^2.3.2",
-    "ionic-framework": "2.0.0-alpha.35",
+    "ionic-framework": "^2.0.0-alpha.37",
     "livereload-js": "^2.2.2",
-    "moment": "^2.10.6"
+    "moment": "^2.10.6",
+    "angular2": "^2.0.0-alpha.46"
 ***REMOVED***,
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
