@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'www', 'js'),
     filename: 'app.bundle.js',
-    publicPath: 'build/js/',
+    publicPath: 'js/',
     pathinfo: false // show module paths in the bundle, handy for debugging
   },
   module: {
@@ -36,11 +36,11 @@ module.exports = {
         // can work with, e.g.: url('../my-file.png') => url('/path/to/my-file.png')
         // https://github.com/bholloway/resolve-url-loader
         test: /\.scss$/,
-        loaders: ["style", "css?sourceMap", "autoprefixer?browsers=last 2 version", "sass?sourceMap"]
+        loaders: ["style", "css?sourceMap","resolve-url", "autoprefixer?browsers=last 2 version", "sass?sourceMap", ]
       },
       // Any png-image or woff-font below or equal to 100K will be converted
       // to inline base64 instead
-      { test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000' }
+      { test: /\.(woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000' }
     ]
   },
   resolve: {

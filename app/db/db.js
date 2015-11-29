@@ -2,29 +2,56 @@
  * Created by drmabuse on 04/10/15.
  */
 'use strict';
-require("babel/polyfill");
-var cfg = require('./../config.json');
+import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
+import {Injectable, bind} from 'angular2/angular2';
+import {Http} from 'angular2/http';
+var Firebase = require('firebase');
 
-import Firebase from 'firebase';
-export default class DB {
-  constructor(url = undefined, token = undefined) {
-    this.server = cfg.api;
-    this.token = cfg.token;
-    this.db = new Firebase(this.server);
+@Injectable()
+export class DBService {
+  constructor(app: IonicApp, http: Http) {
+    this.app = app;
+    this.http = http;
+    this.cfg = null;
+    this.db = null;
+    this.dbAuth = false;
+  }
+  getConfig() {
+    return new Promise((resolve, reject) => {
+      return this.http.get('config.json')
+        .map(res => res.json())
+        .subscribe(
+          (data) => {
+            this.cfg = data;
+            this.db = new Firebase(this.cfg.api);
+          },
+          err => { return reject(err) },
+          () => {return resolve(this.cfg)}
+        );
+    });
   }
 
   auth() {
-    console.log('enter auth')
+    if (!this.cfg) {
+      return new Promise((resolve, reject) => {
+        return reject('No Config', this.cfg);
+      });
+    }
+    let self = this;
     return new Promise((resolve, reject) => {
-      return this.db.authWithCustomToken(cfg.token, function (err, data) {
+      return this.db.authWithCustomToken(this.cfg.token, function (err, data) {
         if (err) {
           console.error(err);
           return reject(err);
         }
-        console.log('enter auth success ');
+        self.dbAuth = true;
+        console.log('enter auth success ', data);
         return resolve(data);
       });
     });
+  }
+  getDb(){
+    return this.db;
   }
   authWithPassword(email, password) {
     console.log('(email, password', email, password);

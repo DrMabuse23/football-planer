@@ -1,7 +1,7 @@
 <ion-navbar *navbar light-gray>
-  <ion-title>Anmeldung</ion-title>
+  <ion-title>Login</ion-title>
 </ion-navbar>
-<ion-content id="login" class="login-content">
+<ion-content class="login-content">
   <form (submit)="doLogin($event)" [ng-form-model]="form">
     <ion-list>
       <ion-input>
@@ -11,7 +11,8 @@
         <input ng-control="password" type="password" placeholder="Dein Passwort">
       </ion-input>
     </ion-list>
-    <button small dark full type="submit">Einloggen</button>
+    
+    <button small dark full type="submit">Einloggen {{dbServiceIsLoggedIn}}</button>
     <div class="options">
       <a button clear dark block [nav-push]="forgotPasswordPage">Passwort vergessen?</a>
       <a button clear dark block [nav-push]="signupPage">Regestrieren</a>

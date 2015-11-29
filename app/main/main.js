@@ -1,5 +1,6 @@
 import {App, IonicApp, Config} from 'ionic/ionic';
 import {LoginPage} from './../auth/login';
+import {DBService} from './../db/db';
 import './main.scss';
 
 @App({
@@ -12,19 +13,25 @@ import './main.scss';
       }
     },
     backButtonText: '',
-  }
+  },
+  providers: [DBService]
 })
 
 class App {
-  constructor(app: IonicApp, config: Config) {
+  constructor(app: IonicApp, config: Config, dbService:DBService) {
     this.app = app;
     // retrieve the conference data
     console.log('app', app, config);
-    this.root = LoginPage;
+    
+    this.dbService = dbService;
     this.isMD = config.get('mode') == 'md' ? '' : null;
-
     this.pages = [
-      { title: 'Login', component: LoginPage, icon: 'log-in' }
+      { title: 'Login', component: LoginPage, icon: 'log-in', db: this.dbService }
     ];
+    this.root = LoginPage;
+    this.dbService.getConfig().then((res) =>{
+      this.dbService.auth();
+    }).catch(err => console.error(err));
   }
+  
 }
