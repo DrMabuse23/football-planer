@@ -1,5 +1,5 @@
 import {Validators, Control, ControlGroup***REMOVED*** from 'angular2/angular2';
-import { isBlank***REMOVED*** from 'angular2/src/facade/lang';
+import {isBlank***REMOVED*** from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {LoginPage***REMOVED*** from './login';
 import {DBService***REMOVED*** from './../db/db';
@@ -55,7 +55,6 @@ export class SignupPage {
     if (this.form.valid) {
       //this.registerUser();
   ***REMOVED*** else {
-      
       console.log('error', this.form);
   ***REMOVED***
     // Don't allow the form to submit normally, since we
