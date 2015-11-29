@@ -15,6 +15,7 @@ module.exports = {
     publicPath: 'js/',
     pathinfo: true // show module paths in the bundle, handy for debugging
 ***REMOVED***,
+  devtool: "source-map", 
   module: {
     loaders: [
       {

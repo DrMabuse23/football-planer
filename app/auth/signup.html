@@ -1,0 +1,28 @@
+<ion-navbar *navbar light-gray>
+  <ion-title>Regestrieren</ion-title>
+</ion-navbar>
+<ion-content class="signup-content">
+  <form (submit)="doSignup($event)" [ng-form-model]="form">
+    <ion-list>
+      <ion-input>
+        <input ng-control="firstName" type="text" placeholder="Vorname">
+      </ion-input>
+      <ion-input>
+        <input ng-control="lastName" type="text" placeholder="Nachname">
+      </ion-input>
+      <ion-input>
+        <input ng-control="email" type="email" placeholder="Deine E-mail">
+      </ion-input>
+      <ion-input>
+        <input ng-control="mobile" type="text" placeholder="Handynr.">
+      </ion-input>
+      <ion-input>
+        <input ng-control="password" type="password" placeholder="Dein Passwort">
+      </ion-input>
+      <ion-input>
+        <input ng-control="passwordConfirm" type="password" placeholder="Passwort wiederholen">
+      </ion-input>
+    </ion-list>
+    <button class="sub" small dark full type="submit">Regestrieren</button>
+  </form>
+</ion-content>

@@ -6,14 +6,14 @@ var del = require('del');
 
 gulp.task('clean', function () {
   return del([
-    'dist/**/*.*'
+    'www/**/*.*'
   ]);
 ***REMOVED***);
-gulp.task('copy', function(){
+gulp.task('copy', ['clean'], function(){
   // the base option sets the relative root for the set of files,
   // preserving the folder structure
   gulp.src(['**/*.*', '!**/*.js', '!**/*.scss'], { base: './app' ***REMOVED***)
   .pipe(gulp.dest('www'));
 ***REMOVED***);
 
-gulp.task("build", ['clean', 'copy']);
+gulp.task("build",  ['copy']);
