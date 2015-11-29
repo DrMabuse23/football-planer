@@ -1,4 +1,4 @@
-import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/angular2';
+import {Validators, Control, ControlGroup} from 'angular2/angular2';
 import { isBlank} from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController} from 'ionic/ionic';
 import {LoginPage} from './login';
@@ -24,7 +24,7 @@ class SignUpValidator {
   templateUrl: 'auth/signup.html'
 })
 export class SignupPage {
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, fb: FormBuilder) {
+  constructor(app: IonicApp, nav: NavController, dbService: DBService) {
     this.dbService = dbService;
     this.app = app;
     this.form = new ControlGroup({
