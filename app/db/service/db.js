@@ -3,19 +3,23 @@
  */
 'use strict';
 import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
-import {Injectable, bind} from 'angular2/angular2';
+import {Injectable, bind, EventEmitter} from 'angular2/angular2';
 import {Http} from 'angular2/http';
 var Firebase = require('firebase');
 
 @Injectable()
 export class DBService {
+  dbAuth: boolean = false;
+  dbAuthChange: EventEmitter;
+  
   constructor(app: IonicApp, http: Http) {
     this.app = app;
     this.http = http;
     this.cfg = null;
     this.db = null;
-    this.dbAuth = false;
+    this.dbAuthChange = new EventEmitter();
   }
+  
   getConfig() {
     return new Promise((resolve, reject) => {
       return this.http.get('config.json')
@@ -45,14 +49,17 @@ export class DBService {
           return reject(err);
         }
         self.dbAuth = true;
+        self.dbAuthChange.next(self.dbAuth);
         console.log('enter auth success ', data);
         return resolve(data);
       });
     });
   }
+  
   getDb(){
     return this.db;
   }
+  
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
     return new Promise((resolve, reject) => {

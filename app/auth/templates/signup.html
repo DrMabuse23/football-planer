@@ -1,4 +1,4 @@
-<ion-navbar *navbar light-gray>
+<ion-navbar *navbar citrus>
   <ion-title>Regestrieren</ion-title>
 </ion-navbar>
 <ion-content class="signup-content">
@@ -16,12 +16,14 @@
       <ion-input>
         <input ng-control="mobile" type="text" placeholder="Handynr.">
       </ion-input>
-      <ion-input>
+      <div ng-control-group="matchingPassword">
+        <ion-input>
         <input ng-control="password" type="password" placeholder="Dein Passwort">
-      </ion-input>
-      <ion-input>
-        <input ng-control="passwordConfirm" type="password" placeholder="Passwort wiederholen">
-      </ion-input>
+        </ion-input>
+        <ion-input>
+          <input ng-control="passwordConfirm" type="password" placeholder="Passwort wiederholen">
+        </ion-input>
+      </div>
     </ion-list>
     <button class="sub" small dark full type="submit">Regestrieren</button>
   </form>

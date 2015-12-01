@@ -20,7 +20,8 @@ $colors: (
   dark:       #222,
   favorite:   #69BB7B,
   positive:   #006cb8,
-  light-gray: #F6F6F6
+  light-gray: #F6F6F6,
+  citrus:     #FED006
 );
 
 // override ionic.scss's font-path to point to the correct path
@@ -35,4 +36,4 @@ $font-path: '~ionic-framework/dist/fonts';
 
 // App Sass
 // ---------------------------------
-@import "../auth/auth";
+@import "../auth/styles/auth";

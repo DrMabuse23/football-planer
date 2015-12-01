@@ -1,10 +1,10 @@
 import {Validators, Control, ControlGroup, NgIf} from 'angular2/angular2';
 import {IonicApp, Page, NavController} from 'ionic/ionic';
-import {DBService} from './../db/db';
-import {SignupPage} from './signup';
+import {DBService} from './../../db/service/db';
+import {SignupPage} from './../../auth/page/signup';
 
 @Page({
-  templateUrl: 'auth/login.html',
+  templateUrl: 'auth/templates/login.html',
   directives: [NgIf]
 })
 export class LoginPage {
@@ -37,7 +37,7 @@ export class LoginPage {
 }
 
 @Page({
-  templateUrl: 'auth/forgot-password.html'
+  templateUrl: 'auth/templates/forgot-password.html'  
 })
 export class ForgotPasswordPage {
   constructor(app: IonicApp, nav: NavController) {

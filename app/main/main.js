@@ -1,6 +1,6 @@
 import {App, IonicApp, Config} from 'ionic/ionic';
-import {LoginPage} from './../auth/login';
-import {DBService} from './../db/db';
+import {LoginPage} from './../auth/page/login';
+import {DBService} from './../db/service/db';
 import './main.scss';
 
 @App({
@@ -16,7 +16,6 @@ import './main.scss';
   },
   providers: [DBService]
 })
-
 class App {
   constructor(app: IonicApp, config: Config, dbService:DBService) {
     this.app = app;
