@@ -1,6 +1,6 @@
 import {App, IonicApp, Config***REMOVED*** from 'ionic/ionic';
-import {LoginPage***REMOVED*** from './../auth/login';
-import {DBService***REMOVED*** from './../db/db';
+import {LoginPage***REMOVED*** from './../auth/page/login';
+import {DBService***REMOVED*** from './../db/service/db';
 import './main.scss';
 
 @App({
@@ -16,7 +16,6 @@ import './main.scss';
 ***REMOVED***,
   providers: [DBService]
 ***REMOVED***)
-
 class App {
   constructor(app: IonicApp, config: Config, dbService:DBService) {
     this.app = app;
