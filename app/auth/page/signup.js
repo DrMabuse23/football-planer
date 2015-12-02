@@ -2,42 +2,44 @@ import {Validators, Control, ControlGroup, FormBuilder***REMOVED*** from 'angula
 import {isBlank***REMOVED*** from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {LoginPage***REMOVED*** from './../../auth/page/login';
-import {DBService***REMOVED*** from './../../db/service/db';
-class SignUpValidator {
+import {DBService***REMOVED*** from '../../db/service/db';
+// class SignUpValidator {
+// 
+//   static confirm(firstValue, secondValue) {
+//     if (isBlank(firstValue) || isBlank(secondValue)) {
+//       return null;
+//   ***REMOVED***
+//     if (firstValue !== secondValue) {
+//       return null;
+//   ***REMOVED***
+//     return true;
+// ***REMOVED***
+//   static isEmail(control: Object) {
+//     if (control && control.value) {
+//       let re = /[a-z0-9!#$%&'*+=?^_`{|***REMOVED***~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|***REMOVED***~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+//       //console.log('isEmail', re.test(control.value))
+//       return { 'isEmail': re.test(control.value) ***REMOVED***;  
+//   ***REMOVED***
+// ***REMOVED***
+//   static isPhoneNumber(control: Object) {
+//     console.log(typeof control.value);
+//     if (control && control.value) {
+//       let re = /^\s*(?:\+?(\d{1,3***REMOVED***))?([-. (]*(\d{3***REMOVED***)[-. )]*)?((\d{3***REMOVED***)[-. ]*(\d{2,4***REMOVED***)(?:[-.x ]*(\d+))?)\s*$/gm;
+//       console.log('isPhoneNumber', re.test(Number(control.value)))
+//       if (re.test(Number(control.value))) {
+//         return null;
+//     ***REMOVED***
+//       return { 'isPhoneNumber': true ***REMOVED***;  
+//   ***REMOVED***
+// ***REMOVED***
+// ***REMOVED***
 
-  static confirm(firstValue, secondValue) {
-    if (isBlank(firstValue) || isBlank(secondValue)) {
-      return null;
-  ***REMOVED***
-    if (firstValue !== secondValue) {
-      return null;
-  ***REMOVED***
-    return true;
-***REMOVED***
-  static isEmail(control: Object) {
-    if (control && control.value) {
-      let re = /[a-z0-9!#$%&'*+=?^_`{|***REMOVED***~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|***REMOVED***~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-      //console.log('isEmail', re.test(control.value))
-      return { 'isEmail': re.test(control.value) ***REMOVED***;  
-  ***REMOVED***
-***REMOVED***
-  static isPhoneNumber(control: Object) {
-    console.log(typeof control.value);
-    if (control && control.value) {
-      let re = /^\s*(?:\+?(\d{1,3***REMOVED***))?([-. (]*(\d{3***REMOVED***)[-. )]*)?((\d{3***REMOVED***)[-. ]*(\d{2,4***REMOVED***)(?:[-.x ]*(\d+))?)\s*$/gm;
-      console.log('isPhoneNumber', re.test(Number(control.value)))
-      if (re.test(Number(control.value))) {
-        return null;
-    ***REMOVED***
-      return { 'isPhoneNumber': true ***REMOVED***;  
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
 @Page({
   templateUrl: './../../auth/templates/signup.html'
+  
 ***REMOVED***)
 export class SignupPage {
-  form: ControlGroup
+  form: ControlGroup;
   constructor(app: IonicApp, nav: NavController, dbService: DBService, fb:FormBuilder) {
     this.dbService = dbService;
     this.app = app;
@@ -53,6 +55,7 @@ export class SignupPage {
   ***REMOVED***);
     this.signupData = {***REMOVED***;
     this.loginPage = LoginPage;
+    console.log(this.dbService);
 ***REMOVED***
   
   areEqual(group: ControlGroup) {

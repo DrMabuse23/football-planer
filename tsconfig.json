@@ -10,5 +10,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
 ***REMOVED***,
-  "compileOnSave": false
+  "compileOnSave": false,
+  "experimentalDecorators": true
 ***REMOVED***

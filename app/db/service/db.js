@@ -9,8 +9,8 @@ var Firebase = require('firebase');
 
 ***REMOVED***
 export class DBService {
-  dbAuth: boolean = false;
-  dbAuthChange: EventEmitter;
+  dbAuth: boolean = false
+  dbAuthChange: EventEmitter
   
   constructor(app: IonicApp, http: Http) {
     this.app = app;
