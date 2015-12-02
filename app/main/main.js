@@ -1,6 +1,9 @@
 import {App, IonicApp, Config} from 'ionic/ionic';
+import {NgClass} from 'angular2/angular2';
+import {Observer} from 'rx.all';
 import {LoginPage} from './../auth/page/login';
 import {DBService} from './../db/service/db';
+
 import './main.scss';
 
 @App({
@@ -14,23 +17,38 @@ import './main.scss';
     },
     backButtonText: '',
   },
-  providers: [DBService]
+  providers:[DBService]
 })
+
 class App {
-  constructor(app: IonicApp, config: Config, dbService:DBService) {
-    this.app = app;
-    // retrieve the conference data
-    console.log('app', app, config);
-    
+  dbAuthChanged: Observer = Observer.create(
+  (dbAuth:boolean) => { console.log('dbAuth', dbAuth);this.authChange(dbAuth); },
+  (error) => { },
+  () => { });
+  constructor(app: IonicApp, config: Config, dbService: DBService) {
     this.dbService = dbService;
+    this.setDb(dbService);
+    this.app = app;
+    // retrieve the firebase db
+    console.log('app', app, config);
     this.isMD = config.get('mode') == 'md' ? '' : null;
     this.pages = [
-      { title: 'Login', component: LoginPage, icon: 'log-in', db: this.dbService }
+      { title: 'Login', component: LoginPage, icon: 'log-in' }
     ];
     this.root = LoginPage;
+    
+  }
+  setDb(dbService: DBService){
+    
+    this.dbService.dbAuthChange.subscribe(this.dbAuthChanged);
     this.dbService.getConfig().then((res) =>{
       this.dbService.auth();
     }).catch(err => console.error(err));
+    this.dbServiceIsLoggedIn = this.dbService.dbAuth;
+  }
+  authChange (dbAuth:any) {
+    console.log('subscribe dbAuth', dbAuth);
+    this.dbServiceIsLoggedIn = this.dbService.dbAuth;
   }
   
 }

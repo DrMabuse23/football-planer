@@ -1,33 +1,28 @@
-import {Validators, Control, ControlGroup, NgIf} from 'angular2/angular2';
+import {Component, Validators, Control, ControlGroup, NgClass} from 'angular2/angular2';
 import {IonicApp, Page, NavController} from 'ionic/ionic';
 import {DBService} from './../../db/service/db';
 import {SignupPage} from './../../auth/page/signup';
 
 @Page({
-  templateUrl: 'auth/templates/login.html',
-  directives: [NgIf]
+  templateUrl: 'auth/templates/login.html'
 })
 export class LoginPage {
   constructor(app: IonicApp, nav: NavController, dbService: DBService) {
     this.dbService = dbService;
-    this.dbServiceIsLoggedIn = this.dbService.dbAuth; 
     this.app = app;
+    this.pusp = 'paaps';
     this.form = new ControlGroup({
       email: new Control('', Validators.required),
       password: new Control('', Validators.required),
     });
-    
     // this.signupPage = SignupPage;
     this.forgotPasswordPage = ForgotPasswordPage;
     this.signupPage = SignupPage;
     this.loginData = {};
   }
-
   doLogin(event) {
-    this.dbServiceIsLoggedIn = this.dbService.dbAuth; 
     console.log(this.dbService);
     console.log('Doing login', this.form.value);
-
     // Handle the login here:
 
     // Don't allow the form to submit normally, since we

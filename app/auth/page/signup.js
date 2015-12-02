@@ -2,42 +2,44 @@ import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/angular2'
 import {isBlank} from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController} from 'ionic/ionic';
 import {LoginPage} from './../../auth/page/login';
-import {DBService} from './../../db/service/db';
-class SignUpValidator {
+import {DBService} from '../../db/service/db';
+// class SignUpValidator {
+// 
+//   static confirm(firstValue, secondValue) {
+//     if (isBlank(firstValue) || isBlank(secondValue)) {
+//       return null;
+//     }
+//     if (firstValue !== secondValue) {
+//       return null;
+//     }
+//     return true;
+//   }
+//   static isEmail(control: Object) {
+//     if (control && control.value) {
+//       let re = /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+//       //console.log('isEmail', re.test(control.value))
+//       return { 'isEmail': re.test(control.value) };  
+//     }
+//   }
+//   static isPhoneNumber(control: Object) {
+//     console.log(typeof control.value);
+//     if (control && control.value) {
+//       let re = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
+//       console.log('isPhoneNumber', re.test(Number(control.value)))
+//       if (re.test(Number(control.value))) {
+//         return null;
+//       }
+//       return { 'isPhoneNumber': true };  
+//     }
+//   }
+// }
 
-  static confirm(firstValue, secondValue) {
-    if (isBlank(firstValue) || isBlank(secondValue)) {
-      return null;
-    }
-    if (firstValue !== secondValue) {
-      return null;
-    }
-    return true;
-  }
-  static isEmail(control: Object) {
-    if (control && control.value) {
-      let re = /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-      //console.log('isEmail', re.test(control.value))
-      return { 'isEmail': re.test(control.value) };  
-    }
-  }
-  static isPhoneNumber(control: Object) {
-    console.log(typeof control.value);
-    if (control && control.value) {
-      let re = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
-      console.log('isPhoneNumber', re.test(Number(control.value)))
-      if (re.test(Number(control.value))) {
-        return null;
-      }
-      return { 'isPhoneNumber': true };  
-    }
-  }
-}
 @Page({
   templateUrl: './../../auth/templates/signup.html'
+  
 })
 export class SignupPage {
-  form: ControlGroup
+  form: ControlGroup;
   constructor(app: IonicApp, nav: NavController, dbService: DBService, fb:FormBuilder) {
     this.dbService = dbService;
     this.app = app;
@@ -53,6 +55,7 @@ export class SignupPage {
     });
     this.signupData = {};
     this.loginPage = LoginPage;
+    console.log(this.dbService);
   }
   
   areEqual(group: ControlGroup) {
