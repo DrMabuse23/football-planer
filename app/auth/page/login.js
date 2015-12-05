@@ -24,7 +24,7 @@ export class LoginPage {
     this.signupPage = SignupPage;
     this.loginData = {***REMOVED***;
 ***REMOVED***
-  
+
   doLogin(event) {
     var self = this;
     console.log(this);
@@ -41,7 +41,6 @@ export class LoginPage {
         self.userService.getUserProfile();
     ***REMOVED***);
   ***REMOVED***
-
     event.preventDefault();
 ***REMOVED***
 ***REMOVED***

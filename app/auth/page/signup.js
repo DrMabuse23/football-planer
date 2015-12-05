@@ -29,7 +29,7 @@ export class SignupPage {
     this.loginPage = LoginPage;
     console.log(this.dbService);
 ***REMOVED***
-  
+
   areEqual(group: ControlGroup) {
     let val;
     let valid = true;
@@ -51,7 +51,7 @@ export class SignupPage {
       areEqual: true
   ***REMOVED***;
 ***REMOVED***
-  
+
   isEmail(control: Control) {
     let valid = false;
     let re = /[a-z0-9!#$%&'*+=?^_`{|***REMOVED***~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|***REMOVED***~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
@@ -63,11 +63,11 @@ export class SignupPage {
     if (valid) {
       return null;
   ***REMOVED***
-    return { 
-      'isEmail': true 
-  ***REMOVED***;  
+    return {
+      'isEmail': true
+  ***REMOVED***;
 ***REMOVED***
-  
+
   isPhoneNumber(control: Control) {
     let valid = false;
     let re = /^\s*(?:\+?(\d{1,3***REMOVED***))?([-. (]*(\d{3***REMOVED***)[-. )]*)?((\d{3***REMOVED***)[-. ]*(\d{2,4***REMOVED***)(?:[-.x ]*(\d+))?)\s*$/gm;
@@ -83,9 +83,8 @@ export class SignupPage {
       isPhoneNumber: true
   ***REMOVED***;
 ***REMOVED***
-  
+
   doSignup(event) {
-    console.log('Doing login', this.form);
     if (this.form.valid) {
       this.userService.registerUser(this.form).then(() => {
         console.log('user added');

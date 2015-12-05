@@ -33,8 +33,6 @@ class App {
     this.dbService = dbService;
     this.setDb(dbService);
     this.app = app;
-    // retrieve the firebase db
-    console.log('app', app, config);
     this.isMD = config.get('mode') == 'md' ? '' : null;
     this.pages = [
       { title: 'Login', component: LoginPage, icon: 'log-in' ***REMOVED***
@@ -51,8 +49,6 @@ class App {
 ***REMOVED***
   
   authChange (dbAuth:any) {
-    console.log('subscribe dbAuth', dbAuth);
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
 ***REMOVED***
-  
 ***REMOVED***
