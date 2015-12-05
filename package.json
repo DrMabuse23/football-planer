@@ -18,6 +18,7 @@
     "bundle": "npm run build && npm run cordova --command build ios && npm run cordova --command run ios --device"
 ***REMOVED***,
   "dependencies": {
+    "browserify-cryptojs": "^0.3.1",
     "firebase": "^2.3.2",
     "ionic-framework": "2.0.0-alpha.37",
     "livereload-js": "^2.2.2",

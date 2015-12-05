@@ -1,4 +1,4 @@
-.login-content{
+.login-content, .signup-content{
   background-image: url('../images/soccer-10.png');
   background-size: contain;
   background-position: bottom left; 
@@ -24,27 +24,6 @@
     input{
       color: white;
       @include placeholder(white); 
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
-.signup-content{
-  background-image: url('../images/soccer-7.png');
-  background-size: cover;
-  background-position: bottom right; 
-  background-repeat: no-repeat;
-  background-color: #FED006;
-  .sub{
-    position: absolute;
-    bottom: 0px;
-    margin-bottom: 0;
-    border: none;
-***REMOVED***
-  .item{
-    background-color: transparent;
-    border: none;
-    input{
-      color: #006cb8;
-      //@include placeholder(#eee); 
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***

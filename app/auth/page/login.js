@@ -10,7 +10,6 @@ export class LoginPage {
   constructor(app: IonicApp, nav: NavController, dbService: DBService) {
     this.dbService = dbService;
     this.app = app;
-    this.pusp = 'paaps';
     this.form = new ControlGroup({
       email: new Control('', Validators.required),
       password: new Control('', Validators.required),
