@@ -7,8 +7,7 @@ import {UserService***REMOVED*** from '../../db/service/user';
 
 
 @Page({
-  templateUrl: './../../auth/templates/signup.html',
-  providers: [UserService]
+  templateUrl: './../../auth/templates/signup.html'
 ***REMOVED***)
 export class SignupPage {
   form: ControlGroup;

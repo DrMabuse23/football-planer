@@ -7,7 +7,7 @@ import {NgClass***REMOVED*** from 'angular2/angular2';
 import {Observer***REMOVED*** from 'rx.all';
 import {LoginPage***REMOVED*** from './../auth/page/login';
 import {DBService***REMOVED*** from './../db/service/db';
-
+import {UserService***REMOVED*** from './../db/service/user';
 import './main.scss';
 
 @App({
@@ -21,7 +21,7 @@ import './main.scss';
   ***REMOVED***,
     backButtonText: '',
 ***REMOVED***,
-  providers:[DBService]
+  providers:[DBService, UserService]
 ***REMOVED***)
 
 class App {
