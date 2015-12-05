@@ -1,6 +1,6 @@
 import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/angular2';
 import {isBlank} from 'angular2/src/facade/lang';
-import {IonicApp, Page, NavController} from 'ionic/ionic';
+import {IonicApp, Page, NavController, Popup} from 'ionic/ionic';
 import {LoginPage} from './../../auth/page/login';
 import {DBService} from '../../db/service/db';
 import {UserService} from '../../db/service/user';
@@ -11,30 +11,29 @@ import {UserService} from '../../db/service/user';
 })
 export class SignupPage {
   form: ControlGroup;
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, fb:FormBuilder, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, popup: Popup, dbService: DBService, fb: FormBuilder, userService: UserService) {
     this.dbService = dbService;
     this.userService = userService;
+    this.popup = popup;
     this.app = app;
     this.form = fb.group({
       matchingPassword: fb.group({
-        password: ['test1234', Validators.required],
-        passwordConfirm: ['test12345', Validators.required]
-      }, {validator: this.areEqual}),
-      email: new Control('horst@posteo.de', Validators.compose([Validators.required])),
-      firstName: new Control('Horst', Validators.required),
-      lastName: new Control('Hugo', Validators.required),
-      mobile: new Control('017647343520', Validators.compose([Validators.required, this.isPhoneNumber]))
+        password: ['', Validators.required],
+        passwordConfirm: ['', Validators.required]
+      }, { validator: this.areEqual }),
+      email: new Control('', Validators.compose([Validators.required, this.isEmail])),
+      firstName: new Control('', Validators.required),
+      lastName: new Control('', Validators.required),
+      mobile: new Control('', Validators.compose([Validators.required, this.isPhoneNumber]))
     });
     this.signupData = {};
     this.loginPage = LoginPage;
-    console.log(this.dbService);
   }
 
   areEqual(group: ControlGroup) {
     let val;
     let valid = true;
     for (name in group.controls) {
-      console.log(name);
       if (val === undefined) {
         val = group.controls[name].value
       } else {
@@ -87,13 +86,34 @@ export class SignupPage {
   doSignup(event) {
     if (this.form.valid) {
       this.userService.registerUser(this.form).then(() => {
-        console.log('user added');
-      }).catch(err => console.error(err));
+      }).catch(error => {
+        switch (error.code) {
+          case "EMAIL_TAKEN":
+            this.doAlert('Email ist schon in Benutzung')
+            break;
+          case "INVALID_EMAIL":
+            this.doAlert('Email ist keine valide Email')
+            break;
+          default:
+            this.doAlert(`unbestimmer Fehler beim anlegen dieses Users ${error.message}`);
+        }
+      });
     } else {
       console.log('error', this.form.controls.mobile);
     }
+
     // Don't allow the form to submit normally, since we
     // will handle it ourselves
     event.preventDefault();
+  }
+
+  doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='assertive') {
+    this.popup.alert({
+      title: title,
+      template: message,
+      cssClass: cssClass
+    }).then(() => {
+      console.log('Alert closed');
+    });
   }
 }

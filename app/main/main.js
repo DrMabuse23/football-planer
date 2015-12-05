@@ -26,7 +26,7 @@ import './main.scss';
 
 class App {
   dbAuthChanged: Observer = Observer.create(
-  (dbAuth:boolean) => { console.log('dbAuth', dbAuth);this.authChange(dbAuth); },
+  (dbAuth:boolean) => { this.authChange(dbAuth); },
   (error) => { },
   () => { });
   constructor(app: IonicApp, config: Config, dbService: DBService) {
@@ -39,7 +39,7 @@ class App {
     ];
     this.root = LoginPage;
   }
-  
+
   setDb(dbService: DBService){
     this.dbService.dbAuthChange.subscribe(this.dbAuthChanged);
     this.dbService.getConfig().then((res) =>{
@@ -47,7 +47,7 @@ class App {
     }).catch(err => console.error(err));
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
   }
-  
+
   authChange (dbAuth:any) {
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
   }
