@@ -11,7 +11,7 @@ var Firebase = require('firebase');
 export class DBService {
   dbAuth: boolean = false
   dbAuthChange: EventEmitter
-  
+
   constructor(app: IonicApp, http: Http) {
     this.app = app;
     this.http = http;
@@ -20,7 +20,7 @@ export class DBService {
     this.dbAuthChange = new EventEmitter();
     this.loggedInUser = null;
   }
-  
+
   getConfig() {
     return new Promise((resolve, reject) => {
       return this.http.get('config.json')
@@ -51,16 +51,15 @@ export class DBService {
         }
         self.dbAuth = true;
         self.dbAuthChange.next(self.dbAuth);
-        console.log('enter auth success ', data);
         return resolve(data);
       });
     });
   }
-  
+
   getDb(){
     return this.db;
   }
-  
+
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
     var self = this;
@@ -79,5 +78,5 @@ export class DBService {
       });
     });
   }
-  
+
 }
