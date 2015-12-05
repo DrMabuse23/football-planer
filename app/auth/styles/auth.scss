@@ -12,6 +12,15 @@
     padding-top: 10%;
   }
 }
+.login-content{
+  .loader{
+    height: 2px;
+    width: 100%;
+  }
+}
+.signup-content{
+  background-image: url('../images/soccer-8.png');
+}
 .forget-password-content{
   background-image: url('../images/soccer-13.png');
   background-size: contain;
@@ -27,3 +36,16 @@
     }
   }
 }
+
+.ios{
+  .login-content{
+    ion-list > .item:first-child {
+      border-top: 0;
+    }
+    ion-switch switch-icon{
+      &:after,&:before{
+        background-color: #F6F6F6;
+      }
+    }  
+  }
+} 

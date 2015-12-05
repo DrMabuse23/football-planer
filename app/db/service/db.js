@@ -18,6 +18,7 @@ export class DBService {
     this.cfg = null;
     this.db = null;
     this.dbAuthChange = new EventEmitter();
+    this.loggedInUser = null;
   }
   
   getConfig() {
@@ -62,19 +63,21 @@ export class DBService {
   
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
+    var self = this;
     return new Promise((resolve, reject) => {
       return this.db.authWithPassword({
         "email": email,
-        "password": password
+        "password": CryptoJS.HmacSHA256(password, this.cfg.token).toString()
       }, function (error, authData) {
         if (error) {
           console.error(error);
           return reject(error);
         } else {
-          console.log("Authenticated successfully with payload:", authData);
+          self.loggedInUser = authData;
           return resolve(authData);
         }
       });
     });
   }
+  
 }

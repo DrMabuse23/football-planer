@@ -7,8 +7,7 @@ import {UserService} from '../../db/service/user';
 
 
 @Page({
-  templateUrl: './../../auth/templates/signup.html',
-  providers: [UserService]
+  templateUrl: './../../auth/templates/signup.html'
 })
 export class SignupPage {
   form: ControlGroup;

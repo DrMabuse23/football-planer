@@ -2,6 +2,16 @@
   <ion-title>Login</ion-title>
 </ion-navbar>
 <ion-content class="login-content">
+  <div class="loader">
+    <div class="relative" [ng-class]="{hide: !userOnLogin}">
+      <div class="slider-loader">
+        <div class="line"></div>
+        <div class="break dot1"></div>
+        <div class="break dot2"></div>
+        <div class="break dot3"></div>
+      </div>
+    </div>  
+  </div>
   <form (submit)="doLogin($event)" [ng-form-model]="form">
     <ion-list>
       <ion-input>
@@ -10,6 +20,9 @@
       <ion-input>
         <input ng-control="password" type="password" placeholder="Dein Passwort">
       </ion-input>
+      <ion-switch ng-control="remember" dark>
+        Zugangsdaten merken
+      </ion-switch>
     </ion-list>
     <button small dark full type="submit">Einloggen</button>
     <div class="options">
