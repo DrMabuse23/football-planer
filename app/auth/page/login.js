@@ -1,4 +1,4 @@
-import {Component, Validators, Control, ControlGroup, NgClass***REMOVED*** from 'angular2/angular2';
+import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/angular2';
 import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
@@ -24,7 +24,9 @@ export class LoginPage {
     this.signupPage = SignupPage;
     this.loginData = {***REMOVED***;
 ***REMOVED***
+  getErrorMessages() {
 
+***REMOVED***
   doLogin(event) {
     var self = this;
     console.log(this);
@@ -40,6 +42,12 @@ export class LoginPage {
         console.log("Authenticated user with uid:", resp.uid);
         self.userService.getUserProfile();
     ***REMOVED***);
+  ***REMOVED*** else {
+//       this.userService.doAlert(`
+//
+//       `);
+      console.log(this.form);
+      debugger;
   ***REMOVED***
     event.preventDefault();
 ***REMOVED***

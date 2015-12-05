@@ -5,7 +5,7 @@
   <form (submit)="doSignup($event)" [ng-form-model]="form">
     <ion-list>
       <ion-input>
-        <input ng-control="firstName" type="text" placeholder="Vorname">
+        <input ng-control="firstName" #firstName="form" type="text" placeholder="Vorname">
       </ion-input>
       <ion-input>
         <input ng-control="lastName" type="text" placeholder="Nachname">
@@ -25,6 +25,6 @@
         </ion-input>
       </div>
     </ion-list>
-    <button class="sub" small dark full type="submit">Regestrieren</button>
+    <button class="sub" small dark full type="submit" [disabled]="!form.valid">Regestrieren</button>
   </form>
 </ion-content>

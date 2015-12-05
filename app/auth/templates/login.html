@@ -10,21 +10,27 @@
         <div class="break dot2"></div>
         <div class="break dot3"></div>
       </div>
-    </div>  
+    </div>
   </div>
   <form (submit)="doLogin($event)" [ng-form-model]="form">
     <ion-list>
       <ion-input>
         <input ng-control="email" type="email" placeholder="Deine E-mail">
       </ion-input>
+      <ion-item *ng-if="form.hasError('required', 'email') && form.controls.email.dirty">
+        <p danger>Email ist ein pflicht feld und darf nicht leer sein.</p>
+      </ion-item>
       <ion-input>
         <input ng-control="password" type="password" placeholder="Dein Passwort">
       </ion-input>
+      <ion-item danger *ng-if="form.hasError('required', 'password') && form.controls.password.dirty">
+        <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
+      </ion-item>
       <ion-switch ng-control="remember" dark>
         Zugangsdaten merken
       </ion-switch>
     </ion-list>
-    <button small dark full type="submit">Einloggen</button>
+    <button small dark full type="submit" [disabled]="!form.valid" >Einloggen</button>
     <div class="options">
       <a button clear dark block [nav-push]="forgotPasswordPage">Passwort vergessen?</a>
       <a button clear dark block [nav-push]="signupPage">Regestrieren</a>
