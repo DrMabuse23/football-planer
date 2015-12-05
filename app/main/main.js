@@ -1,3 +1,7 @@
+window.CryptoJS = require('browserify-cryptojs');
+require('browserify-cryptojs/components/x64-core');
+require('browserify-cryptojs/components/sha256');
+require('browserify-cryptojs/components/hmac');
 import {App, IonicApp, Config} from 'ionic/ionic';
 import {NgClass} from 'angular2/angular2';
 import {Observer} from 'rx.all';
@@ -36,16 +40,16 @@ class App {
       { title: 'Login', component: LoginPage, icon: 'log-in' }
     ];
     this.root = LoginPage;
-    
   }
+  
   setDb(dbService: DBService){
-    
     this.dbService.dbAuthChange.subscribe(this.dbAuthChanged);
     this.dbService.getConfig().then((res) =>{
       this.dbService.auth();
     }).catch(err => console.error(err));
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
   }
+  
   authChange (dbAuth:any) {
     console.log('subscribe dbAuth', dbAuth);
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
