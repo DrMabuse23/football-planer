@@ -3,6 +3,8 @@ import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {SignupPage***REMOVED*** from './../../auth/page/signup';
+import {HomePage***REMOVED*** from './../../home/page/home-page';
+
 
 @Page({
   templateUrl: 'auth/templates/login.html'
@@ -20,6 +22,7 @@ export class LoginPage {
       remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : false)
   ***REMOVED***);
     // this.signupPage = SignupPage;
+    this.homePage = HomePage;
     this.forgotPasswordPage = ForgotPasswordPage;
     this.signupPage = SignupPage;
     this.loginData = {***REMOVED***;
@@ -37,10 +40,12 @@ export class LoginPage {
         localStorage.removeItem('remember');
     ***REMOVED***
       this.userOnLogin = true;
+      let nav = this.app.getComponent('nav');
       this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
         self.userOnLogin = false;
         console.log("Authenticated user with uid:", resp.uid);
         self.userService.getUserProfile();
+        nav.setRoot(self.homePage);
     ***REMOVED***);
   ***REMOVED*** else {
 //       this.userService.doAlert(`

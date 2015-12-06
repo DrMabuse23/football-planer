@@ -28,7 +28,7 @@ $colors: (
 // when building from Sass source.
 // More info: https://github.com/jtangelder/sass-loader#problems-with-url
 $font-path: '~ionic-framework/dist/fonts';
-
+$ionicons-font-path: $font-path;
 // Ionic Sass
 // ---------------------------------
 @import "ionic";
