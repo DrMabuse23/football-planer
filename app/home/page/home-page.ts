@@ -10,6 +10,7 @@ export class HomePage {
   pages: any;
   root: any;
   userService: UserService;
+
   constructor(app: IonicApp, nav: NavController, userService: UserService) {
     this.app = app;
     this.root = EventsPage;
@@ -18,6 +19,7 @@ export class HomePage {
     ];
     this.userService = userService;
 ***REMOVED***
+
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
@@ -25,6 +27,7 @@ export class HomePage {
     if (page.component === this.root) {
       return this.app.getComponent('leftMenu').close();
   ***REMOVED***
+
     nav.setRoot(page.component).then(() => {
       // wait for the root page to be completely loaded
       // then close the menu
