@@ -10,7 +10,8 @@ export class EventsPage {
   app: IonicApp;
   pages: any;
   root: any;
-
+  dbService: DBService;
+  UserService: UserService;
   constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService) {
     this.app = app;
   }

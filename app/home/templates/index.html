@@ -1,6 +1,14 @@
-<ion-menu [content]="content">
+<ion-menu id="leftMenu" [content]="content">
   <ion-toolbar>
-    <ion-title>Pages</ion-title>
+    <ion-list>
+      <ion-item class="gravatar-user">
+        <ion-avatar item-left>
+          <img src="{{userService.userProfile.authData.password.profileImageURL}}" />
+        </ion-avatar>
+        <h2>{{userService.userProfile.profile.firstName}} {{userService.userProfile.profile.lastName}}</h2>
+        <p>{{userService.userProfile.authData.password.email}}</p>
+      </ion-item>
+    </ion-list>
   </ion-toolbar>
   <ion-content>
     <ion-list>

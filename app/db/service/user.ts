@@ -15,7 +15,7 @@ export class UserService {
     updatedAt: null,
     userUUid: null
   };
-  userProfile : any;
+  userProfile: any;
   dbService: DBService;
 
   constructor(dbService: DBService) {
@@ -37,7 +37,7 @@ export class UserService {
     return this.createUser();
   }
 
-  createUser(){
+  createUser() {
     var self = this;
     return new Promise((resolve, reject) => {
       this.dbService.db.createUser({
@@ -73,19 +73,22 @@ export class UserService {
     let self = this;
     if (authData) {
       let profileRef = this.dbService.db.child("playerProfiles");
-      profileRef.orderByChild("userUUid").equalTo(authData.uid).on("value", (snapshot) => {
-        if (typeof snapshot === 'object') {
-          snapshot.forEach((data) => {
-            self.userProfile = {
-              authData: authData,
-              profile: data.val()
-            }
-          });
-          console.log(self);
-        }
-      }, (err) => {
-        console.error(err);
-      });
+      return new Promise((resolve, reject) => {
+        return profileRef.orderByChild("userUUid").equalTo(authData.uid).on("value", (snapshot) => {
+          if (typeof snapshot === 'object') {
+            snapshot.forEach((data) => {
+              self.userProfile = {
+                authData: authData,
+                profile: data.val()
+              }
+            });
+            return resolve(self.userProfile);
+          }
+        }, (err) => {
+          console.error(err);
+          return reject(err);
+        });
+      })
     }
   }
 }

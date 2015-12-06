@@ -44,8 +44,9 @@ export class LoginPage {
       this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
         self.userOnLogin = false;
         console.log("Authenticated user with uid:", resp.uid);
-        self.userService.getUserProfile();
-        nav.setRoot(self.homePage);
+        self.userService.getUserProfile().then(() => {
+          nav.setRoot(self.homePage);
+        });
       });
     } else {
 //       this.userService.doAlert(`
