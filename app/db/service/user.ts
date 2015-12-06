@@ -15,7 +15,7 @@ export class UserService {
     updatedAt: null,
     userUUid: null
 ***REMOVED***;
-  userProfile : any;
+  userProfile: any;
   dbService: DBService;
 
   constructor(dbService: DBService) {
@@ -37,7 +37,7 @@ export class UserService {
     return this.createUser();
 ***REMOVED***
 
-  createUser(){
+  createUser() {
     var self = this;
     return new Promise((resolve, reject) => {
       this.dbService.db.createUser({
@@ -73,19 +73,22 @@ export class UserService {
     let self = this;
 ***REMOVED***
       let profileRef = this.dbService.db.child("playerProfiles");
-      profileRef.orderByChild("userUUid").equalTo(authData.uid).on("value", (snapshot) => {
-        if (typeof snapshot === 'object') {
-          snapshot.forEach((data) => {
-            self.userProfile = {
-              authData: authData,
-              profile: data.val()
-          ***REMOVED***
-        ***REMOVED***);
-          console.log(self);
-      ***REMOVED***
-    ***REMOVED***, (err) => {
-        console.error(err);
-    ***REMOVED***);
+      return new Promise((resolve, reject) => {
+        return profileRef.orderByChild("userUUid").equalTo(authData.uid).on("value", (snapshot) => {
+          if (typeof snapshot === 'object') {
+            snapshot.forEach((data) => {
+              self.userProfile = {
+                authData: authData,
+                profile: data.val()
+            ***REMOVED***
+          ***REMOVED***);
+            return resolve(self.userProfile);
+        ***REMOVED***
+      ***REMOVED***, (err) => {
+          console.error(err);
+          return reject(err);
+      ***REMOVED***);
+    ***REMOVED***)
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
