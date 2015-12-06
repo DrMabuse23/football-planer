@@ -1,7 +1,7 @@
 .login-content, .signup-content{
   background-image: url('../images/soccer-10.png');
   background-size: contain;
-  background-position: bottom left; 
+  background-position: bottom left;
   background-repeat: no-repeat;
   background-color: #F6F6F6;
   .item{
@@ -24,7 +24,7 @@
 .forget-password-content{
   background-image: url('../images/soccer-13.png');
   background-size: contain;
-  background-position: bottom left; 
+  background-position: bottom left;
   background-repeat: no-repeat;
   background-color: #006cb8;
   .item{
@@ -32,7 +32,7 @@
     border: none;
     input{
       color: white;
-      @include placeholder(white); 
+      @include placeholder(white);
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -46,6 +46,6 @@
       &:after,&:before{
         background-color: #F6F6F6;
     ***REMOVED***
-  ***REMOVED***  
+  ***REMOVED***
 ***REMOVED***
-***REMOVED*** 
+***REMOVED***

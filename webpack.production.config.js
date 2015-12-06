@@ -29,23 +29,25 @@ module.exports = {
         include: [path.join(__dirname, 'app')],
         exclude: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'scripts')]
     ***REMOVED***,
-      { test: /\.jpe?g$|\.gif$|\.png$|\.html$/i, loader: "file-loader" ***REMOVED***,
       {
         // Loader to compile all of our SASS down.
         // Use the `resolve-url` pipe to convert the relative url paths to something this loader
         // can work with, e.g.: url('../my-file.png') => url('/path/to/my-file.png')
         // https://github.com/bholloway/resolve-url-loader
         test: /\.scss$/,
-        loaders: ["style", "css?sourceMap","resolve-url", "autoprefixer?browsers=last 2 version", "sass?sourceMap", ]
+        loaders: ["style", "css", "resolve-url", "autoprefixer?browsers=last 2 version", "sass", ]
     ***REMOVED***,
+
       // Any png-image or woff-font below or equal to 100K will be converted
       // to inline base64 instead
-      { test: /\.(woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000' ***REMOVED***
+      { test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=100000' ***REMOVED***
     ]
 ***REMOVED***,
   resolve: {
     modulesDirectories: [
       "node_modules",
+      "node_modules/rx/node_modules",
+      "node_modules/rx/dist/",
       "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
       "node_modules/ionic-framework/dist/js", // for web-animations polyfill
       "node_modules/ionic-framework/dist/src/es5/common" // ionic-framework npm package

@@ -7,7 +7,7 @@ import {UserService***REMOVED*** from '../../db/service/user';
 
 
 @Page({
-  templateUrl: './../../auth/templates/signup.html'
+  templateUrl: 'auth/templates/signup.html'
 ***REMOVED***)
 export class SignupPage {
   form: ControlGroup;
@@ -107,7 +107,7 @@ export class SignupPage {
     event.preventDefault();
 ***REMOVED***
 
-  doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='assertive') {
+  doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='danger') {
     this.popup.alert({
       title: title,
       template: message,

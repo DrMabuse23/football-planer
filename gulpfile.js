@@ -12,7 +12,7 @@ gulp.task('clean', function () {
 gulp.task('copy', ['clean'], function(){
   // the base option sets the relative root for the set of files,
   // preserving the folder structure
-  gulp.src(['**/*.*', '!**/*.js', '!**/*.scss'], { base: './app' ***REMOVED***)
+  gulp.src(['**/*.html', '**/*.json'], { base: './app' ***REMOVED***)
   .pipe(gulp.dest('www'));
 ***REMOVED***);
 
