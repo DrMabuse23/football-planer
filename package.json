@@ -15,7 +15,8 @@
     "start": "npm run server",
     "cordova": "node ./scripts/cordova.js --command",
     "build": "gulp build && NODE_ENV=production webpack -p --config webpack.production.config.js --colors --json --progress --display-chunks --display-reasons --display-error-details --display-modules",
-    "bundle": "npm run build && npm run cordova --command build ios && npm run cordova --command run ios --device"
+    "bundle": "npm run build && npm run cordova --command build ios && npm run cordova --command run ios --device",
+    "bundle-android": "npm run build && npm run cordova --command build android && npm run cordova --command run android"
   },
   "dependencies": {
     "browserify-cryptojs": "^0.3.1",
