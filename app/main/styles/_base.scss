@@ -10,7 +10,8 @@
 }
 .ios, .md {
   @each $color-name, $color-value in $colors {
-    .toolbar ion-title[#{$color-name}] .toolbar-title{
+    .toolbar ion-title[#{$color-name}] .toolbar-title,
+    icon[#{$color-name}]{
       color: $color-value;
     }
   }
