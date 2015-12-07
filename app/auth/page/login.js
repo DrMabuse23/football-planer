@@ -1,5 +1,5 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/angular2';
-import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {SignupPage***REMOVED*** from './../../auth/page/signup';
@@ -10,11 +10,12 @@ import {HomePage***REMOVED*** from './../../home/page/home-page';
   templateUrl: 'auth/templates/login.html'
 ***REMOVED***)
 export class LoginPage {
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService, popup: Popup) {
     this.userOnLogin = false;
     this.userService = userService;
     this.localStore = JSON.parse(localStorage.getItem('remember'));
     this.dbService = dbService;
+    this.popup = popup;
     this.app = app;
     this.form = new ControlGroup({
       email: new Control(this.localStore && this.localStore.remember ? this.localStore.email : '', Validators.required),
@@ -27,9 +28,7 @@ export class LoginPage {
     this.signupPage = SignupPage;
     this.loginData = {***REMOVED***;
 ***REMOVED***
-  getErrorMessages() {
 
-***REMOVED***
   doLogin(event) {
     var self = this;
     console.log(this);
@@ -47,15 +46,25 @@ export class LoginPage {
         self.userService.getUserProfile().then(() => {
           nav.setRoot(self.homePage);
       ***REMOVED***);
+    ***REMOVED***).catch((err) => {
+        this.userOnLogin = false;
+        self.doAlert(err.message);
     ***REMOVED***);
   ***REMOVED*** else {
-//       this.userService.doAlert(`
-//
-//       `);
-      console.log(this.form);
-      debugger;
+      this.userOnLogin = false;
+      self.doAlert();
   ***REMOVED***
     event.preventDefault();
+***REMOVED***
+
+  doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
+    this.popup.alert({
+      title: title,
+      template: message,
+      cssClass: cssClass
+  ***REMOVED***).then(() => {
+      console.log('Alert closed');
+  ***REMOVED***);
 ***REMOVED***
 ***REMOVED***
 
