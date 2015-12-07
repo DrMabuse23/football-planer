@@ -1,11 +1,19 @@
-<ion-navbar *navbar light-gray>
+<ion-navbar *navbar pink>
   <ion-title>Events</ion-title>
 </ion-navbar>
 <ion-content class="events-content">
   <ion-list>
-    <ion-item *ng-for="#event of events; var index=index">
-      <h2>{{event.data.name}}</h2>
-      <h3>{{event.place.name}}</h3>
+    <ion-item *ng-for="#event of events; var index=index" class="event-item">
+      <ion-row>
+        <ion-col>
+          <h3>{{event.place.name}}</h3>
+        </ion-col>
+        <ion-col>
+          <span class="text-right">
+            {{event.data.timestamp|date}}
+          </span>
+        </ion-col>
+      </ion-row>
     </ion-item>
     </ion-list>
 </ion-content>

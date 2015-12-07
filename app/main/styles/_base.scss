@@ -1,0 +1,17 @@
+.md ion-input.has-focus:after {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
+}
+
+.ios ion-input.has-focus:after {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
+    -webkit-border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
+}
+.ios, .md {
+  @each $color-name, $color-value in $colors {
+    .toolbar ion-title[#{$color-name}] .toolbar-title{
+      color: $color-value;
+    }
+  }
+}
