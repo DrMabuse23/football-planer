@@ -10,7 +10,8 @@
 ***REMOVED***
 .ios, .md {
   @each $color-name, $color-value in $colors {
-    .toolbar ion-title[#{$color-name***REMOVED***] .toolbar-title{
+    .toolbar ion-title[#{$color-name***REMOVED***] .toolbar-title,
+    icon[#{$color-name***REMOVED***]{
       color: $color-value;
   ***REMOVED***
 ***REMOVED***

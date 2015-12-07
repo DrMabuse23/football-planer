@@ -15,7 +15,7 @@ export class HomePage {
     this.app = app;
     this.root = EventsPage;
     this.pages = [
-      { title: 'Events', component: EventsPage, icon: 'ion-calendar' ***REMOVED***,
+      { title: 'Events', component: EventsPage, icon: 'calendar' ***REMOVED***,
     ];
     this.userService = userService;
 ***REMOVED***

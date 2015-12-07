@@ -1,7 +1,7 @@
 <ion-menu id="leftMenu" [content]="content">
   <ion-toolbar>
     <ion-list>
-      <ion-item class="gravatar-user">
+      <ion-item class="gravatar-user" lime>
         <ion-avatar item-left>
           <img src="{{userService.userProfile.authData.password.profileImageURL***REMOVED******REMOVED***" />
         </ion-avatar>
@@ -13,8 +13,10 @@
   <ion-content>
     <ion-list>
       <button ion-item *ng-for="#p of pages" (click)="openPage(p)">
-        <icon dark item-left [ng-class]="p.icon"></icon>
-        {{p.title***REMOVED******REMOVED***
+        <icon teal item-left [name]="p.icon"></icon>
+        <span teal>
+          {{p.title***REMOVED******REMOVED***
+        </span>
       </button>
     </ion-list>
   </ion-content>
