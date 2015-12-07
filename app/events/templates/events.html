@@ -2,5 +2,10 @@
   <ion-title>Events</ion-title>
 </ion-navbar>
 <ion-content class="events-content">
-  Hallo Events
+  <ion-list>
+    <ion-item *ng-for="#event of events; var index=index">
+      <h2>{{event.data.name}}</h2>
+      <h3>{{event.place.name}}</h3>
+    </ion-item>
+    </ion-list>
 </ion-content>

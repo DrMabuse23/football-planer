@@ -8,6 +8,7 @@ import {Observer} from 'rx.all';
 import {LoginPage} from './../auth/page/login';
 import {DBService} from './../db/service/db';
 import {UserService} from './../db/service/user';
+import {PlaceService} from './../db/service/place';
 import './main.scss';
 
 @App({
@@ -21,7 +22,7 @@ import './main.scss';
     },
     backButtonText: '',
   },
-  providers:[DBService, UserService]
+  providers:[DBService, UserService, PlaceService]
 })
 
 class App {
