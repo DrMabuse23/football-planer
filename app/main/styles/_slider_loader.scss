@@ -1,25 +1,30 @@
 .relative{
   position: relative;
   width: 100%;
-  height:2px;
+  height:4px;
 ***REMOVED***
 .slider-loader{
   position:absolute;
   width: 100%;
-  height:2px;
+  height:4px;
   margin-top: 0;
 ***REMOVED***
 .line{
   position:absolute;
-  background: black;
   width:100%;
-  height:2px;
+  height:4px;
 ***REMOVED***
 .break{
   position:absolute;
-  background: white;
   width:6px;
-  height:2px;
+  height:4px;
+***REMOVED***
+
+@each $color-name, $color-value in $colors {
+  .break[#{$color-name***REMOVED***],
+  .line[#{$color-name***REMOVED***]{
+    background-color: $color-value;
+***REMOVED***
 ***REMOVED***
 
 .dot1{
