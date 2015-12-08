@@ -21,6 +21,7 @@ import './main.scss';
     ***REMOVED***
   ***REMOVED***,
     backButtonText: '',
+    locale: 'de'
 ***REMOVED***,
   providers:[DBService, UserService, PlaceService]
 ***REMOVED***)

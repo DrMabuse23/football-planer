@@ -1,19 +1,37 @@
 <ion-navbar *navbar teal>
   <ion-title teal-lite>Events</ion-title>
 </ion-navbar>
-<ion-content class="events-content">
+<ion-content class="events-content" padding>
   <ion-list>
-    <ion-item *ng-for="#event of events; var index=index" class="event-item">
-      <ion-row>
-        <ion-col>
-          <h3>{{event.place.name***REMOVED******REMOVED***</h3>
-        </ion-col>
-        <ion-col>
-          <span class="text-right">
-            {{event.data.timestamp|date***REMOVED******REMOVED***
-          </span>
-        </ion-col>
-      </ion-row>
+    <ion-item>
+      <button (click)="import()">import</button>
     </ion-item>
-    </ion-list>
+    <!--<ion-card>
+        <ion-card-content>
+            <img src="images/feuerbach.png" />
+        </ion-card-content>
+    </ion-card>-->
+    <ion-card *ng-for="#event of events; var index=index" class="event-item">
+      <ion-card-content>
+        <span class="date" teal-dark>
+          <i>{{event.date***REMOVED******REMOVED***</i>
+        </span>
+        <a href="#" ion-item>
+          <h2 item-left dark>{{event.place.name***REMOVED******REMOVED***</h3>
+          <icon navigate item-right teal-dark></icon>
+        </a>
+        <ion-item>
+          <button clear item-left >
+            <icon football teal></icon>
+          </button>
+          <button item-left clear>
+            <icon football pink-dark></icon>
+          </button>
+          <button clear item-right teal-light>
+          {{event.comments.length***REMOVED******REMOVED***<icon chatboxes teal-dark></icon>
+          </button>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>
