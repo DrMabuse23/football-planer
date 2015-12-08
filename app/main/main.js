@@ -21,6 +21,7 @@ import './main.scss';
       }
     },
     backButtonText: '',
+    locale: 'de'
   },
   providers:[DBService, UserService, PlaceService]
 })

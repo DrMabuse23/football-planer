@@ -42,4 +42,8 @@ export class EventsPage {
     }
     console.log('whooza', this);
   }
+
+  import() {
+    this.eventService.setYear();
+  }
 }
