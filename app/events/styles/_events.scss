@@ -1,5 +1,15 @@
 .ios, .md{
   .event-item{
+    .animated{
+        min-height: 0px;
+        height: 0;
+        transition: all .2s ease-in-out;
+      &.show{
+        min-height: 40px;
+        opacity: 1;
+        transition: all .2s ease-out-in;
+    ***REMOVED***
+  ***REMOVED***
     span.date{
       font-size: 1.2rem;
   ***REMOVED***

@@ -19,32 +19,44 @@ export class EventsService {
     moment.locale(config.get('locale'));
 ***REMOVED***
 
+  isPlayed (playedTime) {
+    let now = new Date().getTime();
+    if (now > playedTime) {
+      return false;
+  ***REMOVED***
+    return true;
+***REMOVED***
+
   getEvents() {
     let self = this;
     this.placeService.getPlaces();
-    //debugger;
-
     this.ref.orderByChild('playDate').on('value', (snapshot) => {
       if (typeof snapshot === 'object') {
         let i = 0;
         snapshot.forEach((data) => {
-          console.log(i);
-          self.events.push({
+          let model = {
             data: data.val(),
             id: data.key()
-        ***REMOVED***);
-          self.events[i].place = self.placeService.getPlaceById(self.events[i].data.place);
-          //1450017000000
-          self.events[i].date = moment(self.events[i].data.playDate).format('LLL');
-          self.events[i].comments = [];
-          i++;
+        ***REMOVED***;
+          if (self.isPlayed(model.data.playDate)) {
+            self.events.push(model);
+            self.events[i].place = self.placeService.getPlaceById(self.events[i].data.place);
+            self.events[i].date = moment(self.events[i].data.playDate).format('LLL');
+            self.events[i].comments = [];
+            i++;
+        ***REMOVED*** else {
+            self.updateEvent(model.id, { 'played': true ***REMOVED***);
+        ***REMOVED***
       ***REMOVED***);
-        console.log('self.events', self.events);
-
         self.eventsChanged.next(true);
     ***REMOVED***
   ***REMOVED***, (err) => console.error(err));
 ***REMOVED***
+
+  updateEvent(id, attr) {
+    var eventRef = this.ref.child(id);
+    eventRef.update(attr);
+***REMOVED***;
 
   setYear(year = 2016, place = '-K-m_vkLkNXg5P-RRmx5') {
     var self = this;
