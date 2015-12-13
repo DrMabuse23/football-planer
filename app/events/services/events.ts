@@ -19,32 +19,44 @@ export class EventsService {
     moment.locale(config.get('locale'));
   }
 
+  isPlayed (playedTime) {
+    let now = new Date().getTime();
+    if (now > playedTime) {
+      return false;
+    }
+    return true;
+  }
+
   getEvents() {
     let self = this;
     this.placeService.getPlaces();
-    //debugger;
-
     this.ref.orderByChild('playDate').on('value', (snapshot) => {
       if (typeof snapshot === 'object') {
         let i = 0;
         snapshot.forEach((data) => {
-          console.log(i);
-          self.events.push({
+          let model = {
             data: data.val(),
             id: data.key()
-          });
-          self.events[i].place = self.placeService.getPlaceById(self.events[i].data.place);
-          //1450017000000
-          self.events[i].date = moment(self.events[i].data.playDate).format('LLL');
-          self.events[i].comments = [];
-          i++;
+          };
+          if (self.isPlayed(model.data.playDate)) {
+            self.events.push(model);
+            self.events[i].place = self.placeService.getPlaceById(self.events[i].data.place);
+            self.events[i].date = moment(self.events[i].data.playDate).format('LLL');
+            self.events[i].comments = [];
+            i++;
+          } else {
+            self.updateEvent(model.id, { 'played': true });
+          }
         });
-        console.log('self.events', self.events);
-
         self.eventsChanged.next(true);
       }
     }, (err) => console.error(err));
   }
+
+  updateEvent(id, attr) {
+    var eventRef = this.ref.child(id);
+    eventRef.update(attr);
+  };
 
   setYear(year = 2016, place = '-K-m_vkLkNXg5P-RRmx5') {
     var self = this;

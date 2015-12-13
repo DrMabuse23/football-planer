@@ -56,6 +56,7 @@ $ionicons-font-path: $font-path;
 // App Sass
 // ---------------------------------
 @import "/styles/base";
+@import "/styles/animate";
 @import "../auth/styles/auth";
 @import "../home/styles/home";
 @import "../events/styles/events";
