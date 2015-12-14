@@ -1,4 +1,4 @@
-import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/angular2';
+import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/core';
 import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';

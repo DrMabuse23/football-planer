@@ -1,4 +1,4 @@
-import {Injectable***REMOVED*** from 'angular2/angular2';
+import {Injectable***REMOVED*** from 'angular2/core';
 import {DBService***REMOVED*** from './../../db/service/db';
 
 ***REMOVED***

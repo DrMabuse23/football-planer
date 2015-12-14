@@ -1,4 +1,4 @@
-import {NgFor***REMOVED*** from 'angular2/angular2';
+import {NgFor***REMOVED*** from 'angular2/core';
 import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {EventsPage***REMOVED*** from '../../events/page/events-page';
