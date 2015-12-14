@@ -21,24 +21,39 @@
             <img src="images/feuerbach.png" />
         </ion-card-content>
     </ion-card>-->
-    <ion-card *ng-for="#event of events; var index=index" class="event-item">
+    <ion-card *ng-for="#event of events; var index=index" class="event-item" [ng-class]="{show: !event.hide***REMOVED***">
       <ion-card-content>
         <span class="date" teal-dark>
           <i>{{event.date***REMOVED******REMOVED***</i>
         </span>
+        <span [ng-class]="{danger:event.playerCount< 4,
+        lime: event.playerCount < 10,
+        lime: event.playerCount >= 4,
+        teal: event.playerCount >= 10
+      ***REMOVED***"
+        class="badge item-right">
+          {{event.playerCount***REMOVED******REMOVED***
+        </span>
         <button (click)="toggleVisible(index)" ion-item>
-          <h2 item-left dark>{{event.place.name***REMOVED******REMOVED***</h3>
+          <h2 item-left dark>{{event.place?.name***REMOVED******REMOVED***</h3>
           <icon navigate item-right teal-dark></icon>
         </button>
-        <ion-item class="animated" [ng-class]="{notShow: event.hide,  show: !event.hide***REMOVED***">
-          <button clear item-left (click)="setPlayer(index)">
-            <icon football teal></icon>{{event.data.players.lenght***REMOVED******REMOVED***
+        <ion-item class="animated"
+        [ng-class]="{
+          notShow: event.hide,
+          show: !event.hide
+      ***REMOVED***">
+          <button clear item-left
+          (click)="setPlayer(index)"
+          [ng-class]="{hide: event.uuidInPlayers***REMOVED***">
+            <icon football teal></icon>
           </button>
-          <button item-left clear>
+
+          <button item-left clear [ng-class]="{hide: !event.uuidInPlayers***REMOVED***">
             <icon football pink-dark></icon>
           </button>
           <button clear item-right teal-light>
-          {{event.comments.length***REMOVED******REMOVED***<icon chatboxes teal-dark></icon>
+          {{event.comments?.length***REMOVED******REMOVED***<icon chatboxes teal-dark></icon>
           </button>
         </ion-item>
       </ion-card-content>

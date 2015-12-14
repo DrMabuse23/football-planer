@@ -17,10 +17,10 @@ export class EventsPage {
   userService: UserService;
   eventService: EventsService
   events: any = [];
-  eventsLoadedDone: boolean = false;
+  eventsLoadedDone: any = false;
 
   eventsLoaded: Observer = Observer.create(
-    (eventsChanged: boolean) => {
+    (eventsChanged: any) => {
       // console.log('Hey events', eventsChanged);
       this.eventsChange(eventsChanged);
   ***REMOVED***,
@@ -41,34 +41,72 @@ export class EventsPage {
 ***REMOVED***
 
   setPlayer(index) {
-    debugger;
     let userUUid = this.userService.userProfile.profile.userUUid;
     if (this.events[index].data.players && this.events[index].data.players.indexOf(userUUid) !== -1) {
       return false;
   ***REMOVED***
     let eventref = this.eventService.ref.child(this.events[index].id);
     if (!this.events[index].data.players) {
-
-      // eventref.set({
-      //   players: userUUid
-      // ***REMOVED***);
       this.eventService.updateEvent(this.events[index].id, { players: [userUUid] ***REMOVED***)
   ***REMOVED*** else {
       this.events[index].data.players.push(userUUid);
-      // eventref.set({
-      //   players: this.events[index].data.players
-      // ***REMOVED***);
+      this.eventService.updateEvent(this.events[index].id, {players: this.events[index].data.players***REMOVED***)
+  ***REMOVED***
+    this.eventsChange(true);
+***REMOVED***
+  unsetPlayer(index) {
+    let userUUid = this.userService.userProfile.profile.userUUid;
+    if (this.events[index].data.players && this.events[index].data.players.indexOf(userUUid) !== -1) {
+      return false;
+  ***REMOVED***
+    let eventref = this.eventService.ref.child(this.events[index].id);
+    if (!this.events[index].data.players) {
+      this.eventService.updateEvent(this.events[index].id, { players: [userUUid] ***REMOVED***)
+  ***REMOVED*** else {
+      this.events[index].data.players.push(userUUid);
       this.eventService.updateEvent(this.events[index].id, {players: this.events[index].data.players***REMOVED***)
   ***REMOVED***
 ***REMOVED***
-
-  eventsChange(eventsChanged: boolean) {
-    if (eventsChanged) {
+  prepareEvent(event) {
+    let userUUid = this.userService.userProfile.profile.userUUid;
+    event.hide = true;
+    event.hideCount = 0;
+    if (typeof event.data.players === 'object') {
+      event.playerCount = event.data.players.length;
+  ***REMOVED*** else {
+      event.playerCount = 0;
+  ***REMOVED***
+    if (event.data.players && event.data.players.indexOf(userUUid) !== -1) {
+      event.uuidInPlayers = true;
+  ***REMOVED*** else {
+      event.uuidInPlayers = false;
+  ***REMOVED***
+    return event;
+***REMOVED***
+  byId(event) {
+    if ('id' in event && event.id === this) {
+      return true;
+  ***REMOVED***
+    return false;
+***REMOVED***
+  
+  changed(model) {
+    event = this.prepareEvent(this.events.filter(this.byId, model.id));
+    console.log('changed', model, event);
+    debugger;
+***REMOVED***
+  eventsChange(eventsChanged: any) {
+    let userUUid = this.userService.userProfile.profile.userUUid;
+    if (typeof eventsChanged === 'boolean') {
       this.events = this.eventService.events;
       this.events.forEach((event, index) => {
-        this.events[index].hide = true;
-        this.events[index].hideCount = 0;
+        this.events[index] = this.prepareEvent(event);
     ***REMOVED***);
+  ***REMOVED***
+
+    if ( typeof eventsChanged === 'object' && 'method' in eventsChanged) {
+      debugger;
+      this[eventsChanged.method](eventsChanged);
   ***REMOVED***
     // console.log('whooza', this);
 ***REMOVED***

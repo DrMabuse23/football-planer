@@ -1,4 +1,12 @@
 .ios, .md{
+  ion-card{
+    margin: 0;
+    box-shadow: none;
+    &.show{
+      margin-bottom: 0;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  ***REMOVED***
+***REMOVED***
   .event-item{
     .animated{
         min-height: 0px;
@@ -7,13 +15,27 @@
       &.show{
         min-height: 40px;
         opacity: 1;
+        @extend .fadeIn;
         transition: all .2s ease-out-in;
     ***REMOVED***
   ***REMOVED***
     span.date{
       font-size: 1.2rem;
+      display: flex;
+      width: 50%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+  ***REMOVED***
+    span.badge{
+          width: 50%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
   ***REMOVED***
     ion-card-content{
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
       .item{
         padding-left: 0;
     ***REMOVED***
@@ -24,6 +46,15 @@
     icon.ion-md-chatboxes{
       padding-left: 10px;
       margin-top: 6px;
+  ***REMOVED***
+***REMOVED***
+  @each $color-name, $color-value in $colors {
+    @debug $color-name;
+    @debug $color-value;
+    span.badge{
+      &.#{$color-name***REMOVED***{
+        color: $color-value;
+    ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
