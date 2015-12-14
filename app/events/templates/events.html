@@ -21,24 +21,39 @@
             <img src="images/feuerbach.png" />
         </ion-card-content>
     </ion-card>-->
-    <ion-card *ng-for="#event of events; var index=index" class="event-item">
+    <ion-card *ng-for="#event of events; var index=index" class="event-item" [ng-class]="{show: !event.hide}">
       <ion-card-content>
         <span class="date" teal-dark>
           <i>{{event.date}}</i>
         </span>
+        <span [ng-class]="{danger:event.playerCount< 4,
+        lime: event.playerCount < 10,
+        lime: event.playerCount >= 4,
+        teal: event.playerCount >= 10
+        }"
+        class="badge item-right">
+          {{event.playerCount}}
+        </span>
         <button (click)="toggleVisible(index)" ion-item>
-          <h2 item-left dark>{{event.place.name}}</h3>
+          <h2 item-left dark>{{event.place?.name}}</h3>
           <icon navigate item-right teal-dark></icon>
         </button>
-        <ion-item class="animated" [ng-class]="{notShow: event.hide,  show: !event.hide}">
-          <button clear item-left (click)="setPlayer(index)">
-            <icon football teal></icon>{{event.data.players.lenght}}
+        <ion-item class="animated"
+        [ng-class]="{
+          notShow: event.hide,
+          show: !event.hide
+        }">
+          <button clear item-left
+          (click)="setPlayer(index)"
+          [ng-class]="{hide: event.uuidInPlayers}">
+            <icon football teal></icon>
           </button>
-          <button item-left clear>
+
+          <button item-left clear [ng-class]="{hide: !event.uuidInPlayers}">
             <icon football pink-dark></icon>
           </button>
           <button clear item-right teal-light>
-          {{event.comments.length}}<icon chatboxes teal-dark></icon>
+          {{event.comments?.length}}<icon chatboxes teal-dark></icon>
           </button>
         </ion-item>
       </ion-card-content>

@@ -10,15 +10,21 @@ export class EventsService {
   events: array = [];
   ref: any;
   eventsChanged: EventEmitter;
-
+  inProgress: boolean = false;
   constructor(config: Config, dbService: DBService, placeService: PlaceService) {
     this.dbService = dbService;
     this.placeService = placeService;
     this.eventsChanged = new EventEmitter();
     this.ref = this.dbService.db.child("events");
+    this.inProgress = false;
+    this.hasChangeEvent = false;
     moment.locale(config.get('locale'));
   }
+  findById(item) {
+    if ('id' in item) {
 
+    }
+  }
   isPlayed (playedTime) {
     let now = new Date().getTime();
     if (now > playedTime) {
@@ -27,44 +33,97 @@ export class EventsService {
     return true;
   }
 
+  prepareEvent(event) {
+    // debugger;
+    event.place = this.placeService.getPlaceById(event.data.place);
+    event.date = moment(event.data.playDate).format('LLL');
+    event.comments = [];
+    return event;
+  }
+
+  prepareEvents() {
+    let self = this;
+    self.events.forEach((event, i) => {
+      this.events[i] = self.prepareEvent(event);
+    });
+    self.eventsChanged.next(true);
+  }
+
   getEvents() {
     let self = this;
     this.placeService.getPlaces();
-    this.ref.orderByChild('playDate').on('value', (snapshot) => {
-      if (typeof snapshot === 'object') {
-        let i = 0;
-        snapshot.forEach((data) => {
-          let model = {
-            data: data.val(),
-            id: data.key()
-          };
-          if (self.isPlayed(model.data.playDate)) {
-            self.events.push(model);
-            self.events[i].place = self.placeService.getPlaceById(self.events[i].data.place);
-            self.events[i].date = moment(self.events[i].data.playDate).format('LLL');
-            self.events[i].comments = [];
-            i++;
-          } else {
-            self.updateEvent(model.id, { 'played': true });
-          }
-        });
-        self.eventsChanged.next(true);
-      }
-    }, (err) => console.error(err));
+    if (!this.inProgress) {
+      self.events = [];
+      this.inProgress = true;
+      this.ref.orderByChild('playDate').once('value', (snapshot) => {
+        debugger;
+        if (typeof snapshot === 'object') {
+          let i = 0;
+          snapshot.forEach((data) => {
+            let model = {
+              data: data.val(),
+              id: data.key()
+            };
+            if (self.isPlayed(model.data.playDate)) {
+              self.events.push(model);
+              i++;
+            } else {
+              self.updateEvent(model.id, { 'played': true });
+            }
+          });
+          self.childChanged();
+          self.prepareEvents();
+          self.inProgress = false;
+        }
+      }, (err) => console.error(err));
+    }
   }
 
+  childChanged() {
+    let self = this;
+    this.ref.on("child_changed",(snapshot) => {
+      debugger;
+      // let i = 0;
+      // snapshot.forEach((data) => {
+      //   let model = {
+      //     data: data.val(),
+      //     id: data.key()
+      //   };
+      //   if (self.isPlayed(model.data.playDate)) {
+      //     self.events[i] = model;
+      //     i++;
+      //   } else {
+      //     self.updateEvent(model.id, { 'played': true });
+      //   }
+      // });
+      // self.prepareEvents();
+      // self.inProgress = false;
+      self.eventsChanged.next(self.prepareEvent({
+        method: 'changed',
+        data: snapshot.val(),
+        id: snapshot.key()
+      }));
+    });
+    this.ref.on("child_added", function(snapshot) {
+
+    });
+    this.ref.on("child_removed", function(snapshot) {
+
+    });
+  }
   updateEvent(id, attr) {
-    var eventRef = this.ref.child(id);
-    eventRef.update(attr);
+    let eventRef = this.ref.child(id);
+    // debugger;
+    return eventRef.update(attr);
   };
 
   setYear(year = 2016, place = '-K-m_vkLkNXg5P-RRmx5') {
-    var self = this;
-    var d = new Date(2015, 11, 13, 15, 30);
-    var oneWeek = 7*24*60*60*1000;
-    var time = d.getTime();
+    let self = this;
+    let d = new Date(2015, 11, 13, 15, 30);
+    let oneWeek = 7*24*60*60*1000;
+    let time = d.getTime();
     this.ref.set([]);
-    for(var i = 0, l=100; i < l; i++){
+    for(let i = 0, l=100; i < l; i++){
 
       var next = new Date();
       next.setTime(time);
@@ -85,13 +144,6 @@ export class EventsService {
           }
           });
           time = time + oneWeek;
-        // console.log(i);
-        //console.log('time', time);
-        //console.log('d.getDay()', next.getDay());
-        //console.log(i10n.DAY[next.getDay()]);
-        //console.log('d.getMonth()', next.getMonth());
-        //console.log('getYear', next.getFullYear());
-        //console.log(next);
       }
     }
   }
