@@ -42,7 +42,7 @@ $colors: (
 // override ionic.scss's font-path to point to the correct path
 // when building from Sass source.
 // More info: https://github.com/jtangelder/sass-loader#problems-with-url
-$font-path: '~ionic-framework/dist/fonts';
+$font-path: '~ionic-framework/fonts';
 $ionicons-font-path: $font-path;
 .text-right{
   text-align: right;
@@ -50,9 +50,8 @@ $ionicons-font-path: $font-path;
 }
 // Ionic Sass
 // ---------------------------------
-@import "ionic";
-
-
+@import "../../node_modules/ionic-framework/ionic.ios";
+@import "../../node_modules/ionic-framework/ionic.md";
 // App Sass
 // ---------------------------------
 @import "/styles/base";

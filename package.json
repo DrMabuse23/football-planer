@@ -20,11 +20,16 @@
   },
   "dependencies": {
     "browserify-cryptojs": "^0.3.1",
+    "es6-shim": "^0.33.13",
     "firebase": "^2.3.2",
-    "ionic-framework": "^2.0.0-alpha.40",
+    "angular2": "^2.0.0-alpha.52",
+    "es6-promise": "3.0.2",
+    "ionic-framework": "2.0.0-alpha.42",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-alpha.14",
+    "zone.js": "0.5.8",
     "livereload-js": "^2.2.2",
-    "moment": "^2.10.6",
-    "rx": "^4.0.7"
+    "moment": "^2.10.6"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",

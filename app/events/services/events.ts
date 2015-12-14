@@ -1,4 +1,4 @@
-import {Injectable, bind, EventEmitter} from 'angular2/angular2';
+import {Injectable, bind, EventEmitter} from 'angular2/core';
 import {Config} from 'ionic/ionic';
 import {DBService} from './../../db/service/db';
 import {PlaceService} from './../../db/service/place';

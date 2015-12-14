@@ -44,14 +44,10 @@ module.exports = {
     ]
   },
   resolve: {
-    modulesDirectories: [
-      "node_modules",
-      "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
-      "node_modules/rx/node_modules",
-      "node_modules/rx/dist/",
-      "node_modules/ionic-framework/dist/js", // for web-animations polyfill
-      "node_modules/ionic-framework/dist/src/es5/common" // ionic-framework npm package
-    ],
+    alias: {
+      'ionic': 'ionic-framework',
+      'web-animations.min': 'ionic-framework/js/web-animations.min',
+    },
     extensions: ["", ".js", ".ts"]
   },
   // Sass loader configuration to tell webpack where to find the additional SASS files

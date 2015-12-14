@@ -1,6 +1,6 @@
-import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor} from 'angular2/angular2';
+import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor} from 'angular2/core';
 import {IonicApp, Page, NavController} from 'ionic/ionic';
-import {Observer} from 'rx.all';
+import {Observer} from 'rxjs/Observable';
 import {findIndex} from 'lodash';
 import {DBService} from './../../db/service/db';
 import {UserService} from '../../db/service/user';
