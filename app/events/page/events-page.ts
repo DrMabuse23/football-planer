@@ -1,6 +1,7 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor***REMOVED*** from 'angular2/angular2';
 import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {Observer***REMOVED*** from 'rx.all';
+import {findIndex***REMOVED*** from 'lodash';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {EventsService***REMOVED*** from './../services/events';
@@ -52,8 +53,8 @@ export class EventsPage {
       this.events[index].data.players.push(userUUid);
       this.eventService.updateEvent(this.events[index].id, {players: this.events[index].data.players***REMOVED***)
   ***REMOVED***
-    this.eventsChange(true);
 ***REMOVED***
+
   unsetPlayer(index) {
     let userUUid = this.userService.userProfile.profile.userUUid;
     if (this.events[index].data.players && this.events[index].data.players.indexOf(userUUid) !== -1) {
@@ -67,10 +68,11 @@ export class EventsPage {
       this.eventService.updateEvent(this.events[index].id, {players: this.events[index].data.players***REMOVED***)
   ***REMOVED***
 ***REMOVED***
+
   prepareEvent(event) {
     let userUUid = this.userService.userProfile.profile.userUUid;
-    event.hide = true;
-    event.hideCount = 0;
+    event.hide = event.hide ? event.hide : true;
+    event.hideCount =  event.hideCount ? event.hideCount : 0;
     if (typeof event.data.players === 'object') {
       event.playerCount = event.data.players.length;
   ***REMOVED*** else {
@@ -83,18 +85,19 @@ export class EventsPage {
   ***REMOVED***
     return event;
 ***REMOVED***
+
   byId(event) {
     if ('id' in event && event.id === this) {
       return true;
   ***REMOVED***
     return false;
 ***REMOVED***
-  
+
   changed(model) {
-    event = this.prepareEvent(this.events.filter(this.byId, model.id));
-    console.log('changed', model, event);
-    debugger;
+    let eventsIndex = findIndex(this.events, { id: model.id ***REMOVED***);
+    this.events[eventsIndex] = this.prepareEvent(model);
 ***REMOVED***
+
   eventsChange(eventsChanged: any) {
     let userUUid = this.userService.userProfile.profile.userUUid;
     if (typeof eventsChanged === 'boolean') {
