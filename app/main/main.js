@@ -3,8 +3,8 @@ require('browserify-cryptojs/components/x64-core');
 require('browserify-cryptojs/components/sha256');
 require('browserify-cryptojs/components/hmac');
 import {App, IonicApp, Config} from 'ionic/ionic';
-import {NgClass} from 'angular2/core';
-import {Observer} from 'rxjs/Observable';
+import {NgClass} from 'angular2/common';
+import {Observable} from 'rxjs/Observable';
 import {LoginPage} from './../auth/page/login';
 import {DBService} from './../db/service/db';
 import {UserService} from './../db/service/user';
@@ -27,11 +27,12 @@ import './main.scss';
 })
 
 class App {
-  dbAuthChanged: Observer = Observer.create(
+  dbAuthChanged: Observable = new Observable(
   (dbAuth:boolean) => { this.authChange(dbAuth); },
   (error) => { },
   () => { });
   constructor(app: IonicApp, config: Config, dbService: DBService) {
+    debugger;
     this.dbService = dbService;
     this.setDb(dbService);
     this.app = app;
