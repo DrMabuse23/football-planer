@@ -3,7 +3,7 @@
 </ion-navbar>
 <ion-content class="login-content">
   <div class="loader">
-    <div class="relative" [ng-class]="{hide: !userOnLogin}">
+    <div class="relative" [ngClass]="{hide: !userOnLogin}">
       <div class="slider-loader">
         <div pink-dark class="line"></div>
         <div light class="break dot1"></div>
@@ -12,21 +12,21 @@
       </div>
     </div>
   </div>
-  <form (submit)="doLogin($event)" [ng-form-model]="form">
+  <form (submit)="doLogin($event)" [ngFormModel]="form">
     <ion-list>
       <ion-input>
-        <input ng-control="email" type="email" placeholder="Deine E-mail">
+        <input ngControl="email" type="email" placeholder="Deine E-mail">
       </ion-input>
-      <ion-item *ng-if="form.hasError('required', 'email') && form.controls.email.dirty">
+      <ion-item *ngIf="form.hasError('required', 'email') && form.controls.email.dirty">
         <p danger>Email ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
       <ion-input>
-        <input ng-control="password" type="password" placeholder="Dein Passwort">
+        <input ngControl="password" type="password" placeholder="Dein Passwort">
       </ion-input>
-      <ion-item danger *ng-if="form.hasError('required', 'password') && form.controls.password.dirty">
+      <ion-item danger *ngIf="form.hasError('required', 'password') && form.controls.password.dirty">
         <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-      <ion-switch ng-control="remember" pink>
+      <ion-switch ngControl="remember" pink>
         Zugangsdaten merken
       </ion-switch>
     </ion-list>
