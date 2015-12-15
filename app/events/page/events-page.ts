@@ -1,6 +1,6 @@
-import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor} from 'angular2/core';
+import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor} from 'angular2/common';
 import {IonicApp, Page, NavController} from 'ionic/ionic';
-import {Observer} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 import {findIndex} from 'lodash';
 import {DBService} from './../../db/service/db';
 import {UserService} from '../../db/service/user';
@@ -20,7 +20,7 @@ export class EventsPage {
   events: any = [];
   eventsLoadedDone: any = false;
 
-  eventsLoaded: Observer = Observer.create(
+  eventsLoaded: Observable = new Observable(
     (eventsChanged: any) => {
       // console.log('Hey events', eventsChanged);
       this.eventsChange(eventsChanged);
@@ -108,7 +108,7 @@ export class EventsPage {
     }
 
     if ( typeof eventsChanged === 'object' && 'method' in eventsChanged) {
-      debugger;
+      //debugger;
       this[eventsChanged.method](eventsChanged);
     }
     // console.log('whooza', this);

@@ -56,7 +56,7 @@ export class EventsService {
       self.events = [];
       this.inProgress = true;
       this.ref.orderByChild('playDate').once('value', (snapshot) => {
-        debugger;
+        //debugger;
         if (typeof snapshot === 'object') {
           let i = 0;
           snapshot.forEach((data) => {
@@ -82,22 +82,7 @@ export class EventsService {
   childChanged() {
     let self = this;
     this.ref.on("child_changed",(snapshot) => {
-      debugger;
-      // let i = 0;
-      // snapshot.forEach((data) => {
-      //   let model = {
-      //     data: data.val(),
-      //     id: data.key()
-      //   };
-      //   if (self.isPlayed(model.data.playDate)) {
-      //     self.events[i] = model;
-      //     i++;
-      //   } else {
-      //     self.updateEvent(model.id, { 'played': true });
-      //   }
-      // });
-      // self.prepareEvents();
-      // self.inProgress = false;
+      //debugger;
       self.eventsChanged.next(self.prepareEvent({
         method: 'changed',
         data: snapshot.val(),

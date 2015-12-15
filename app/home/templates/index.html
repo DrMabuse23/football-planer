@@ -12,7 +12,7 @@
   </ion-toolbar>
   <ion-content>
     <ion-list>
-      <button ion-item *ng-for="#p of pages" (click)="openPage(p)">
+      <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
         <icon teal item-left [name]="p.icon"></icon>
         <span teal>
           {{p.title}}

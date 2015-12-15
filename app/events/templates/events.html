@@ -21,7 +21,7 @@
             <img src="images/feuerbach.png" />
         </ion-card-content>
     </ion-card>-->
-    <ion-card *ng-for="#event of events; var index=index" class="event-item" [ngClass]="{show: !event.hide}">
+    <ion-card *ngFor="#event of events; var index=index" class="event-item" [ngClass]="{show: !event.hide}">
       <ion-card-content>
         <span class="date" teal-dark>
           <i>{{event.date}}</i>
@@ -35,7 +35,7 @@
           {{event.playerCount}}
         </span>
         <button (click)="toggleVisible(index)" ion-item>
-          <h2 item-left dark>{{event.place?.name}}</h3>
+          <h2 item-left dark>{{event.place?.name}}</h2>
           <icon navigate item-right teal-dark></icon>
         </button>
         <ion-item class="animated"

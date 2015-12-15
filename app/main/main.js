@@ -32,7 +32,6 @@ class App {
   (error) => { },
   () => { });
   constructor(app: IonicApp, config: Config, dbService: DBService) {
-    debugger;
     this.dbService = dbService;
     this.setDb(dbService);
     this.app = app;

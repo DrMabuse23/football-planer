@@ -2,26 +2,26 @@
   <ion-title>Registrieren</ion-title>
 </ion-navbar>
 <ion-content class="signup-content">
-  <form (submit)="doSignup($event)" [ng-form-model]="form">
+  <form (submit)="doSignup($event)" [ngFormModel]="form">
     <ion-list>
       <ion-input>
-        <input ng-control="firstName" #firstName="form" type="text" placeholder="Vorname">
+        <input ngControl="firstName" type="text" placeholder="Vorname">
       </ion-input>
       <ion-input>
-        <input ng-control="lastName" type="text" placeholder="Nachname">
+        <input ngControl="lastName" type="text" placeholder="Nachname">
       </ion-input>
       <ion-input>
-        <input ng-control="email" type="email" placeholder="Deine E-mail">
+        <input ngControl="email" type="email" placeholder="Deine E-mail">
       </ion-input>
       <ion-input>
-        <input ng-control="mobile" type="text" placeholder="Handynr.">
+        <input ngControl="mobile" type="text" placeholder="Handynr.">
       </ion-input>
-      <div ng-control-group="matchingPassword">
+      <div ngControl-group="matchingPassword">
         <ion-input>
-        <input ng-control="password" type="password" placeholder="Dein Passwort">
+        <input ngControl="password" type="password" placeholder="Dein Passwort">
         </ion-input>
         <ion-input>
-          <input ng-control="passwordConfirm" type="password" placeholder="Passwort wiederholen">
+          <input ngControl="passwordConfirm" type="password" placeholder="Passwort wiederholen">
         </ion-input>
       </div>
     </ion-list>

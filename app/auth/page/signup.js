@@ -1,4 +1,4 @@
-import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/core';
+import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/common';
 import {isBlank} from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController, Popup} from 'ionic/ionic';
 import {LoginPage} from './../../auth/page/login';

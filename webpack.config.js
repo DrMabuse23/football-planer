@@ -2,6 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 module.exports = {
   entry: [
+    "es6-promise",
+    "rxjs",
     "es6-shim",
     "reflect-metadata",
     "web-animations.min",
