@@ -26,9 +26,9 @@
       <ion-item danger *ngIf="form.hasError('required', 'password') && form.controls.password.dirty">
         <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-      <ion-switch ngControl="remember" pink>
+      <ion-toggle ngControl="remember" pink>
         Zugangsdaten merken
-      </ion-switch>
+      </ion-toggle>
     </ion-list>
     <button small pink full type="submit" [disabled]="!form.valid" >Einloggen</button>
     <div class="options">
