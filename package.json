@@ -1,6 +1,6 @@
 {
   "name": "football-planer",
-  "description": "Unser Stuttgart Fussbal wochenende planer",
+  "description": "firebase login, team event planer",
   "version": "0.0.1",
   "author": {
     "name": "DrMabuse",
@@ -19,17 +19,17 @@
     "bundle-android": "npm run build && npm run cordova --command build android && npm run cordova --command run android"
 ***REMOVED***,
   "dependencies": {
+    "angular2": "2.0.0-alpha.53",
     "browserify-cryptojs": "^0.3.1",
+    "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "firebase": "^2.3.2",
-    "angular2": "^2.0.0-alpha.52",
-    "es6-promise": "^3.0.2",
     "ionic-framework": "^2.0.0-alpha.42",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-alpha.14",
-    "zone.js": "0.5.8",
     "livereload-js": "^2.2.2",
-    "moment": "^2.10.6"
+    "moment": "^2.10.6",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "5.0.0-alpha.14",
+    "zone.js": "0.5.8"
 ***REMOVED***,
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
