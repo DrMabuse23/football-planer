@@ -51,7 +51,8 @@ export class DBService {
           return reject(err);
         }
         self.dbAuth = true;
-        self.dbAuthChange.next(self.dbAuth);
+        //debugger;
+        self.dbAuthChange.subscribe(self.dbAuth);
         return resolve(data);
       });
     });

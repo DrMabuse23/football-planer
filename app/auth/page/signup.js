@@ -27,7 +27,7 @@ export class SignupPage {
       mobile: new Control('', Validators.compose([Validators.required, this.isPhoneNumber]))
     });
     this.signupData = {};
-    this.loginPage = LoginPage;
+    this.loginPage = LoginPage
   }
 
   areEqual(group: ControlGroup) {
