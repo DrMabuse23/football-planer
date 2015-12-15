@@ -20,7 +20,7 @@ export class LoginPage {
     this.form = new ControlGroup({
       email: new Control(this.localStore && this.localStore.remember ? this.localStore.email : '', Validators.required),
       password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
-      remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : false)
+      remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : true)
   ***REMOVED***);
     // this.signupPage = SignupPage;
     this.homePage = HomePage;
@@ -31,7 +31,6 @@ export class LoginPage {
 
   doLogin(event) {
     var self = this;
-    console.log(this);
     if (this.form.valid) {
       if (self.form.value.remember) {
         localStorage.setItem('remember', JSON.stringify(self.form.value));

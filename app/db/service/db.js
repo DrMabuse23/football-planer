@@ -3,7 +3,8 @@
  */
 'use strict';
 import {App, IonicApp, IonicPlatform***REMOVED*** from 'ionic/ionic';
-import {Injectable, bind, EventEmitter***REMOVED*** from 'angular2/core';
+***REMOVED***
+//import {EventEmitter***REMOVED*** from 'angular2/common';
 import {Http***REMOVED*** from 'angular2/http';
 var Firebase = require('firebase');
 
