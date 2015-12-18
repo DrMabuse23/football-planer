@@ -4,8 +4,8 @@
 'use strict';
 import {App, IonicApp, IonicPlatform***REMOVED*** from 'ionic/ionic';
 ***REMOVED***
-//import {EventEmitter***REMOVED*** from 'angular2/common';
-import {Http***REMOVED*** from 'angular2/http';
+import {Http, HTTP_PROVIDERS***REMOVED*** from 'angular2/http';
+***REMOVED***
 var Firebase = require('firebase');
 
 ***REMOVED***
@@ -24,7 +24,7 @@ export class DBService {
 
   getConfig() {
     return new Promise((resolve, reject) => {
-      return this.http.get('config.json')
+      return this.http.get('./config.json')
         .map(res => res.json())
         .subscribe(
           (data) => {
@@ -65,10 +65,11 @@ export class DBService {
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
     var self = this;
+    //CryptoJS.HmacSHA256(password, this.cfg.token).toString()
     return new Promise((resolve, reject) => {
       return this.db.authWithPassword({
         "email": email,
-        "password": CryptoJS.HmacSHA256(password, this.cfg.token).toString()
+        "password": password
     ***REMOVED***, function (error, authData) {
   ***REMOVED***
           console.error(error);
