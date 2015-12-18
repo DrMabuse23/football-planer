@@ -2,13 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 module.exports = {
   entry: [
-    "es6-promise",
-    "rxjs",
-    "es6-shim",
-    "reflect-metadata",
-    "web-animations.min",
+    'es6-shim/es6-shim.min',
+    'reflect-metadata',
+    'web-animations.min',
+    'zone.js',
     "moment",
-    "zone.js",
     path.join(__dirname, 'app', 'main', 'main.js')
   ],
   output: {
