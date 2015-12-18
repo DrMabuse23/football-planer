@@ -4,8 +4,8 @@
 'use strict';
 import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
 import {Injectable, EventEmitter} from 'angular2/core';
-//import {EventEmitter} from 'angular2/common';
-import {Http} from 'angular2/http';
+import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import 'rxjs/add/operator/map';
 var Firebase = require('firebase');
 
 @Injectable()
@@ -24,7 +24,7 @@ export class DBService {
 
   getConfig() {
     return new Promise((resolve, reject) => {
-      return this.http.get('config.json')
+      return this.http.get('./config.json')
         .map(res => res.json())
         .subscribe(
           (data) => {
@@ -65,10 +65,11 @@ export class DBService {
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
     var self = this;
+    //CryptoJS.HmacSHA256(password, this.cfg.token).toString()
     return new Promise((resolve, reject) => {
       return this.db.authWithPassword({
         "email": email,
-        "password": CryptoJS.HmacSHA256(password, this.cfg.token).toString()
+        "password": password
       }, function (error, authData) {
         if (error) {
           console.error(error);
