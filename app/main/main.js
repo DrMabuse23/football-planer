@@ -10,7 +10,7 @@ import {DBService***REMOVED*** from './../db/service/db';
 import {UserService***REMOVED*** from './../db/service/user';
 import {PlaceService***REMOVED*** from './../db/service/place';
 import './main.scss';
-
+import {enableProdMode***REMOVED*** from 'angular2/core'; enableProdMode();
 @App({
   templateUrl: 'main/main.html',
   config: {
