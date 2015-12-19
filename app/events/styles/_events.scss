@@ -1,9 +1,11 @@
 .ios, .md{
   ion-card{
-    margin: 0;
+    //padding: 20px;
+    border-radius: 0 0 2px 2px;
+    margin: 0 0 10px 0;
     box-shadow: none;
     &.show{
-      margin-bottom: 0;
+      margin-bottom: 20px;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
   }
@@ -27,10 +29,11 @@
       flex-wrap: wrap;
     }
     span.badge{
-          width: 50%;
-    text-align: right;
-    display: flex;
-    justify-content: flex-end;
+      width: 50%;
+      text-align: right;
+      display: flex;
+      height: 20px;
+      justify-content: flex-end;
     }
     ion-card-content{
       display: flex;
@@ -49,8 +52,8 @@
     }
   }
   @each $color-name, $color-value in $colors {
-    @debug $color-name;
-    @debug $color-value;
+    // @debug $color-name;
+    // @debug $color-value;
     span.badge{
       &.#{$color-name}{
         color: $color-value;
