@@ -75,6 +75,7 @@ export class DBService {
           console.error(error);
           return reject(error);
       ***REMOVED*** else {
+          console.log('user', authData);
           self.loggedInUser = authData;
           return resolve(authData);
       ***REMOVED***

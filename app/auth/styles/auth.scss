@@ -31,8 +31,9 @@
     background-color: #006cb8;
     border: none;
     input{
-      color: white;
-      @include placeholder(white);
+      color: black;
+      padding: 10px;
+      @include placeholder(#ccc);
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***

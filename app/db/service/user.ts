@@ -23,17 +23,19 @@ export class UserService {
 ***REMOVED***
 
   mapUser(form) {
-    console.log(form);
+    //console.log(form);
     this.user.email = form.value.email;
-    this.user.password = CryptoJS.HmacSHA256(form.value.matchingPassword.password, this.dbService.cfg.token).toString();
+    this.user.password = form.value.matchingPassword.password;
+    //CryptoJS.HmacSHA256(, this.dbService.cfg.token).toString()
     this.profile.firstName = form.value.firstName;
     this.profile.lastName = form.value.lastName;
     this.profile.mobile = form.value.mobile;
     this.profile.createdAt = this.profile.updatedAt = new Date().getTime();
 ***REMOVED***
+
   registerUser(form) {
     this.mapUser(form);
-    console.log(this.user, this.profile, CryptoJS);
+    // console.log(this.user, this.profile, CryptoJS);
     return this.createUser();
 ***REMOVED***
 
@@ -52,6 +54,21 @@ export class UserService {
           return self.createProfile(userData.uid, self);
       ***REMOVED***
     ***REMOVED***)
+  ***REMOVED***);
+***REMOVED***
+
+  resetPassword(email) {
+    console.log(`reset assword for ${email***REMOVED***`);
+    return new Promise((resolve, reject) => {
+      this.dbService.db.resetPassword({
+        email: email
+    ***REMOVED***, function(err) {
+        if (err) {
+          console.error(err);
+          return reject(err);
+      ***REMOVED***
+        return resolve(true);
+    ***REMOVED***);
   ***REMOVED***);
 ***REMOVED***
 

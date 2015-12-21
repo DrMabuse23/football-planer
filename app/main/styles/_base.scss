@@ -1,3 +1,9 @@
+.item{
+  input{
+    padding: 10px;
+    @include placeholder(#ccc);
+***REMOVED***
+***REMOVED***
 ion-input.has-focus:after {
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;

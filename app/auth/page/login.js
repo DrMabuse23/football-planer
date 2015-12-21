@@ -3,6 +3,7 @@ import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {SignupPage***REMOVED*** from './../../auth/page/signup';
+import {PasswordResetPage***REMOVED*** from './../../auth/page/password-reset';
 import {HomePage***REMOVED*** from './../../home/page/home-page';
 
 
@@ -22,9 +23,8 @@ export class LoginPage {
       password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
       remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : true)
   ***REMOVED***);
-    // this.signupPage = SignupPage;
     this.homePage = HomePage;
-    this.forgotPasswordPage = ForgotPasswordPage;
+    this.passwordResetPage = PasswordResetPage;
     this.signupPage = SignupPage;
     this.loginData = {***REMOVED***;
 ***REMOVED***
@@ -39,11 +39,18 @@ export class LoginPage {
     ***REMOVED***
       this.userOnLogin = true;
       let nav = this.app.getComponent('nav');
+
       this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
         self.userOnLogin = false;
-        console.log("Authenticated user with uid:", resp.uid);
+        console.log("Authenticated user with uid:", resp.uid)
+
         self.userService.getUserProfile().then(() => {
-          nav.setRoot(self.homePage);
+          if (resp.password.isTemporaryPassword) {
+            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
+        ***REMOVED*** else {
+            nav.setRoot(self.homePage);
+        ***REMOVED***
+
       ***REMOVED***);
     ***REMOVED***).catch((err) => {
         this.userOnLogin = false;
@@ -64,24 +71,5 @@ export class LoginPage {
   ***REMOVED***).then(() => {
       console.log('Alert closed');
   ***REMOVED***);
-***REMOVED***
-***REMOVED***
-
-@Page({
-  templateUrl: 'auth/templates/forgot-password.html'
-***REMOVED***)
-export class ForgotPasswordPage {
-  constructor(app: IonicApp, nav: NavController) {
-    this.email = "";
-    this.form = new ControlGroup({
-      email: new Control('', Validators.required),
-  ***REMOVED***);
-***REMOVED***
-  doForgotPassword(event) {
-    console.log('Resetting password for user', this.email);
-
-    // Maybe reset their password here.
-
-    event.preventDefault();
 ***REMOVED***
 ***REMOVED***
