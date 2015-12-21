@@ -11,6 +11,21 @@ import {HomePage} from './../../home/page/home-page';
   templateUrl: 'auth/templates/login.html'
 })
 export class LoginPage {
+  app: IonicApp;
+  popup: Popup;
+  nav: NavController;
+  form: ControlGroup;
+
+  localStore: any;
+  userOnLogin: boolean;
+  userService: UserService;
+  dbService: DBService;
+  homePage: any;
+  signupPage: any;
+  passwordResetPage: any;
+  loginData: any;
+
+
   constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService, popup: Popup) {
     this.userOnLogin = false;
     this.userService = userService;
@@ -18,15 +33,16 @@ export class LoginPage {
     this.dbService = dbService;
     this.popup = popup;
     this.app = app;
+    this.nav = nav;
     this.form = new ControlGroup({
       email: new Control(this.localStore && this.localStore.remember ? this.localStore.email : '', Validators.required),
       password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
       remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : true)
     });
+    this.loginData = {};
+    this.signupPage = SignupPage;
     this.homePage = HomePage;
     this.passwordResetPage = PasswordResetPage;
-    this.signupPage = SignupPage;
-    this.loginData = {};
   }
 
   doLogin(event) {
@@ -48,7 +64,7 @@ export class LoginPage {
           if (resp.password.isTemporaryPassword) {
             console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
           } else {
-            nav.setRoot(self.homePage);
+            self.nav.setRoot(self.homePage);
           }
 
         });

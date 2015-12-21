@@ -1,21 +1,29 @@
 import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/common';
 import {isBlank} from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController, Popup} from 'ionic/ionic';
-import {LoginPage} from './../../auth/page/login';
 import {DBService} from '../../db/service/db';
 import {UserService} from '../../db/service/user';
-
+import {ErrorItemComponent} from './../component/error-required';
 
 @Page({
   templateUrl: 'auth/templates/signup.html'
 })
 export class SignupPage {
-  form: ControlGroup;
+  app: IonicApp;
+  popup: Popup;
+  nav: NavController;
+  form: any;
+
+  dbService: DBService;
+  userService: UserService;
+  signupData: any;
+
   constructor(app: IonicApp, nav: NavController, popup: Popup, dbService: DBService, fb: FormBuilder, userService: UserService) {
     this.dbService = dbService;
     this.userService = userService;
     this.popup = popup;
     this.app = app;
+    this.nav = nav;
     this.form = fb.group({
       matchingPassword: fb.group({
         password: ['', Validators.required],
@@ -27,7 +35,6 @@ export class SignupPage {
       mobile: new Control('', Validators.compose([Validators.required, this.isPhoneNumber]))
     });
     this.signupData = {};
-    this.loginPage = LoginPage
   }
 
   areEqual(group: ControlGroup) {
@@ -43,6 +50,7 @@ export class SignupPage {
         }
       }
     }
+    // debugger;
     if (valid) {
       return null;
     }
@@ -86,6 +94,9 @@ export class SignupPage {
   doSignup(event) {
     if (this.form.valid) {
       this.userService.registerUser(this.form).then(() => {
+        this.doAlert('Registrierung abgeschlossen', 'Erfolgreich', 'pink').then(() => {
+          this.nav.pop();
+        });
       }).catch(error => {
         switch (error.code) {
           case "EMAIL_TAKEN":
@@ -108,12 +119,10 @@ export class SignupPage {
   }
 
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='danger') {
-    this.popup.alert({
+    return this.popup.alert({
       title: title,
       template: message,
       cssClass: cssClass
-    }).then(() => {
-      console.log('Alert closed');
     });
   }
 }
