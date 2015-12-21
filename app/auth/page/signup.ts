@@ -1,21 +1,29 @@
 import {Validators, Control, ControlGroup, FormBuilder***REMOVED*** from 'angular2/common';
 import {isBlank***REMOVED*** from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
-import {LoginPage***REMOVED*** from './../../auth/page/login';
 import {DBService***REMOVED*** from '../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
-
+import {ErrorItemComponent***REMOVED*** from './../component/error-required';
 
 @Page({
   templateUrl: 'auth/templates/signup.html'
 ***REMOVED***)
 export class SignupPage {
-  form: ControlGroup;
+  app: IonicApp;
+  popup: Popup;
+  nav: NavController;
+  form: any;
+
+  dbService: DBService;
+  userService: UserService;
+  signupData: any;
+
   constructor(app: IonicApp, nav: NavController, popup: Popup, dbService: DBService, fb: FormBuilder, userService: UserService) {
     this.dbService = dbService;
     this.userService = userService;
     this.popup = popup;
     this.app = app;
+    this.nav = nav;
     this.form = fb.group({
       matchingPassword: fb.group({
         password: ['', Validators.required],
@@ -27,7 +35,6 @@ export class SignupPage {
       mobile: new Control('', Validators.compose([Validators.required, this.isPhoneNumber]))
   ***REMOVED***);
     this.signupData = {***REMOVED***;
-    this.loginPage = LoginPage
 ***REMOVED***
 
   areEqual(group: ControlGroup) {
@@ -43,6 +50,7 @@ export class SignupPage {
       ***REMOVED***
     ***REMOVED***
   ***REMOVED***
+    // debugger;
     if (valid) {
       return null;
   ***REMOVED***
@@ -86,6 +94,9 @@ export class SignupPage {
   doSignup(event) {
     if (this.form.valid) {
       this.userService.registerUser(this.form).then(() => {
+        this.doAlert('Registrierung abgeschlossen', 'Erfolgreich', 'pink').then(() => {
+          this.nav.pop();
+      ***REMOVED***);
     ***REMOVED***).catch(error => {
         switch (error.code) {
           case "EMAIL_TAKEN":
@@ -108,12 +119,10 @@ export class SignupPage {
 ***REMOVED***
 
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='danger') {
-    this.popup.alert({
+    return this.popup.alert({
       title: title,
       template: message,
       cssClass: cssClass
-  ***REMOVED***).then(() => {
-      console.log('Alert closed');
   ***REMOVED***);
 ***REMOVED***
 ***REMOVED***

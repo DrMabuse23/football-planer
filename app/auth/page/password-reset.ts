@@ -6,6 +6,11 @@ import {UserService***REMOVED*** from '../../db/service/user';
   templateUrl: 'auth/templates/forgot-password.html'
 ***REMOVED***)
 export class PasswordResetPage {
+  userService: UserService;
+  popup: Popup;
+  nav: any;
+  form: any;
+  
   constructor(app: IonicApp, nav: NavController, userService: UserService, popup: Popup) {
     this.userService = userService;
     this.popup = popup;
