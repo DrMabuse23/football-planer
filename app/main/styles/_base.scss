@@ -14,10 +14,27 @@ ion-input.has-focus:after {
     border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
     -webkit-border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
 }
+ion-input.has-focus:after {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
+    -webkit-border-image: linear-gradient(to right, #fcfcfc 0, #ffe270 33%, #37ed2c 66%, #e92c6c 100%) 1;
+}
 
 @each $color-name, $color-value in $colors {
   .toolbar ion-title[#{$color-name}] .toolbar-title,
   icon[#{$color-name}]{
     color: $color-value;
+  }
+  ion-popup.#{$color-name} {
+    .popup-head{
+      .popup-title{
+        color: $color-value;
+      }
+    }
+    .popup-buttons{
+      .popup-button{
+        color: $color-value;
+      }
+    }
   }
 }
