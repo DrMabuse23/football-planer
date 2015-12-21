@@ -1,6 +1,8 @@
 import {NgFor***REMOVED*** from 'angular2/core';
 import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
 import {UserService***REMOVED*** from '../../db/service/user';
+import {DBService***REMOVED*** from '../../db/service/db';
+import {LoginPage***REMOVED*** from './../../auth/page/login';
 import {EventsPage***REMOVED*** from '../../events/page/events-page';
 @Page({
   templateUrl: 'home/templates/index.html'
@@ -10,10 +12,13 @@ export class HomePage {
   pages: any;
   root: any;
   userService: UserService;
-
-  constructor(app: IonicApp, nav: NavController, userService: UserService) {
+  dbService: DBService;
+  loginPage: any;
+  constructor(app: IonicApp, nav: NavController, userService: UserService, dbService:DBService) {
     this.app = app;
     this.root = EventsPage;
+    this.dbService = dbService;
+    this.loginPage = LoginPage;
     this.pages = [
       { title: 'Events', component: EventsPage, icon: 'calendar' ***REMOVED***,
     ];
@@ -33,5 +38,13 @@ export class HomePage {
       // then close the menu
       this.app.getComponent('leftMenu').close();
   ***REMOVED***);
+***REMOVED***
+
+  logout() {
+
+    this.dbService.unauth();
+    let nav = this.app.getComponent('nav');
+    this.app.getComponent('leftMenu').close();
+    nav.setRoot(this.loginPage);
 ***REMOVED***
 ***REMOVED***

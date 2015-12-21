@@ -37,6 +37,14 @@ export class DBService {
   ***REMOVED***);
 ***REMOVED***
 
+  onAuthCallback(authData) {
+***REMOVED***
+      console.log("Authenticated with uid:", authData);
+  ***REMOVED*** else {
+      console.log("Client unauthenticated.")
+  ***REMOVED***
+***REMOVED***
+
   auth() {
     if (!this.cfg) {
       return new Promise((resolve, reject) => {
@@ -62,20 +70,25 @@ export class DBService {
     return this.db;
 ***REMOVED***
 
+  unauth() {
+    return this.db.unauth();
+***REMOVED***
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
     var self = this;
     //CryptoJS.HmacSHA256(password, this.cfg.token).toString()
     return new Promise((resolve, reject) => {
+
       return this.db.authWithPassword({
         "email": email,
         "password": password
-    ***REMOVED***, function (error, authData) {
+    ***REMOVED***, function(error, authData) {
+        self.db.onAuth(self.onAuthCallback);
+        self.db.offAuth(self.onAuthCallback);
   ***REMOVED***
           console.error(error);
           return reject(error);
       ***REMOVED*** else {
-          console.log('user', authData);
           self.loggedInUser = authData;
           return resolve(authData);
       ***REMOVED***
