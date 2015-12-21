@@ -37,6 +37,14 @@ export class DBService {
     });
   }
 
+  onAuthCallback(authData) {
+    if (authData) {
+      console.log("Authenticated with uid:", authData);
+    } else {
+      console.log("Client unauthenticated.")
+    }
+  }
+
   auth() {
     if (!this.cfg) {
       return new Promise((resolve, reject) => {
@@ -62,20 +70,25 @@ export class DBService {
     return this.db;
   }
 
+  unauth() {
+    return this.db.unauth();
+  }
   authWithPassword(email, password) {
     console.log('(email, password', email, password);
     var self = this;
     //CryptoJS.HmacSHA256(password, this.cfg.token).toString()
     return new Promise((resolve, reject) => {
+
       return this.db.authWithPassword({
         "email": email,
         "password": password
-      }, function (error, authData) {
+      }, function(error, authData) {
+        self.db.onAuth(self.onAuthCallback);
+        self.db.offAuth(self.onAuthCallback);
         if (error) {
           console.error(error);
           return reject(error);
         } else {
-          console.log('user', authData);
           self.loggedInUser = authData;
           return resolve(authData);
         }
