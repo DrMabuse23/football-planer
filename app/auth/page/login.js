@@ -3,6 +3,7 @@ import {IonicApp, Page, NavController, Popup} from 'ionic/ionic';
 import {DBService} from './../../db/service/db';
 import {UserService} from '../../db/service/user';
 import {SignupPage} from './../../auth/page/signup';
+import {PasswordResetPage} from './../../auth/page/password-reset';
 import {HomePage} from './../../home/page/home-page';
 
 
@@ -22,9 +23,8 @@ export class LoginPage {
       password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
       remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : true)
     });
-    // this.signupPage = SignupPage;
     this.homePage = HomePage;
-    this.forgotPasswordPage = ForgotPasswordPage;
+    this.passwordResetPage = PasswordResetPage;
     this.signupPage = SignupPage;
     this.loginData = {};
   }
@@ -39,11 +39,18 @@ export class LoginPage {
       }
       this.userOnLogin = true;
       let nav = this.app.getComponent('nav');
+
       this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
         self.userOnLogin = false;
-        console.log("Authenticated user with uid:", resp.uid);
+        console.log("Authenticated user with uid:", resp.uid)
+
         self.userService.getUserProfile().then(() => {
-          nav.setRoot(self.homePage);
+          if (resp.password.isTemporaryPassword) {
+            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
+          } else {
+            nav.setRoot(self.homePage);
+          }
+
         });
       }).catch((err) => {
         this.userOnLogin = false;
@@ -64,24 +71,5 @@ export class LoginPage {
     }).then(() => {
       console.log('Alert closed');
     });
-  }
-}
-
-@Page({
-  templateUrl: 'auth/templates/forgot-password.html'
-})
-export class ForgotPasswordPage {
-  constructor(app: IonicApp, nav: NavController) {
-    this.email = "";
-    this.form = new ControlGroup({
-      email: new Control('', Validators.required),
-    });
-  }
-  doForgotPassword(event) {
-    console.log('Resetting password for user', this.email);
-
-    // Maybe reset their password here.
-
-    event.preventDefault();
   }
 }

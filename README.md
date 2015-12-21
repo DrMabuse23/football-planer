@@ -13,3 +13,5 @@ To
 
 zone.longStackTraceZone, {onError: function(e) { ngZone._notifyOnError(this, e); }});
 ````
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789

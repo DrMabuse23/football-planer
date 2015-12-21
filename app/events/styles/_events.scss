@@ -1,4 +1,7 @@
 .ios, .md{
+  ion-list .item-inner{
+    border-bottom: none !important;
+  }
   ion-card{
     //padding: 20px;
     border-radius: 0 0 2px 2px;

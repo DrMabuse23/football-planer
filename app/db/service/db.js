@@ -75,6 +75,7 @@ export class DBService {
           console.error(error);
           return reject(error);
         } else {
+          console.log('user', authData);
           self.loggedInUser = authData;
           return resolve(authData);
         }
