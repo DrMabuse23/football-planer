@@ -49,8 +49,7 @@ export class UserService {
   ***REMOVED***
           return reject(error);
       ***REMOVED*** else {
-
-          console.log("Successfully created user account with uid:", userData);
+          // console.log("Successfully created user account with uid:", userData);
           return self.createProfile(userData.uid, self);
       ***REMOVED***
     ***REMOVED***)
