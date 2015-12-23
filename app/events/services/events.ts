@@ -77,7 +77,7 @@ export class EventsService {
   ***REMOVED***
 ***REMOVED***
 
-  togglePlayer(id, playerUuid) {
+  togglePlayer(id:string, playerUuid:string) {
     let event = this.events.filter(this.findById, id)[0];
     let players = event.data.players;
     if (!players) {
