@@ -2,6 +2,23 @@
   ion-list .item-inner{
     border-bottom: none !important;
   }
+  .tablet{
+    .events-page{
+      ion-list{
+        height: 100%;
+        flex-direction: row;
+        max-width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        ion-card.event-item{
+          display: flex;
+          width: 46%;
+          margin: 1% 2%;
+        }
+      }
+    }
+  }
   ion-card{
     //padding: 20px;
     border-radius: 0 0 2px 2px;
@@ -16,12 +33,12 @@
     .animated{
         min-height: 0px;
         height: 0;
-        transition: all .2s ease-in-out;
+        transition: height .2s ease-in-out;
       &.show{
         min-height: 40px;
         opacity: 1;
         @extend .fadeIn;
-        transition: all .2s ease-out-in;
+        transition: height .2s ease-out-in;
       }
     }
     span.date{
@@ -53,6 +70,19 @@
       padding-left: 10px;
       margin-top: 6px;
     }
+  }
+  span.badge {
+    min-width: 3rem;
+    padding: 0 6px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: inherit;
+    position: absolute;
+    background-color: white;
+    right: 15px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
   }
   @each $color-name, $color-value in $colors {
     // @debug $color-name;

@@ -21,9 +21,7 @@ export class EventsService {
     moment.locale(config.get('locale'));
   }
   findById(item) {
-    if ('id' in item) {
-
-    }
+    return 'id' in item && item.id === this.toString();
   }
   isPlayed (playedTime) {
     let now = new Date().getTime();
@@ -76,6 +74,23 @@ export class EventsService {
           self.inProgress = false;
         }
       }, (err) => console.error(err));
+    }
+  }
+
+  togglePlayer(id, playerUuid) {
+    let event = this.events.filter(this.findById, id)[0];
+    let players = event.data.players;
+    if (!players) {
+      this.updateEvent(event.id, { players: [playerUuid] })
+    } else {
+      let index = players.indexOf(playerUuid);
+      if (index !== -1) {
+        players.splice(index, 1);
+        this.updateEvent(event.id, { players: players });
+      } else {
+        players.push(playerUuid);
+        this.updateEvent(event.id, { players: players })
+      }
     }
   }
 

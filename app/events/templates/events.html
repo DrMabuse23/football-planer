@@ -13,9 +13,9 @@
     </div>
   </div>
   <ion-list>
-    <ion-item>
+    <!--<ion-item>
       <button (click)="import()">import</button>
-    </ion-item>
+    </ion-item>-->
     <!--<ion-card>
         <ion-card-content>
             <img src="images/feuerbach.png" />
@@ -43,14 +43,19 @@
           notShow: event.hide,
           show: !event.hide
         }">
-          <button clear item-left
+          <!--<button clear item-left
           (click)="setPlayer(index)"
           [ngClass]="{hide: event.uuidInPlayers}">
             <icon football teal></icon>
-          </button>
+          </button>-->
 
-          <button item-left clear [ngClass]="{hide: !event.uuidInPlayers}">
-            <icon football pink-dark></icon>
+          <button item-left clear
+          (click)="setPlayer(index)"
+          >
+            <icon football [ngClass]="{
+            'pink-dark': event.uuidInPlayers,
+            'teal': !event.uuidInPlayers
+            }"></icon>
           </button>
           <button clear item-right teal-light>
           {{event.comments?.length}}<icon chatboxes teal-dark></icon>
