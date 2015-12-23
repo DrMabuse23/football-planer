@@ -21,9 +21,7 @@ export class EventsService {
     moment.locale(config.get('locale'));
 ***REMOVED***
   findById(item) {
-    if ('id' in item) {
-
-  ***REMOVED***
+    return 'id' in item && item.id === this.toString();
 ***REMOVED***
   isPlayed (playedTime) {
     let now = new Date().getTime();
@@ -76,6 +74,23 @@ export class EventsService {
           self.inProgress = false;
       ***REMOVED***
     ***REMOVED***, (err) => console.error(err));
+  ***REMOVED***
+***REMOVED***
+
+  togglePlayer(id, playerUuid) {
+    let event = this.events.filter(this.findById, id)[0];
+    let players = event.data.players;
+    if (!players) {
+      this.updateEvent(event.id, { players: [playerUuid] ***REMOVED***)
+  ***REMOVED*** else {
+      let index = players.indexOf(playerUuid);
+      if (index !== -1) {
+        players.splice(index, 1);
+        this.updateEvent(event.id, { players: players ***REMOVED***);
+    ***REMOVED*** else {
+        players.push(playerUuid);
+        this.updateEvent(event.id, { players: players ***REMOVED***)
+    ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 

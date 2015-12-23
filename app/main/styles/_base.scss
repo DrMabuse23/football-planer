@@ -22,7 +22,7 @@ ion-input.has-focus:after {
 
 @each $color-name, $color-value in $colors {
   .toolbar ion-title[#{$color-name***REMOVED***] .toolbar-title,
-  icon[#{$color-name***REMOVED***]{
+  icon[#{$color-name***REMOVED***], icon.#{$color-name***REMOVED***{
     color: $color-value;
 ***REMOVED***
   ion-popup.#{$color-name***REMOVED*** {
@@ -37,4 +37,13 @@ ion-input.has-focus:after {
     ***REMOVED***
   ***REMOVED***
 ***REMOVED***
+***REMOVED***
+
+ion-navbar.toolbar {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+***REMOVED***
+
+.item-input {
+  background-color: transparent;
+  @extend blur;
 ***REMOVED***

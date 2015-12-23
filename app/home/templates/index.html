@@ -8,14 +8,14 @@
         <h2>{{userService.userProfile.profile.firstName***REMOVED******REMOVED*** {{userService.userProfile.profile.lastName***REMOVED******REMOVED***</h2>
         <p>{{userService.userProfile.authData.password.email***REMOVED******REMOVED***</p>
       </ion-item>
-      <button ion-item clear (click)="logout()">
-        <icon ios="ion-ios-unlocked-outline" md="ion-unlocked" danger></icon>
-        <span dark>ausloggen</span>
-      </button>
     </ion-list>
   </ion-toolbar>
   <ion-content>
     <ion-list>
+       <button ion-item clear (click)="logout()">
+        <icon ios="ion-ios-unlocked-outline" md="ion-unlocked" danger></icon>
+        <span dark>ausloggen</span>
+      </button>
       <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
         <icon teal item-left [name]="p.icon"></icon>
         <span teal>

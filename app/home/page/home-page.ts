@@ -19,6 +19,7 @@ export class HomePage {
     this.root = EventsPage;
     this.dbService = dbService;
     this.loginPage = LoginPage;
+    this.nav = this.app.getComponent('nav');
     this.pages = [
       { title: 'Events', component: EventsPage, icon: 'calendar' ***REMOVED***,
     ];
@@ -28,12 +29,11 @@ export class HomePage {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    let nav = this.app.getComponent('nav');
     if (page.component === this.root) {
       return this.app.getComponent('leftMenu').close();
   ***REMOVED***
 
-    nav.setRoot(page.component).then(() => {
+    this.nav.setRoot(page.component).then(() => {
       // wait for the root page to be completely loaded
       // then close the menu
       this.app.getComponent('leftMenu').close();
@@ -41,10 +41,9 @@ export class HomePage {
 ***REMOVED***
 
   logout() {
-
     this.dbService.unauth();
-    let nav = this.app.getComponent('nav');
+    debugger;
     this.app.getComponent('leftMenu').close();
-    nav.setRoot(this.loginPage);
+    this.nav.setRoot(this.loginPage);
 ***REMOVED***
 ***REMOVED***

@@ -1,5 +1,5 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor***REMOVED*** from 'angular2/common';
-import {IonicApp, Page, NavController***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Config, Page, NavController***REMOVED*** from 'ionic/ionic';
 ***REMOVED***
 import {findIndex***REMOVED*** from 'lodash';
 import {DBService***REMOVED*** from './../../db/service/db';
@@ -14,6 +14,7 @@ export class EventsPage {
   app: IonicApp;
   pages: any;
   root: any;
+  config: Config;
   dbService: DBService;
   userService: UserService;
   eventService: EventsService
@@ -28,8 +29,9 @@ export class EventsPage {
   (error) => { console.error(error) ***REMOVED***,
   () => { ***REMOVED***);
 
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, eventService: EventsService, userService: UserService) {
+  constructor(app: IonicApp, config: Config, nav: NavController, dbService: DBService, eventService: EventsService, userService: UserService) {
     this.app = app;
+    this.config = config;
     this.eventService = eventService;
     this.userService = userService;
     this.getData();
@@ -42,36 +44,12 @@ export class EventsPage {
 ***REMOVED***
 
   setPlayer(index) {
-    let userUUid = this.userService.userProfile.profile.userUUid;
-    if (this.events[index].data.players && this.events[index].data.players.indexOf(userUUid) !== -1) {
-      return false;
-  ***REMOVED***
-    let eventref = this.eventService.ref.child(this.events[index].id);
-    if (!this.events[index].data.players) {
-      this.eventService.updateEvent(this.events[index].id, { players: [userUUid] ***REMOVED***)
-  ***REMOVED*** else {
-      this.events[index].data.players.push(userUUid);
-      this.eventService.updateEvent(this.events[index].id, {players: this.events[index].data.players***REMOVED***)
-  ***REMOVED***
-***REMOVED***
-
-  unsetPlayer(index) {
-    let userUUid = this.userService.userProfile.profile.userUUid;
-    if (this.events[index].data.players && this.events[index].data.players.indexOf(userUUid) !== -1) {
-      return false;
-  ***REMOVED***
-    let eventref = this.eventService.ref.child(this.events[index].id);
-    if (!this.events[index].data.players) {
-      this.eventService.updateEvent(this.events[index].id, { players: [userUUid] ***REMOVED***)
-  ***REMOVED*** else {
-      this.events[index].data.players.push(userUUid);
-      this.eventService.updateEvent(this.events[index].id, {players: this.events[index].data.players***REMOVED***)
-  ***REMOVED***
+    this.eventService.togglePlayer(this.events[index].id, this.userService.userProfile.profile.userUUid)
 ***REMOVED***
 
   prepareEvent(event) {
     let userUUid = this.userService.userProfile.profile.userUUid;
-    event.hide = event.hide ? event.hide : true;
+    event.hide = event.hide ? event.hide : !this.config.get('isTablet');
     event.hideCount =  event.hideCount ? event.hideCount : 0;
     if (typeof event.data.players === 'object') {
       event.playerCount = event.data.players.length;
@@ -87,10 +65,7 @@ export class EventsPage {
 ***REMOVED***
 
   byId(event) {
-    if ('id' in event && event.id === this) {
-      return true;
-  ***REMOVED***
-    return false;
+    return 'id' in event && event.id === this;
 ***REMOVED***
 
   changed(model) {
@@ -108,21 +83,17 @@ export class EventsPage {
   ***REMOVED***
 
     if ( typeof eventsChanged === 'object' && 'method' in eventsChanged) {
-      //debugger;
       this[eventsChanged.method](eventsChanged);
   ***REMOVED***
-    // console.log('whooza', this);
 ***REMOVED***
 
   toggleVisible(index) {
-    console.log('toggle', this.events[index], index);
-    this.events[index].hide = this.events[index].hide?false: true;
-    console.log('toggle', this.events[index], index);
+    this.events[index].hide = this.events[index].hide ? false: true;
     setTimeout(() => {
       this.events[index].hideCount = this.events[index].hide ? 0 : 1;
   ***REMOVED***, 1300);
-
 ***REMOVED***
+
   import() {
     this.eventService.setYear();
 ***REMOVED***
