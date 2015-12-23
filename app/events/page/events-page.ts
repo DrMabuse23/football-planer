@@ -44,7 +44,7 @@ export class EventsPage {
   }
 
   setPlayer(index) {
-    this.eventService.togglePlayer(this.events[index].id, this.userService.userProfile.profile.userUUid)
+    this.eventService.togglePlayer(this.events[index].id, this.userService.userProfile.profile.userUUid);
   }
 
   prepareEvent(event) {

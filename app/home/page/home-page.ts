@@ -42,7 +42,6 @@ export class HomePage {
 
   logout() {
     this.dbService.unauth();
-    debugger;
     this.app.getComponent('leftMenu').close();
     this.nav.setRoot(this.loginPage);
   }
