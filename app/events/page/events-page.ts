@@ -65,7 +65,7 @@ export class EventsPage {
 ***REMOVED***
 
   byId(event) {
-    return 'id' in event && event.id === this;
+    return 'id' in event && event.id === this.toString();
 ***REMOVED***
 
   changed(model) {
