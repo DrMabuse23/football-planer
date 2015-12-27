@@ -31,6 +31,7 @@ class App {
   (dbAuth:boolean) => { this.authChange(dbAuth); },
   (error) => { },
   () => { });
+
   constructor(app: IonicApp, config: Config, platform: Platform, dbService: DBService) {
     this.dbService = dbService;
     this.setDb(dbService);
