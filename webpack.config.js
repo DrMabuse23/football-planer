@@ -15,7 +15,7 @@ module.exports = {
     publicPath: 'js/',
     pathinfo: true // show module paths in the bundle, handy for debugging
   },
-  devtool: "source-map",
+  devtool: "eval-cheap-module-source-map",
   module: {
     loaders: [
       {
