@@ -10,7 +10,7 @@
   "scripts": {
     "webpack": "webpack",
     "watch": "webpack --watch",
-    "server": "webpack-dev-server --content-base app/ --colors --hot --inline --display-error-details --port 3000",
+    "server": "webpack-dev-server --content-base app/ --colors --hot --inline --display-error-details --eval-cheap-module-source-map --port 3000",
     "docs": "typedoc  --options typedoc.json  app/**/*.js",
     "start": "npm run server",
     "cordova": "node ./scripts/cordova.js --command",
