@@ -1,0 +1,13 @@
+<ion-navbar *navbar teal-300>
+  <ion-title teal-lite>Event</ion-title>
+</ion-navbar>
+<ion-content class="events-content" padding>
+  <ion-list>
+    <ion-list-header teal-dark>
+      Spieler
+    </ion-list-header>
+    <ion-item *ngFor="#player of players">
+      {{player.data.firstName}} {{player.data.lastName}}
+    </ion-item>
+  </ion-list>
+</ion-content>

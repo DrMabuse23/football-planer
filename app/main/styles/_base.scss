@@ -25,6 +25,9 @@ ion-input.has-focus:after {
   icon[#{$color-name}], icon.#{$color-name}{
     color: $color-value;
   }
+  ion-list-header{
+    color: $color-value;
+  }
   ion-popup.#{$color-name} {
     .popup-head{
       .popup-title{
