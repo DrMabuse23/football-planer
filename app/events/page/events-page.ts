@@ -5,6 +5,7 @@ import {findIndex***REMOVED*** from 'lodash';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {EventsService***REMOVED*** from './../services/events';
+import {EventPage***REMOVED*** from './event-page';
 
 @Page({
   templateUrl: 'events/templates/events.html',
@@ -35,6 +36,11 @@ export class EventsPage {
     this.eventService = eventService;
     this.userService = userService;
     this.getData();
+    this.nav = nav;
+***REMOVED***
+
+  goDetail(event) {
+    this.nav.push(EventPage, { event: event ***REMOVED***);
 ***REMOVED***
 
   getData() {

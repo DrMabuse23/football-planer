@@ -84,6 +84,30 @@ export class UserService {
   ***REMOVED***);
 ***REMOVED***
 
+  getProfilesByIds(ids) {
+    let profileRef = this.dbService.db.child("playerProfiles");
+    let userProfiles = [];
+    return new Promise((resolve, reject) => {
+      return profileRef.orderByChild("lastName").on("value", (snapshot) => {
+        if (typeof snapshot === 'object') {
+          snapshot.forEach((data) => {
+            let profile = data.val();
+            if (ids.indexOf(profile.userUUid) !== -1) {
+              userProfiles.push({
+                id: data.key(),
+                data: profile
+            ***REMOVED***);
+          ***REMOVED***
+        ***REMOVED***);
+          return resolve(userProfiles);
+      ***REMOVED***
+    ***REMOVED***, (err) => {
+        console.error(err);
+        return reject(err);
+    ***REMOVED***);
+  ***REMOVED***)
+***REMOVED***
+
   getUserProfile() {
     let authData = this.dbService.db.getAuth();
     let self = this;
