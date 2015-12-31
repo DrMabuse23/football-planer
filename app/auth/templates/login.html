@@ -26,8 +26,7 @@
       <ion-item danger *ngIf="form.hasError('required', 'password') && form.controls.password.dirty">
         <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-
-      <ion-toggle checked="remember" pink>
+      <ion-toggle checked="form.value.remember" pink>
         Zugangsdaten merken
       </ion-toggle>
     </ion-list>

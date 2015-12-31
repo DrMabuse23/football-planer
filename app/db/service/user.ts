@@ -85,10 +85,14 @@ export class UserService {
   }
 
   getProfilesByIds(ids) {
+
     let profileRef = this.dbService.db.child("playerProfiles");
     let userProfiles = [];
     return new Promise((resolve, reject) => {
-      return profileRef.orderByChild("lastName").on("value", (snapshot) => {
+      if (!ids) {
+        return resolve([]);
+      }
+      return profileRef.orderByChild("lastName").once("value", (snapshot) => {
         if (typeof snapshot === 'object') {
           snapshot.forEach((data) => {
             let profile = data.val();
