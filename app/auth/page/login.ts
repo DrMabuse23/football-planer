@@ -43,10 +43,12 @@ export class LoginPage {
     this.signupPage = SignupPage;
     this.homePage = HomePage;
     this.passwordResetPage = PasswordResetPage;
+    if (this.form.valid) {
+      this.loginDb();
+  ***REMOVED***
 ***REMOVED***
 
   doLogin(event) {
-    var self = this;
     if (this.form.valid) {
       if (self.form.value.remember) {
         localStorage.setItem('remember', JSON.stringify(self.form.value));
@@ -55,30 +57,31 @@ export class LoginPage {
     ***REMOVED***
       this.userOnLogin = true;
       let nav = this.app.getComponent('nav');
+      this.loginDb();
 
-      this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
-        self.userOnLogin = false;
-        console.log("Authenticated user with uid:", resp.uid)
-
-        self.userService.getUserProfile().then(() => {
-          if (resp.password.isTemporaryPassword) {
-            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
-        ***REMOVED*** else {
-            self.nav.setRoot(self.homePage);
-        ***REMOVED***
-
-      ***REMOVED***);
-    ***REMOVED***).catch((err) => {
-        this.userOnLogin = false;
-        self.doAlert(err.message);
-    ***REMOVED***);
   ***REMOVED*** else {
       this.userOnLogin = false;
       self.doAlert();
   ***REMOVED***
     event.preventDefault();
 ***REMOVED***
-
+  loginDb() {
+    let self = this;
+    this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
+        self.userOnLogin = false;
+        console.log("Authenticated user with uid:", resp.uid)
+        self.userService.getUserProfile().then(() => {
+          if (resp.password.isTemporaryPassword) {
+            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
+        ***REMOVED*** else {
+            self.nav.setRoot(self.homePage);
+        ***REMOVED***
+      ***REMOVED***);
+    ***REMOVED***).catch((err) => {
+        this.userOnLogin = false;
+        self.doAlert(err.message);
+    ***REMOVED***);
+***REMOVED***
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
     this.popup.alert({
       title: title,

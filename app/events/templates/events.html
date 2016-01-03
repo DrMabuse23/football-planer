@@ -32,17 +32,18 @@
         teal: event.playerCount >= 10
       ***REMOVED***"
         class="badge item-right">
-          {{event.playerCount***REMOVED******REMOVED***
+          {{event.playerCount***REMOVED******REMOVED***<icon ios="person" md="people"
+          [ngClass]="{danger:event.playerCount< 4,
+          lime: event.playerCount < 10,
+          lime: event.playerCount >= 4,
+          teal: event.playerCount >= 10
+        ***REMOVED***"></icon>
         </span>
         <button (click)="toggleVisible(index)" ion-item>
           <h2 item-left dark>{{event.place?.name***REMOVED******REMOVED***</h2>
           <!--<icon navigate item-right teal-dark></icon>-->
         </button>
-        <ion-item class="animated"
-        [ngClass]="{
-          notShow: event.hide,
-          show: !event.hide
-      ***REMOVED***">
+        <ion-item class="animated show">
           <!--<button clear item-left
           (click)="setPlayer(index)"
           [ngClass]="{hide: event.uuidInPlayers***REMOVED***">
@@ -52,7 +53,7 @@
           <button item-left clear
           (click)="setPlayer(index)"
           >
-            <icon football [ngClass]="{
+            <icon done-all [ngClass]="{
             'pink-dark': event.uuidInPlayers,
             'teal': !event.uuidInPlayers
           ***REMOVED***"></icon>
@@ -61,7 +62,7 @@
           {{event.comments?.length***REMOVED******REMOVED***<icon chatboxes teal-dark></icon>
           </button>
           <button clear item-right teal-light (click)="goDetail(event)">
-            <icon md="android-clipboard" ios="clipboard" teal-dark></icon>
+            <icon md="clipboard" ios="clipboard" teal-dark></icon>
           </button>
         </ion-item>
       </ion-card-content>
