@@ -1,4 +1,4 @@
-import {NgClass, Disabled, NgIf, NgFor} from 'angular2/common';
+import {NgClass, Disabled, NgIf, NgFor, NgSwitch, NgModel} from 'angular2/common';
 import {Page, NavParams} from 'ionic/ionic';
 import {Observable} from 'rxjs/Observable';
 import {findIndex} from 'lodash';
@@ -30,12 +30,16 @@ export class EventPage {
     this.params = navParams;
     this.event = this.params.get('event');
     this.players = null;
+    this.tab = 'one';
     userService.getProfilesByIds(this.event.data.players).then((profiles) => {
       this.players = profiles;
     });
     console.log('event', this.event);
   }
 
+  onSegmentChanged(event) {
+    this.tab = event;
+  }
   eventsChange(eventsChanged: any) {
     console.log(eventsChanged);
   }

@@ -1,13 +1,37 @@
 <ion-navbar *navbar teal-300>
-  <ion-title teal-lite>Event</ion-title>
+  <ion-title teal-lite>{{event.date}}/{{event.place?.name}}</ion-title>
 </ion-navbar>
+<ion-toolbar>
+  <div>
+    <ion-segment [(ngModel)]="tab" teal-dark (change)="onSegmentChanged($event)">
+      <ion-segment-button value="one">
+        Spieler
+      </ion-segment-button>
+      <ion-segment-button value="two">
+        Kommentare
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-toolbar>
 <ion-content class="events-content" padding>
-  <ion-list>
-    <ion-list-header teal-dark>
-      Spieler
-    </ion-list-header>
-    <ion-item *ngFor="#player of players">
-      {{player.data.firstName}} {{player.data.lastName}}
-    </ion-item>
-  </ion-list>
+  <div [(ngSwitch)]="tab">
+    <ion-list *ngSwitchWhen="'one'">
+      <!--<ion-list-header teal-dark>
+        Spieler
+      </ion-list-header>-->
+      <ion-item *ngFor="#player of players">
+        {{player.data.firstName}} {{player.data.lastName}}
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchWhen="'two'">
+      <ion-item>
+        <!--<ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>-->
+        testwurst
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

@@ -43,10 +43,12 @@ export class LoginPage {
     this.signupPage = SignupPage;
     this.homePage = HomePage;
     this.passwordResetPage = PasswordResetPage;
+    if (this.form.valid) {
+      this.loginDb();
+    }
   }
 
   doLogin(event) {
-    var self = this;
     if (this.form.valid) {
       if (self.form.value.remember) {
         localStorage.setItem('remember', JSON.stringify(self.form.value));
@@ -55,30 +57,31 @@ export class LoginPage {
       }
       this.userOnLogin = true;
       let nav = this.app.getComponent('nav');
+      this.loginDb();
 
-      this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
-        self.userOnLogin = false;
-        console.log("Authenticated user with uid:", resp.uid)
-
-        self.userService.getUserProfile().then(() => {
-          if (resp.password.isTemporaryPassword) {
-            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
-          } else {
-            self.nav.setRoot(self.homePage);
-          }
-
-        });
-      }).catch((err) => {
-        this.userOnLogin = false;
-        self.doAlert(err.message);
-      });
     } else {
       this.userOnLogin = false;
       self.doAlert();
     }
     event.preventDefault();
   }
-
+  loginDb() {
+    let self = this;
+    this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
+        self.userOnLogin = false;
+        console.log("Authenticated user with uid:", resp.uid)
+        self.userService.getUserProfile().then(() => {
+          if (resp.password.isTemporaryPassword) {
+            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
+          } else {
+            self.nav.setRoot(self.homePage);
+          }
+        });
+      }).catch((err) => {
+        this.userOnLogin = false;
+        self.doAlert(err.message);
+      });
+  }
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
     this.popup.alert({
       title: title,
