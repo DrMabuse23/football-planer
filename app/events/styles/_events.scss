@@ -36,10 +36,8 @@
      .item-inner{
        padding-right: 0;
        button{
-         &:last-child{
-          margin-right: 0;
+         margin-right: 0;
         }
-       }
      }
     .animated{
         min-height: 0px;
@@ -51,6 +49,10 @@
         @extend .fadeIn;
         transition: height .2s ease-out-in;
       }
+      button{
+        font-size: 14px;
+        color: black;
+      }
     }
     span.date{
       font-size: 1.2rem;
@@ -59,13 +61,12 @@
       justify-content: flex-start;
       flex-wrap: wrap;
     }
-    span.badge{
+    button.badge{
       width: 50%;
       text-align: right;
       display: flex;
       height: 20px;
       justify-content: flex-end;
-      font-size: 14px;
       icon{
         font-size: 20px;
         margin-left: 12px;
@@ -85,21 +86,22 @@
     icon.ion-md-chatboxes{
       padding-left: 10px;
       margin-top: 6px;
+      margin-right: 8px;
     }
   }
-  span.badge {
-    min-width: 3rem;
-    padding: 0 6px;
-    text-align: center;
-    font-size: 1rem;
-    line-height: inherit;
-    position: absolute;
-    background-color: white;
-    right: 15px;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-  }
+  // span.badge {
+  //   min-width: 3rem;
+  //   padding: 0 6px;
+  //   text-align: center;
+  //   font-size: 1rem;
+  //   line-height: inherit;
+  //   position: absolute;
+  //   background-color: white;
+  //   right: 15px;
+  //   box-sizing: border-box;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
   @each $color-name, $color-value in $colors {
     // @debug $color-name;
     // @debug $color-value;

@@ -3,7 +3,7 @@
 </ion-navbar>
 <ion-toolbar>
   <div>
-    <ion-segment [(ngModel)]="tab" teal-dark (change)="onSegmentChanged($event)">
+    <ion-segment [(*ngModel)]="tab" teal-dark (change)="onSegmentChanged($event)">
       <ion-segment-button value="one">
         Spieler
       </ion-segment-button>
