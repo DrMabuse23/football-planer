@@ -16,53 +16,41 @@
     <!--<ion-item>
       <button (click)="import()">import</button>
     </ion-item>-->
-    <!--<ion-card>
-        <ion-card-content>
-            <img src="images/feuerbach.png" />
-        </ion-card-content>
-    </ion-card>-->
-    <ion-card *ngFor="#event of events; var index=index" class="event-item" [ngClass]="{show: !event.hide***REMOVED***">
+    <ion-card *ngFor="#event of events; var index=index" class="event-item show">
       <ion-card-content>
         <span class="date" teal-dark>
           <i>{{event.date***REMOVED******REMOVED***</i>
         </span>
-        <span [ngClass]="{danger:event.playerCount< 4,
-        lime: event.playerCount < 10,
-        lime: event.playerCount >= 4,
-        teal: event.playerCount >= 10
-      ***REMOVED***"
-        class="badge item-right">
-          {{event.playerCount***REMOVED******REMOVED***<icon ios="person" md="people"
-          [ngClass]="{danger:event.playerCount< 4,
-          lime: event.playerCount < 10,
-          lime: event.playerCount >= 4,
-          teal: event.playerCount >= 10
-        ***REMOVED***"></icon>
-        </span>
         <button (click)="toggleVisible(index)" ion-item>
           <h2 item-left dark>{{event.place?.name***REMOVED******REMOVED***</h2>
-          <!--<icon navigate item-right teal-dark></icon>-->
         </button>
         <ion-item class="animated show">
-          <!--<button clear item-left
-          (click)="setPlayer(index)"
-          [ngClass]="{hide: event.uuidInPlayers***REMOVED***">
-            <icon football teal></icon>
-          </button>-->
-
-          <button item-left clear
-          (click)="setPlayer(index)"
-          >
+          <button item-left clear (click)="setPlayer(index)">
             <icon done-all [ngClass]="{
             'pink-dark': event.uuidInPlayers,
             'teal': !event.uuidInPlayers
           ***REMOVED***"></icon>
           </button>
-          <button clear item-right teal-light>
-          {{event.comments?.length***REMOVED******REMOVED***<icon chatboxes teal-dark></icon>
+          <button clear item-right teal-light
+          class="badge item-right"
+          (click)="goDetail(event)"
+          [ngClass]="{
+            danger:event.playerCount< 4,
+            lime: event.playerCount < 10,
+            lime: event.playerCount >= 4,
+            teal: event.playerCount >= 10
+        ***REMOVED***">
+            {{event.playerCount***REMOVED******REMOVED***
+            <icon ios="person" md="people" [ngClass]="{danger:event.playerCount< 4,
+          lime: event.playerCount < 10,
+          lime: event.playerCount >= 4,
+          teal: event.playerCount >= 10
+        ***REMOVED***"></icon>
+          <span>|</span>
           </button>
-          <button clear item-right teal-light (click)="goDetail(event)">
-            <icon md="clipboard" ios="clipboard" teal-dark></icon>
+          <button clear item-right teal-light>
+            <icon chatboxes teal-dark></icon>
+            {{event.comments?.length***REMOVED******REMOVED***
           </button>
         </ion-item>
       </ion-card-content>
