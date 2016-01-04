@@ -74,8 +74,8 @@ export class DBService {
     return this.db.unauth();
 ***REMOVED***
   authWithPassword(email, password) {
-    console.log('(email, password', email, password);
-    var self = this;
+    // console.log('(email, password', email, password);
+    let self = this;
     //CryptoJS.HmacSHA256(password, this.cfg.token).toString()
     return new Promise((resolve, reject) => {
 
