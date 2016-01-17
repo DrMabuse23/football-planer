@@ -1,5 +1,5 @@
 import {NgClass, Disabled, NgIf, NgFor, NgSwitch, NgModel***REMOVED*** from 'angular2/common';
-import {Page, NavParams***REMOVED*** from 'ionic/ionic';
+import {Page, NavParams, Config***REMOVED*** from 'ionic/ionic';
 ***REMOVED***
 import {findIndex***REMOVED*** from 'lodash';
 import {UserService***REMOVED*** from '../../db/service/user';
@@ -26,7 +26,8 @@ export class EventPage {
     (error) => { console.error(error) ***REMOVED***,
     () => { ***REMOVED***);
 
-  constructor(navParams: NavParams, eventService: EventsService, userService: UserService) {
+  constructor(navParams: NavParams, eventService: EventsService, userService: UserService, config: Config) {
+    this.isAndroid = config.get('mode') == 'md' ? '' : null;
     this.params = navParams;
     this.event = this.params.get('event');
     this.players = null;

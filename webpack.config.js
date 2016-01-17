@@ -16,6 +16,7 @@ module.exports = {
     pathinfo: true // show module paths in the bundle, handy for debugging
 ***REMOVED***,
   devtool: "eval-cheap-module-source-map",
+  debug: true,
   module: {
     loaders: [
       {
@@ -23,6 +24,9 @@ module.exports = {
         loader: "awesome-typescript-loader?doTypeCheck=false&useWebpackText=true",
         include: [path.join(__dirname, 'app')],
         exclude: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'scripts')]
+    ***REMOVED***,
+      {
+        test: /\.html$/
     ***REMOVED***,
       {
         test: /\.ts$/,

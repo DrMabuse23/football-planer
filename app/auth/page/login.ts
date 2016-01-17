@@ -1,5 +1,5 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/common';
-import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from './../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {SignupPage***REMOVED*** from './../../auth/page/signup';
@@ -12,7 +12,6 @@ import {HomePage***REMOVED*** from './../../home/page/home-page';
 ***REMOVED***)
 export class LoginPage {
   app: IonicApp;
-  popup: Popup;
   nav: NavController;
   form: ControlGroup;
 
@@ -26,12 +25,11 @@ export class LoginPage {
   loginData: any;
 
 
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService, popup: Popup) {
+  constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService) {
     this.userOnLogin = false;
     this.userService = userService;
     this.localStore = JSON.parse(localStorage.getItem('remember'));
     this.dbService = dbService;
-    this.popup = popup;
     this.app = app;
     this.nav = nav;
     this.form = new ControlGroup({
@@ -49,6 +47,7 @@ export class LoginPage {
 ***REMOVED***
 
   doLogin(event) {
+    let self = this;
     if (this.form.valid) {
       if (self.form.value.remember) {
         localStorage.setItem('remember', JSON.stringify(self.form.value));
@@ -65,30 +64,32 @@ export class LoginPage {
   ***REMOVED***
     event.preventDefault();
 ***REMOVED***
+
   loginDb() {
     let self = this;
     this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
-        self.userOnLogin = false;
-        console.log("Authenticated user with uid:", resp.uid)
-        self.userService.getUserProfile().then(() => {
-          if (resp.password.isTemporaryPassword) {
-            console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
-        ***REMOVED*** else {
-            self.nav.setRoot(self.homePage);
-        ***REMOVED***
-      ***REMOVED***);
-    ***REMOVED***).catch((err) => {
-        this.userOnLogin = false;
-        self.doAlert(err.message);
+      self.userOnLogin = false;
+      console.log("Authenticated user with uid:", resp.uid)
+      self.userService.getUserProfile().then(() => {
+        if (resp.password.isTemporaryPassword) {
+          console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
+          //console.table(resp);
+      ***REMOVED*** else {
+          self.nav.setRoot(self.homePage);
+      ***REMOVED***
     ***REMOVED***);
+  ***REMOVED***).catch((err) => {
+      // console.table(error);
+      this.userOnLogin = false;
+      self.doAlert(err.message);
+  ***REMOVED***);
 ***REMOVED***
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
-    this.popup.alert({
+    let alert = Alert.create({
       title: title,
       template: message,
       cssClass: cssClass
-  ***REMOVED***).then(() => {
-      console.log('Alert closed');
   ***REMOVED***);
+    this.nav.present(alert);
 ***REMOVED***
 ***REMOVED***

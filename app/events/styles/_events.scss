@@ -1,3 +1,26 @@
+.md{
+  ion-card{
+    &.show{
+
+      margin: 6% 0;
+      overflow: initial;
+  ***REMOVED***
+***REMOVED***
+***REMOVED***
+
+.ios{
+  ion-card{
+    &.show{
+      // border-bottom: 1px solid rgba(0,0,0,.2);
+      .add-button{
+        // bottom: -33px;
+        z-index: 50;
+        // left: -10px;
+    ***REMOVED***
+  ***REMOVED***
+***REMOVED***
+***REMOVED***
+
 .ios, .md{
   ion-list .item-inner{
     border-bottom: none !important;
@@ -14,7 +37,7 @@
         ion-card.event-item{
           display: flex;
           width: 46%;
-          margin: 1% 2%;
+          margin: 2% 2%;
       ***REMOVED***
     ***REMOVED***
   ***REMOVED***
@@ -25,13 +48,24 @@
     margin: 0 0 10px 0;
     box-shadow: none;
     &.show{
-      margin-bottom: 20px;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+      margin-bottom: 50px;
+      overflow: initial;
+      .add-button{
+        // top: 70%;
+        bottom: -28px;
+        z-index: 50;
+    ***REMOVED***
   ***REMOVED***
 ***REMOVED***
   .event-item{
      [item-right][clear] {
       padding: 0 0;
+      text-align: right;
+   ***REMOVED***
+     [item-left][clear] {
+      padding: 0 0;
+      text-align: left;
    ***REMOVED***
      .item-inner{
        padding-right: 0;
@@ -42,33 +76,47 @@
     .animated{
         min-height: 0px;
         height: 0;
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #ccc;
         transition: height .2s ease-in-out;
+        align-items: center;
       &.show{
         min-height: 40px;
         opacity: 1;
-        @extend .fadeIn;
         transition: height .2s ease-out-in;
     ***REMOVED***
       button{
         font-size: 14px;
-        color: black;
+        &:nth-child(1) {
+          ion-badge{
+            margin-left: 5px;
+        ***REMOVED***
+
+      ***REMOVED***
+        &:nth-child(2) {
+          ion-badge{
+            margin-right: 5px;
+        ***REMOVED***
+      ***REMOVED***
     ***REMOVED***
   ***REMOVED***
     span.date{
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       display: flex;
       width: 50%;
       justify-content: flex-start;
       flex-wrap: wrap;
   ***REMOVED***
     button.badge{
-      width: 50%;
-      text-align: right;
+      // width: 50%;
+      // text-align: right;
       display: flex;
       height: 20px;
       justify-content: flex-end;
       icon{
-        font-size: 20px;
+        //font-size: 20px;
         margin-left: 12px;
     ***REMOVED***
   ***REMOVED***
@@ -83,7 +131,7 @@
     .icon-only{
       font-size: 1.6rem;
   ***REMOVED***
-    icon.ion-md-chatboxes{
+    icon[chatboxes]{
       padding-left: 10px;
       margin-top: 6px;
       margin-right: 8px;
@@ -105,7 +153,7 @@
   @each $color-name, $color-value in $colors {
     // @debug $color-name;
     // @debug $color-value;
-    span.badge{
+    button.badge{
       &.#{$color-name***REMOVED***{
         color: $color-value;
     ***REMOVED***

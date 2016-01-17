@@ -10,7 +10,9 @@
   "scripts": {
     "webpack": "webpack",
     "watch": "webpack --watch",
-    "server": "webpack-dev-server --content-base app/ --colors --hot --inline --display-error-details --eval-cheap-module-source-map --port 3000",
+    "watch:dev": "./node_modules/.bin/webpack --watch --progress --profile --colors --display-error-details --display-cached",
+    "server:dev": "./node_modules/.bin/webpack --content-base app/ --progress --profile --colors --display-error-details --display-cached --port 3000",
+    "server": "webpack-dev-server --content-base app/ --inline --hot --progress --profile --colors --display-error-details --display-cached --port 3000",
     "docs": "typedoc  --options typedoc.json  app/**/*.js",
     "start": "npm run server",
     "cordova": "node ./scripts/cordova.js --command",
@@ -19,22 +21,23 @@
     "bundle-android": "npm run build && npm run cordova --command build android && npm run cordova --command run android"
 ***REMOVED***,
   "dependencies": {
-     "angular2": "^2.0.0-beta.0",
+    "angular2": "^2.0.0-beta.0",
+    "browserify-cryptojs": "^0.3.1",
     "colors": "^1.1.2",
     "es6-promise": "^3.0.2",
     "es6-shim": "0.33.6",
+    "firebase": "^2.3.2",
     "inquirer": "0.11.0",
+    "ionic-framework": "^2.0.0-alpha.47",
+    "livereload-js": "^2.2.2",
     "lodash": "3.10.1",
+    "moment": "^2.11.0",
     "q": "1.4.1",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "shelljs": "0.5.3",
-    "zone.js": "0.5.10",
-    "browserify-cryptojs": "^0.3.1",
-    "firebase": "^2.3.2",
-    "ionic-framework": "2.0.0-alpha.44",
-    "livereload-js": "^2.2.2",
-    "moment": "^2.10.6"
+    "systemjs": "^0.19.10",
+    "zone.js": "0.5.10"
 ***REMOVED***,
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",

@@ -1,14 +1,17 @@
-<ion-navbar *navbar teal-300>
-  <ion-title teal-lite>{{event.date***REMOVED******REMOVED***/{{event.place?.name***REMOVED******REMOVED***</ion-title>
+<ion-navbar *navbar teal>
+  <ion-title teal-lite> {{event.place?.name***REMOVED******REMOVED***</ion-title>
 </ion-navbar>
 <ion-toolbar>
   <div>
-    <ion-segment [(*ngModel)]="tab" teal-dark (change)="onSegmentChanged($event)">
+    <ion-segment [(*ngModel)]="tab" teal (change)="onSegmentChanged($event)">
       <ion-segment-button value="one">
         Spieler
       </ion-segment-button>
       <ion-segment-button value="two">
         Kommentare
+      </ion-segment-button>
+      <ion-segment-button value="three">
+        Detail
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -16,22 +19,24 @@
 <ion-content class="events-content" padding>
   <div [(ngSwitch)]="tab">
     <ion-list *ngSwitchWhen="'one'">
-      <!--<ion-list-header teal-dark>
-        Spieler
-      </ion-list-header>-->
       <ion-item *ngFor="#player of players">
         {{player.data.firstName***REMOVED******REMOVED*** {{player.data.lastName***REMOVED******REMOVED***
       </ion-item>
     </ion-list>
-
     <ion-list *ngSwitchWhen="'two'">
       <ion-item>
-        <!--<ion-thumbnail item-left>
-          <img src="img/thumbnail-kitten-1.jpg">
-        </ion-thumbnail>-->
-        testwurst
-        <h2>Luna</h2>
+        <h2>Kommentare</h2>
       </ion-item>
     </ion-list>
+    <ion-card *ngSwitchWhen="'three'">
+      <ion-card-header>
+        Spiel
+      </ion-card-header>
+      <img src="images/feuerbach.png" />
+      <ion-card-content>
+        <h2>{{event.place?.name***REMOVED******REMOVED***</h2>
+        <p>{{event.date***REMOVED******REMOVED***</p>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

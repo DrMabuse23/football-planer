@@ -19,6 +19,7 @@ export class SignupPage {
   signupData: any;
 
   constructor(app: IonicApp, nav: NavController, popup: Popup, dbService: DBService, fb: FormBuilder, userService: UserService) {
+
     this.dbService = dbService;
     this.userService = userService;
     this.popup = popup;
