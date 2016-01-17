@@ -25,6 +25,10 @@ ion-input.has-focus:after {
   icon[#{$color-name}], icon.#{$color-name}{
     color: $color-value;
   }
+  ion-badge.#{$color-name} {
+    background-color: $color-value;
+    color: inverse($color-value);
+  }
   ion-list-header{
     color: $color-value;
   }

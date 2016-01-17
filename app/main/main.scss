@@ -22,16 +22,17 @@ $ionicons-font-path: $font-path;
 $colors: (
   primary:    #387ef5,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #D32F2F,
   light:      #ffffff,
   dark:       #222,
   favorite:   #69BB7B,
-  positive:   #006cb8,
+  positive:   #4CAF50,
   light-gray: #F6F6F6,
   citrus:     #FED006,
-  pink:       #E91E63,
-  pink-dark:  #880E4F,
-  pink-light: #F8BBD0,
+  pink-dark:   #C2185B,
+  pink:        #E91E63,
+  pink-light:  #F8BBD0,
+  pink-text:   #FFFFFF,
   blue:       #2196F3,
   blue-light: #E3F2FD,
   blue-dark:  #0D47A1,
@@ -41,19 +42,35 @@ $colors: (
   lime:       #CDDC39,
   lime-light: #F4FF81,
   lime-400:   #C6FF00,
-  teal:       #009688,
-  teal-light: #E0F2F1,
+  teal-dark:   #00796B,
+  teal:        #009688,
+  teal-light:  #B2DFDB,
+  teal-light-primary: #B2DFDB,
   teal-300:   #4DB6AC,
-  teal-dark:  #004D40
+  green-dark: #689F38,
+  green:      #8BC34A,
+  green-light:#DCEDC8,
+  green-text: #212121,
+  blue-grey: #607D8B
 );
+
+$text-color:                 #212121 !default;
+$subdued-text-color:         #727272 !default;
+
+$toolbar-background:         #fff !default;
+$toolbar-border-color:       #607D8B !default;
+// $toolbar-text-color:         $text-color !default;
+// $toolbar-active-color:       $link-color !default;
+// $toolbar-inactive-color:     #8c8c8c !default;
+
 .text-right{
   text-align: right;
   display: block;
 }
 // Ionic Sass
 // ---------------------------------
-//@import "~ionic-framework/ionic.ios";
- @import "~ionic-framework/ionic.md";
+@import "~ionic-framework/ionic.ios";
+//  @import "~ionic-framework/ionic.md";
 
 // App Sass
 // ---------------------------------
@@ -63,4 +80,3 @@ $colors: (
 @import "../home/styles/home";
 @import "../events/styles/events";
 @import "styles/slider_loader";
-

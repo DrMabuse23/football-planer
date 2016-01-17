@@ -1,5 +1,5 @@
 import {NgClass, Disabled, NgIf, NgFor, NgSwitch, NgModel} from 'angular2/common';
-import {Page, NavParams} from 'ionic/ionic';
+import {Page, NavParams, Config} from 'ionic/ionic';
 import {Observable} from 'rxjs/Observable';
 import {findIndex} from 'lodash';
 import {UserService} from '../../db/service/user';
@@ -26,7 +26,8 @@ export class EventPage {
     (error) => { console.error(error) },
     () => { });
 
-  constructor(navParams: NavParams, eventService: EventsService, userService: UserService) {
+  constructor(navParams: NavParams, eventService: EventsService, userService: UserService, config: Config) {
+    this.isAndroid = config.get('mode') == 'md' ? '' : null;
     this.params = navParams;
     this.event = this.params.get('event');
     this.players = null;
