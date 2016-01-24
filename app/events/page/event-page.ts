@@ -10,11 +10,9 @@ import {EventsService***REMOVED*** from './../services/events';
   providers: [EventsService]
 ***REMOVED***)
 export class EventPage {
-  app: IonicApp;
   pages: any;
   root: any;
   config: Config;
-  dbService: DBService;
   userService: UserService;
   eventService: EventsService
   event: any;
