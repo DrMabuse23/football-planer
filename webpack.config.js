@@ -15,7 +15,7 @@ module.exports = {
     publicPath: 'js/',
     pathinfo: true // show module paths in the bundle, handy for debugging
   },
-  devtool: "eval-cheap-module-source-map",
+  devtool: "source-map",
   debug: true,
   module: {
     loaders: [
@@ -44,12 +44,13 @@ module.exports = {
       },
       // Any png-image or woff-font below or equal to 100K will be converted
       // to inline base64 instead
-      { test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000' }
+      { test: /\.(png|woff|ttf|woff2)(\?.*)?$/, loader: 'url-loader?limit=1000000' }
     ]
   },
   resolve: {
     alias: {
       'ionic': 'ionic-framework',
+      'ionicons': 'ionicons',
       'web-animations.min': 'ionic-framework/js/web-animations.min',
     },
     extensions: ["", ".js", ".ts"]
@@ -59,7 +60,8 @@ module.exports = {
   // https://github.com/jtangelder/sass-loader#sass-options
   sassLoader: {
     includePaths: [
-      path.resolve(__dirname, "node_modules", 'ionic-framework', 'dist', 'src', 'scss')
+      path.resolve(__dirname, "node_modules", 'ionic-framework', 'dist', 'src', 'scss'),
+      path.resolve(__dirname, "node_modules","ionicons", "dist","scss")
     ]
   }
 };

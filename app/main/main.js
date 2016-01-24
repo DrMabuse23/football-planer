@@ -10,7 +10,7 @@ import {DBService} from './../db/service/db';
 import {UserService} from './../db/service/user';
 import {PlaceService} from './../db/service/place';
 import './main.scss'
-// import {enableProdMode} from 'angular2/core'; enableProdMode();
+import {enableProdMode} from 'angular2/core'; enableProdMode();
 @App({
   templateUrl: 'main/main.html',
   config: {

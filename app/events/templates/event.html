@@ -1,9 +1,10 @@
 <ion-navbar *navbar teal>
   <ion-title teal-lite> {{event.place?.name}}</ion-title>
 </ion-navbar>
-<ion-toolbar>
+<ion-content class="events-content" padding>
+  <ion-toolbar>
   <div>
-    <ion-segment [(*ngModel)]="tab" teal (change)="onSegmentChanged($event)">
+    <ion-segment [(ngModel)]="tab" teal (change)="onSegmentChanged($event)">
       <ion-segment-button value="one">
         Spieler
       </ion-segment-button>
@@ -16,8 +17,7 @@
     </ion-segment>
   </div>
 </ion-toolbar>
-<ion-content class="events-content" padding>
-  <div [(ngSwitch)]="tab">
+  <div [ngSwitch]="tab">
     <ion-list *ngSwitchWhen="'one'">
       <ion-item *ngFor="#player of players">
         {{player.data.firstName}} {{player.data.lastName}}
