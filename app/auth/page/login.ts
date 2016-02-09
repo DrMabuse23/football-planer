@@ -87,7 +87,7 @@ export class LoginPage {
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
     let alert = Alert.create({
       title: title,
-      template: message,
+      message: message,
       cssClass: cssClass
   ***REMOVED***);
     this.nav.present(alert);

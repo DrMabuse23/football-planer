@@ -31,19 +31,19 @@
         <p danger>Ihre E-mail ist nicht valide ('max@mustermann.de').</p>
       </ion-item>
       <!--<error-required
-      [expr]="form.hasError('required', 'email') && form.controls.email.dirty"
-      [attr]="E-mail"
-      ></error-required>-->
+            [expr]="form.hasError('required', 'email') && form.controls.email.dirty"
+            [attr]="E-mail"
+              ></error-required>-->
       <ion-item clearInput>
         <ion-input ngControl="mobile" type="text" placeholder="Handynr." required></ion-input>
       </ion-item>
-       <ion-item *ngIf="form.hasError('required', 'mobile') && form.controls.mobile.dirty">
+      <ion-item *ngIf="form.hasError('required', 'mobile') && form.controls.mobile.dirty">
         <p danger>Handynr. ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
       <ion-item *ngIf="form.hasError('isPhoneNumber', 'mobile') && form.controls.mobile.dirty">
         <p danger>Ihre Handynr. ist nicht valide ('01753248292').</p>
       </ion-item>
-        <!--<error-required
+      <!--<error-required
         [expr]="form.hasError('required', 'email') && form.controls.email.dirty"
         [attr]="E-mail"
         ></error-required>-->
@@ -52,15 +52,17 @@
           <ion-input ngControl="password" type="password" placeholder="Dein Passwort" required></ion-input>
         </ion-item>
         <ion-item *ngIf="form.controls.matchingPassword.hasError('required', 'password') && form.controls.matchingPassword.controls.password.dirty">
-        <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
-      </ion-item>
+          <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
+        </ion-item>
         <ion-item clearInput>
           <ion-input ngControl="passwordConfirm" type="password" placeholder="Passwort wiederholen" required></ion-input>
         </ion-item>
         <ion-item *ngIf="form.controls.matchingPassword.hasError('required', 'passwordConfirm') && form.controls.matchingPassword.controls.passwordConfirm.dirty">
-        <p danger>Passwort wiederholen ist ein pflicht feld und darf nicht leer sein.</p>
-      </ion-item>
-      <ion-item danger *ngIf="form.hasError('areEqual', 'matchingPassword')"><p danger>Passwörter stimmen nicht überein.</p></ion-item>
+          <p danger>Passwort wiederholen ist ein pflicht feld und darf nicht leer sein.</p>
+        </ion-item>
+        <ion-item danger *ngIf="form.hasError('areEqual', 'matchingPassword')">
+          <p danger>Passwörter stimmen nicht überein.</p>
+        </ion-item>
       </div>
 
     </ion-list>
