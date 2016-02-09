@@ -14,21 +14,23 @@
   </div>
   <form (submit)="doLogin($event)" [ngFormModel]="form">
     <ion-list>
-      <ion-input>
-        <input ngControl="email" type="email" placeholder="Deine E-mail">
-      </ion-input>
+      <ion-item clearInput>
+        <ion-input ngControl="email" type="email" placeholder="Deine E-mail"></ion-input>
+      </ion-item>
       <ion-item *ngIf="form.hasError('required', 'email') && form.controls.email.dirty">
         <p danger>Email ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-      <ion-input>
-        <input ngControl="password" type="password" placeholder="Dein Passwort">
-      </ion-input>
+      <ion-item clearInput>
+        <ion-input ngControl="password" type="password" placeholder="Dein Passwort"></ion-input>
+      </ion-item>
       <ion-item danger *ngIf="form.hasError('required', 'password') && form.controls.password.dirty">
         <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-      <ion-toggle checked="form.value.remember" blue-grey>
-        Zugangsdaten merken
-      </ion-toggle>
+      <ion-item>
+      <ion-label>Zugangsdaten merken</ion-label>
+      <ion-toggle checked="form.value.remember" blue-grey></ion-toggle>
+    </ion-item>
+
     </ion-list>
     <button small pink full type="submit" [disabled]="!form.valid" >Einloggen</button>
     <div class="options">

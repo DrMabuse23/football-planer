@@ -1,16 +1,15 @@
 import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/common';
 import {isBlank} from 'angular2/src/facade/lang';
-import {IonicApp, Page, NavController, Popup} from 'ionic/ionic';
+import {IonicApp, Page, NavController, Alert} from 'ionic/ionic';
 import {DBService} from '../../db/service/db';
 import {UserService} from '../../db/service/user';
-import {ErrorItemComponent} from './../component/error-required';
+// import {ErrorItemComponent} from './../component/error-required';
 
 @Page({
   templateUrl: 'auth/templates/signup.html'
 })
 export class SignupPage {
   app: IonicApp;
-  popup: Popup;
   nav: NavController;
   form: any;
 
@@ -18,11 +17,10 @@ export class SignupPage {
   userService: UserService;
   signupData: any;
 
-  constructor(app: IonicApp, nav: NavController, popup: Popup, dbService: DBService, fb: FormBuilder, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, dbService: DBService, fb: FormBuilder, userService: UserService) {
 
     this.dbService = dbService;
     this.userService = userService;
-    this.popup = popup;
     this.app = app;
     this.nav = nav;
     this.form = fb.group({
@@ -94,10 +92,12 @@ export class SignupPage {
 
   doSignup(event) {
     if (this.form.valid) {
+      let self = this;
       this.userService.registerUser(this.form).then(() => {
-        this.doAlert('Registrierung abgeschlossen', 'Erfolgreich', 'pink').then(() => {
-          this.nav.pop();
-        });
+        this.doAlert('Registrierung abgeschlossen', 'Erfolgreich', 'pink');
+        setTimeout(() => {
+          self.nav.pop()
+        }, 1000)
       }).catch(error => {
         switch (error.code) {
           case "EMAIL_TAKEN":
@@ -120,10 +120,11 @@ export class SignupPage {
   }
 
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='danger') {
-    return this.popup.alert({
+    let alert =  Alert.create({
       title: title,
-      template: message,
+      message: message,
       cssClass: cssClass
     });
+    this.nav.present(alert);
   }
 }

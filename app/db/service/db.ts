@@ -39,9 +39,9 @@ export class DBService {
 
   onAuthCallback(authData) {
     if (authData) {
-      console.log("Authenticated with uid:", authData);
+      // console.log("Authenticated with uid:", authData);
     } else {
-      console.log("Client unauthenticated.")
+      // console.log("Client unauthenticated.")
     }
   }
 

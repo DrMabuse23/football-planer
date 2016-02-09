@@ -11,18 +11,18 @@ import {HomePage} from './../../home/page/home-page';
   templateUrl: 'auth/templates/login.html'
 })
 export class LoginPage {
-  app: IonicApp;
-  nav: NavController;
-  form: ControlGroup;
-
-  localStore: any;
-  userOnLogin: boolean;
-  userService: UserService;
-  dbService: DBService;
-  homePage: any;
-  signupPage: any;
-  passwordResetPage: any;
-  loginData: any;
+//   app: IonicApp;
+//   nav: NavController;
+//   form: ControlGroup;
+//
+//   localStore: any;
+//   userOnLogin: boolean;
+//   userService: UserService;
+//   dbService: DBService;
+//   homePage: any;
+//   signupPage: any;
+//   passwordResetPage: any;
+//   loginData: any;
 
 
   constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService) {
@@ -69,10 +69,10 @@ export class LoginPage {
     let self = this;
     this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
       self.userOnLogin = false;
-      console.log("Authenticated user with uid:", resp.uid)
+      // console.log("Authenticated user with uid:", resp.uid)
       self.userService.getUserProfile().then(() => {
         if (resp.password.isTemporaryPassword) {
-          console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
+          // console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
           //console.table(resp);
         } else {
           self.nav.setRoot(self.homePage);

@@ -4,15 +4,15 @@
 <ion-content class="signup-content">
   <form (submit)="doSignup($event)" [ngFormModel]="form">
     <ion-list>
-      <ion-input>
-        <input ngControl="firstName" type="text" placeholder="Vorname" required>
-      </ion-input>
+      <ion-item clearInput>
+        <ion-input ngControl="firstName" type="text" placeholder="Vorname" required></ion-input>
+      </ion-item>
       <ion-item *ngIf="form.hasError('required', 'firstName') && form.controls.firstName.dirty">
         <p danger>Vorname ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-      <ion-input>
-        <input ngControl="lastName" type="text" placeholder="Nachname" required>
-      </ion-input>
+      <ion-item clearInput>
+        <ion-input ngControl="lastName" type="text" placeholder="Nachname" required></ion-input>
+      </ion-item>
       <ion-item *ngIf="form.hasError('required', 'lastName') && form.controls.lastName.dirty">
         <p danger>Nachname ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
@@ -20,9 +20,10 @@
       [expr]="form.hasError('required', 'lastName') && form.controls.lastName.dirty"
       [attr]="Nachname"
       ></error-required>-->
-      <ion-input>
-        <input ngControl="email" type="email" placeholder="Deine E-mail" required>
-      </ion-input>
+
+      <ion-item clearInput>
+        <ion-input ngControl="email" type="email" placeholder="Deine E-mail" required></ion-input>
+      </ion-item>
       <ion-item *ngIf="form.hasError('required', 'email') && form.controls.email.dirty">
         <p danger>E-mail ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
@@ -33,29 +34,29 @@
       [expr]="form.hasError('required', 'email') && form.controls.email.dirty"
       [attr]="E-mail"
       ></error-required>-->
-      <ion-input>
-        <input ngControl="mobile" type="text" placeholder="Handynr." required>
-      </ion-input>
+      <ion-item clearInput>
+        <ion-input ngControl="mobile" type="text" placeholder="Handynr." required></ion-input>
+      </ion-item>
        <ion-item *ngIf="form.hasError('required', 'mobile') && form.controls.mobile.dirty">
         <p danger>Handynr. ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
       <ion-item *ngIf="form.hasError('isPhoneNumber', 'mobile') && form.controls.mobile.dirty">
-        <p danger>Ihre Handynr. ist nicht valide ('max@mustermann.de').</p>
+        <p danger>Ihre Handynr. ist nicht valide ('01753248292').</p>
       </ion-item>
         <!--<error-required
         [expr]="form.hasError('required', 'email') && form.controls.email.dirty"
         [attr]="E-mail"
         ></error-required>-->
       <div ngControlGroup="matchingPassword">
-        <ion-input>
-          <input ngControl="password" type="password" placeholder="Dein Passwort" required>
-        </ion-input>
+        <ion-item clearInput>
+          <ion-input ngControl="password" type="password" placeholder="Dein Passwort" required></ion-input>
+        </ion-item>
         <ion-item *ngIf="form.controls.matchingPassword.hasError('required', 'password') && form.controls.matchingPassword.controls.password.dirty">
         <p danger>Passwort ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
-        <ion-input>
-          <input ngControl="passwordConfirm" type="password" placeholder="Passwort wiederholen" required>
-        </ion-input>
+        <ion-item clearInput>
+          <ion-input ngControl="passwordConfirm" type="password" placeholder="Passwort wiederholen" required></ion-input>
+        </ion-item>
         <ion-item *ngIf="form.controls.matchingPassword.hasError('required', 'passwordConfirm') && form.controls.matchingPassword.controls.passwordConfirm.dirty">
         <p danger>Passwort wiederholen ist ein pflicht feld und darf nicht leer sein.</p>
       </ion-item>
