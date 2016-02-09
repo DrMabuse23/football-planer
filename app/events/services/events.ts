@@ -119,7 +119,7 @@ export class EventsService {
 
   setYear(year = 2016, place = '-K-m_vkLkNXg5P-RRmx5') {
     let self = this;
-    let d = new Date(2015, 11, 13, 15, 30);
+    let d = new Date(2015, 11, 13, 14, 30);
     let oneWeek = 7*24*60*60*1000;
     let time = d.getTime();
     this.ref.set([]);

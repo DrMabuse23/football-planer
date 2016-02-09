@@ -2,41 +2,23 @@
   <ion-title teal-lite> {{event.place?.name}}</ion-title>
 </ion-navbar>
 <ion-content class="events-content" padding>
-  <ion-toolbar>
-  <div>
-    <ion-segment [(ngModel)]="tab" teal (change)="onSegmentChanged($event)">
-      <ion-segment-button value="one">
-        Spieler
-      </ion-segment-button>
-      <ion-segment-button value="two">
-        Kommentare
-      </ion-segment-button>
-      <ion-segment-button value="three">
-        Detail
-      </ion-segment-button>
-    </ion-segment>
-  </div>
-</ion-toolbar>
-  <div [ngSwitch]="tab">
-    <ion-list *ngSwitchWhen="'one'">
-      <ion-item *ngFor="#player of players">
+  <ion-card>
+    <ion-card-header>
+      {{event.date}}
+    </ion-card-header>
+    <ion-list class="map-card">
+      <div item id="map"></div>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Mitspieler {{event.playerCount}}
+    </ion-card-header>
+    <ion-list>
+      <a href="tel:{{player.data?.mobile}}" ion-item *ngFor="#player of players">
         {{player.data.firstName}} {{player.data.lastName}}
-      </ion-item>
+        <ion-icon name="telephone" item-right teal></ion-icon>
+      </a>
     </ion-list>
-    <ion-list *ngSwitchWhen="'two'">
-      <ion-item>
-        <h2>Kommentare</h2>
-      </ion-item>
-    </ion-list>
-    <ion-card *ngSwitchWhen="'three'">
-      <ion-card-header>
-        Spiel
-      </ion-card-header>
-      <img src="images/feuerbach.png" />
-      <ion-card-content>
-        <h2>{{event.place?.name}}</h2>
-        <p>{{event.date}}</p>
-      </ion-card-content>
-    </ion-card>
-  </div>
+  </ion-card>
 </ion-content>
