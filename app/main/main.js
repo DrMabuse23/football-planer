@@ -36,7 +36,7 @@ class App {
     this.dbService = dbService;
     this.setDb(dbService);
     this.app = app;
-    this.isTablet = platform.platforms().indexOf('tablet') != - 1;
+    this.isTablet = window.screen.width < 600 ? false : true;// platform.platforms().indexOf('tablet') != - 1;
     config.set('isTablet', this.isTablet);
     this.isMD = config.get('mode') == 'md' ? '' : null;
     this.pages = [

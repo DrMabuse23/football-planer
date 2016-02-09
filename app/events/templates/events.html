@@ -46,8 +46,12 @@
           </button>
         </div>
       </ion-card-content>
-      <button fab fab-right (click)="setPlayer(index)" class="add-button"
-      [ngClass]="{'button-blue-grey': !event.uuidInPlayers, 'button-green': event.uuidInPlayers***REMOVED***"
+      <button fab fab-right (click)="setPlayer(index)"
+      class="button add-button button-icon-only"
+      [ngClass]="{
+      'button-blue-grey': !event.uuidInPlayers,
+      'button-green': event.uuidInPlayers
+    ***REMOVED***"
       >
         <ion-icon class="icon light ion-ios-football"></ion-icon>
       </button>

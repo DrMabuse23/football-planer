@@ -1,16 +1,15 @@
 import {Validators, Control, ControlGroup, FormBuilder***REMOVED*** from 'angular2/common';
 import {isBlank***REMOVED*** from 'angular2/src/facade/lang';
-import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic/ionic';
 import {DBService***REMOVED*** from '../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
-import {ErrorItemComponent***REMOVED*** from './../component/error-required';
+// import {ErrorItemComponent***REMOVED*** from './../component/error-required';
 
 @Page({
   templateUrl: 'auth/templates/signup.html'
 ***REMOVED***)
 export class SignupPage {
   app: IonicApp;
-  popup: Popup;
   nav: NavController;
   form: any;
 
@@ -18,11 +17,10 @@ export class SignupPage {
   userService: UserService;
   signupData: any;
 
-  constructor(app: IonicApp, nav: NavController, popup: Popup, dbService: DBService, fb: FormBuilder, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, dbService: DBService, fb: FormBuilder, userService: UserService) {
 
     this.dbService = dbService;
     this.userService = userService;
-    this.popup = popup;
     this.app = app;
     this.nav = nav;
     this.form = fb.group({
@@ -94,10 +92,12 @@ export class SignupPage {
 
   doSignup(event) {
     if (this.form.valid) {
+      let self = this;
       this.userService.registerUser(this.form).then(() => {
-        this.doAlert('Registrierung abgeschlossen', 'Erfolgreich', 'pink').then(() => {
-          this.nav.pop();
-      ***REMOVED***);
+        this.doAlert('Registrierung abgeschlossen', 'Erfolgreich', 'pink');
+        setTimeout(() => {
+          self.nav.pop()
+      ***REMOVED***, 1000)
     ***REMOVED***).catch(error => {
         switch (error.code) {
           case "EMAIL_TAKEN":
@@ -120,10 +120,11 @@ export class SignupPage {
 ***REMOVED***
 
   doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='danger') {
-    return this.popup.alert({
+    let alert =  Alert.create({
       title: title,
-      template: message,
+      message: message,
       cssClass: cssClass
   ***REMOVED***);
+    this.nav.present(alert);
 ***REMOVED***
 ***REMOVED***

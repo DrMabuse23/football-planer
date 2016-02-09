@@ -39,9 +39,9 @@ export class DBService {
 
   onAuthCallback(authData) {
 ***REMOVED***
-      console.log("Authenticated with uid:", authData);
+***REMOVED***
   ***REMOVED*** else {
-      console.log("Client unauthenticated.")
+***REMOVED***
   ***REMOVED***
 ***REMOVED***
 

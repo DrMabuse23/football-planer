@@ -17,8 +17,8 @@
 // override ionic.scss's font-path to point to the correct path
 // when building from Sass source.
 // More info: https://github.com/jtangelder/sass-loader#problems-with-url
-$font-path: '~ionicons/dist/fonts';
-$ionicons-font-path: $font-path;
+$font-path: '~ionic-framework/fonts';
+$ionicons-font-path: '~ionicons/dist/fonts';
 $colors: (
   primary:    #387ef5,
   secondary:  #32db64,
@@ -69,8 +69,8 @@ $toolbar-border-color:       #607D8B !default;
 ***REMOVED***
 // Ionic Sass
 // ---------------------------------
-@import "~ionic-framework/ionic.ios";
-//  @import "~ionic-framework/ionic.md";
+// @import "~ionic-framework/ionic.ios";
+ @import "~ionic-framework/ionic.md";
 
 // App Sass
 // ---------------------------------

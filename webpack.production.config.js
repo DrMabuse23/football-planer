@@ -35,17 +35,18 @@ module.exports = {
         // can work with, e.g.: url('../my-file.png') => url('/path/to/my-file.png')
         // https://github.com/bholloway/resolve-url-loader
         test: /\.scss$/,
-        loaders: ["style", "css", "resolve-url", "autoprefixer?browsers=last 2 version", "sass", ]
+        loaders: ["style", "css", "resolve-url", "autoprefixer?browsers=last 2 version", "sass" ]
     ***REMOVED***,
 
       // Any png-image or woff-font below or equal to 100K will be converted
       // to inline base64 instead
-      { test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=100000' ***REMOVED***
+      { test: /\.(png|woff|ttf|woff2)(\?.*)?$/, loader: 'url-loader?limit=100000' ***REMOVED***
     ]
 ***REMOVED***,
   resolve: {
    alias: {
       'ionic': 'ionic-framework',
+      'ionicons': 'ionicons',
       'web-animations.min': 'ionic-framework/js/web-animations.min',
   ***REMOVED***,
     extensions: ["", ".js", ".ts"]
@@ -55,7 +56,8 @@ module.exports = {
   // https://github.com/jtangelder/sass-loader#sass-options
   sassLoader: {
     includePaths: [
-      path.resolve(__dirname, "node_modules", 'ionic-framework', 'dist', 'src', 'scss')
+       path.resolve(__dirname, "node_modules", 'ionic-framework', 'dist', 'src', 'scss'),
+       path.resolve(__dirname, "node_modules","ionicons", "dist","scss")
     ]
 ***REMOVED***
 ***REMOVED***;
