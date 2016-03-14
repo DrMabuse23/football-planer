@@ -24,7 +24,7 @@ export class DBService {
 
   getConfig() {
     return new Promise((resolve, reject) => {
-      return this.http.get('./config.json')
+      return this.http.get('build/config.json')
         .map(res => res.json())
         .subscribe(
           (data) => {
