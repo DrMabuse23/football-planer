@@ -1,5 +1,5 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor} from 'angular2/common';
-import {IonicApp, Config, Page, NavController} from 'ionic/ionic';
+import {IonicApp, Config, Page, NavController} from 'ionic-angular';
 import {Observable} from 'rxjs/Observable';
 import {findIndex} from 'lodash';
 import {DBService} from './../../db/service/db';
@@ -8,7 +8,7 @@ import {EventsService} from './../services/events';
 import {EventPage} from './event-page';
 
 @Page({
-  templateUrl: 'events/templates/events.html',
+  templateUrl: 'build/events/templates/events.html',
   providers: [EventsService]
 })
 export class EventsPage {

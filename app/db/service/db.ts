@@ -2,7 +2,7 @@
  * Created by drmabuse on 04/10/15.
  */
 'use strict';
-import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
+import {App, IonicApp, IonicPlatform} from 'ionic-angular';
 import {Injectable, EventEmitter} from 'angular2/core';
 import {Http, HTTP_PROVIDERS} from 'angular2/http';
 import 'rxjs/add/operator/map';

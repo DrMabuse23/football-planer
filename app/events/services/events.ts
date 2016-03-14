@@ -1,5 +1,5 @@
 import {Injectable, bind, EventEmitter} from 'angular2/core';
-import {Config} from 'ionic/ionic';
+import {Config} from 'ionic-angular';
 import {DBService} from './../../db/service/db';
 import {PlaceService} from './../../db/service/place';
 import * as moment from 'moment';

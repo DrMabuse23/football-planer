@@ -1,5 +1,5 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf} from 'angular2/common';
-import {IonicApp, Page, NavController, Alert} from 'ionic/ionic';
+import {IonicApp, Page, NavController, Alert} from 'ionic-angular';
 import {DBService} from './../../db/service/db';
 import {UserService} from '../../db/service/user';
 import {SignupPage} from './../../auth/page/signup';
@@ -8,7 +8,7 @@ import {HomePage} from './../../home/page/home-page';
 
 
 @Page({
-  templateUrl: 'auth/templates/login.html'
+  templateUrl: 'build/auth/templates/login.html'
 })
 export class LoginPage {
 //   app: IonicApp;
