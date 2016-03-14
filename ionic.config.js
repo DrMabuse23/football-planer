@@ -7,12 +7,15 @@ module.exports = {
       dest: "www/build"
   ***REMOVED***,
     sass: {
-      src: ['app/app.+(ios|md).scss'],
+      src: ['app/theme/app.+(ios|md|wp).scss'],
       dest: 'www/build/css',
-      include: ['node_modules/ionic-framework']
+      include: [
+        'node_modules/ionic-angular',
+        'node_modules/ionicons/dist/scss'
+      ]
   ***REMOVED***,
     fonts: {
-      src: ['node_modules/ionic-framework/fonts/**/*.ttf'],
+      src: ['node_modules/ionic-angular/fonts/**/*.+(ttf|woff|woff2)'],
       dest: "www/build/fonts"
   ***REMOVED***,
     watch: {

@@ -1,12 +1,12 @@
 import {NgClass, Disabled, NgIf, NgFor, NgSwitch, NgModel***REMOVED*** from 'angular2/common';
-import {Page, NavParams, Config***REMOVED*** from 'ionic/ionic';
+import {Page, NavParams, Config***REMOVED*** from 'ionic-angular';
 ***REMOVED***
 import {findIndex***REMOVED*** from 'lodash';
 import {UserService***REMOVED*** from '../../db/service/user';
 import {EventsService***REMOVED*** from './../services/events';
 
 @Page({
-  templateUrl: 'events/templates/event.html',
+  templateUrl: 'build/events/templates/event.html',
   providers: [EventsService]
 ***REMOVED***)
 export class EventPage {
@@ -33,11 +33,9 @@ export class EventPage {
     userService.getProfilesByIds(this.event.data.players).then((profiles) => {
       this.players = profiles;
   ***REMOVED***);
-    console.log('event', this.event);
 ***REMOVED***
   loadMap() {
     let latlng = { lat: Number(this.event.place.address.lat), lng: Number(this.event.place.address.long) ***REMOVED***;
-    console.log(latlng);
     var styleArray = [
       {
         featureType: "all",

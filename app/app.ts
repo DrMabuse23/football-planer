@@ -1,18 +1,15 @@
-window.CryptoJS = require('browserify-cryptojs');
-require('browserify-cryptojs/components/x64-core');
-require('browserify-cryptojs/components/sha256');
-require('browserify-cryptojs/components/hmac');
-import {App, IonicApp, Config, Platform***REMOVED*** from 'ionic/ionic';
+
+import {App, IonicApp, Config, Platform, IONIC_DIRECTIVES***REMOVED*** from 'ionic-angular';
 import {NgClass***REMOVED*** from 'angular2/common';
 ***REMOVED***
-import {LoginPage***REMOVED*** from './../auth/page/login';
-import {DBService***REMOVED*** from './../db/service/db';
-import {UserService***REMOVED*** from './../db/service/user';
-import {PlaceService***REMOVED*** from './../db/service/place';
-import './main.scss'
-import {enableProdMode***REMOVED*** from 'angular2/core'; enableProdMode();
+
+import {LoginPage***REMOVED*** from './auth/page/login';
+import {DBService***REMOVED*** from './db/service/db';
+import {UserService***REMOVED*** from './db/service/user';
+import {PlaceService***REMOVED*** from './db/service/place';
+
 @App({
-  templateUrl: 'main/main.html',
+  templateUrl: 'build/main/main.html',
   config: {
     platforms: {
       android: {
@@ -23,10 +20,10 @@ import {enableProdMode***REMOVED*** from 'angular2/core'; enableProdMode();
     backButtonText: '',
     locale: 'de'
 ***REMOVED***,
+  directives: [IONIC_DIRECTIVES],
   providers:[DBService, UserService, PlaceService]
 ***REMOVED***)
-
-class App {
+class FootBallPlanerApp {
   dbAuthChanged: Observable = new Observable(
   (dbAuth:boolean) => { this.authChange(dbAuth); ***REMOVED***,
   (error) => { ***REMOVED***,

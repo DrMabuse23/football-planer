@@ -1,0 +1,65 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files. Setting
+// variables before Ionic's Sass will use these variables rather than
+// Ionic's default Sass variable values. App Shared Sass imports belong
+// in the app.core.scss file and not this file. Sass variables specific
+// to the mode belong in either the app.ios.scss or app.md.scss files.
+
+
+// App Shared Color Variables
+// --------------------------------------------------
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+// Both iOS and MD colors can be further customized if colors
+// are different per mode.
+
+$colors: (
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #D32F2F,
+  light:      #ffffff,
+  dark:       #222,
+  favorite:   #69BB7B,
+  positive:   #4CAF50,
+  light-gray: #F6F6F6,
+  citrus:     #FED006,
+  pink-dark:   #C2185B,
+  pink:        #E91E63,
+  pink-light:  #F8BBD0,
+  pink-text:   #FFFFFF,
+  blue:       #2196F3,
+  blue-light: #E3F2FD,
+  blue-dark:  #0D47A1,
+  indigo:     #3F51B5,
+  indigo-light: #E8EAF6,
+  indigo-dark: #1A237E,
+  lime:       #CDDC39,
+  lime-light: #F4FF81,
+  lime-400:   #C6FF00,
+  teal-dark:   #00796B,
+  teal:        #009688,
+  teal-light:  #B2DFDB,
+  teal-light-primary: #B2DFDB,
+  teal-300:   #4DB6AC,
+  green-dark: #689F38,
+  green:      #8BC34A,
+  green-light:#DCEDC8,
+  green-text: #212121,
+  blue-grey: #607D8B
+);
+
+$text-color:                 #212121 !default;
+$subdued-text-color:         #727272 !default;
+
+$toolbar-background:         #fff !default;
+$toolbar-border-color:       #607D8B !default;
+// $toolbar-text-color:         $text-color !default;
+// $toolbar-active-color:       $link-color !default;
+// $toolbar-inactive-color:     #8c8c8c !default;

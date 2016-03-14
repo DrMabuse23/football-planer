@@ -1,16 +1,16 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/common';
-import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Page, NavController, Popup***REMOVED*** from 'ionic-angular';
 import {UserService***REMOVED*** from '../../db/service/user';
 
 @Page({
-  templateUrl: 'auth/templates/forgot-password.html'
+  templateUrl: 'build/auth/templates/forgot-password.html'
 ***REMOVED***)
 export class PasswordResetPage {
   userService: UserService;
   popup: Popup;
   nav: any;
   form: any;
-  
+
   constructor(app: IonicApp, nav: NavController, userService: UserService, popup: Popup) {
     this.userService = userService;
     this.popup = popup;

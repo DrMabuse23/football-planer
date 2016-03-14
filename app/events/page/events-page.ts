@@ -1,5 +1,5 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, NgFor***REMOVED*** from 'angular2/common';
-import {IonicApp, Config, Page, NavController***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Config, Page, NavController***REMOVED*** from 'ionic-angular';
 ***REMOVED***
 import {findIndex***REMOVED*** from 'lodash';
 import {DBService***REMOVED*** from './../../db/service/db';
@@ -8,7 +8,7 @@ import {EventsService***REMOVED*** from './../services/events';
 import {EventPage***REMOVED*** from './event-page';
 
 @Page({
-  templateUrl: 'events/templates/events.html',
+  templateUrl: 'build/events/templates/events.html',
   providers: [EventsService]
 ***REMOVED***)
 export class EventsPage {

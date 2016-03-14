@@ -1,4 +1,4 @@
-<!--<ion-menu id="leftMenu" [content]="content">
+<ion-menu id="leftMenu" [content]="content">
   <ion-toolbar>
     <ion-list>
       <ion-item class="gravatar-user" lime>
@@ -17,12 +17,12 @@
         <span dark>ausloggen</span>
       </button>
       <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
-        <icon teal item-left [name]="p.icon"></icon>
-        <span teal>
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        <span blue-gray>
           {{p.title***REMOVED******REMOVED***
         </span>
       </button>
     </ion-list>
   </ion-content>
-</ion-menu>-->
+</ion-menu>
 <ion-nav id="nav" #content [root]="root"></ion-nav>

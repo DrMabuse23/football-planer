@@ -2,7 +2,7 @@
  * Created by drmabuse on 04/10/15.
  */
 'use strict';
-import {App, IonicApp, IonicPlatform***REMOVED*** from 'ionic/ionic';
+import {App, IonicApp, IonicPlatform***REMOVED*** from 'ionic-angular';
 ***REMOVED***
 import {Http, HTTP_PROVIDERS***REMOVED*** from 'angular2/http';
 ***REMOVED***

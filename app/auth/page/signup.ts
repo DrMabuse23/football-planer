@@ -1,12 +1,12 @@
 import {Validators, Control, ControlGroup, FormBuilder***REMOVED*** from 'angular2/common';
 import {isBlank***REMOVED*** from 'angular2/src/facade/lang';
-import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic/ionic';
+import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic-angular';
 import {DBService***REMOVED*** from '../../db/service/db';
 import {UserService***REMOVED*** from '../../db/service/user';
 // import {ErrorItemComponent***REMOVED*** from './../component/error-required';
 
 @Page({
-  templateUrl: 'auth/templates/signup.html'
+  templateUrl: 'build/auth/templates/signup.html'
 ***REMOVED***)
 export class SignupPage {
   app: IonicApp;
@@ -119,7 +119,7 @@ export class SignupPage {
     event.preventDefault();
 ***REMOVED***
 
-  doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass='danger') {
+  doAlert(message: string = 'Ein Fehler ist aufgereten', title:string = 'Fehler', cssClass: string='danger') {
     let alert =  Alert.create({
       title: title,
       message: message,
