@@ -1,4 +1,4 @@
-
+import 'es6-shim';
 import {App, IonicApp, Config, Platform, IONIC_DIRECTIVES***REMOVED*** from 'ionic-angular';
 import {NgClass***REMOVED*** from 'angular2/common';
 ***REMOVED***
