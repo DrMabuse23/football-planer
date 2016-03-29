@@ -1,4 +1,4 @@
-
+import 'es6-shim';
 import {App, IonicApp, Config, Platform, IONIC_DIRECTIVES} from 'ionic-angular';
 import {NgClass} from 'angular2/common';
 import {Observable} from 'rxjs/Observable';
