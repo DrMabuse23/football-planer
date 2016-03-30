@@ -25,6 +25,8 @@ gulp.task('run:before', [shouldWatch ? 'watch' : 'build']);
  * changes, but you are of course welcome (and encouraged) to customize your
  * build however you see fit.
  */
+var requireDir = require('require-dir');
+requireDir('./gulp-tasks');
 var buildBrowserify = require('ionic-gulp-browserify-typescript');
 var buildSass = require('ionic-gulp-sass-build');
 var copyHTML = require('ionic-gulp-html-copy');

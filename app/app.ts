@@ -17,19 +17,13 @@ class Route {
 
   constructor(attrs){
     Object.assign(this, attrs);
-    this.attributes.forEach(attr => {
+    Object.keys(attrs).forEach(attr => {
       this.model.set(attr, this[attr]);
   ***REMOVED***);
 ***REMOVED***
 
   get attributes(){
-    let attributes = [];
-    Object.keys(this).forEach(key => {
-      if (typeof this[key] !== 'function' || key === 'component') {
-        attributes.push(key);
-    ***REMOVED***
-  ***REMOVED***);
-    return attributes;
+    Object.keys(this.model);
 ***REMOVED***
 ***REMOVED***
 
