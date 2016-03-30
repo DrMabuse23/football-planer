@@ -34,3 +34,4 @@ app/config.json
 app/js
 config-dev.json
 events.sample.json
+.publish

@@ -10,7 +10,7 @@ import {Component} from 'angular2/core';
 
 export class ErrorItemComponent {
   public interface: ErrorItemInterface;
-  constructor() {
+  constructor () {
     console.log('nope');
     //debugger;
   }
