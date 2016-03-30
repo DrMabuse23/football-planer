@@ -12,7 +12,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/app.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/app.ts",
 			"children": [
 				{
 					"id": 316,
@@ -474,7 +474,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/auth/component/error-required.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/component/error-required.ts",
 			"children": [
 				{
 					"id": 337,
@@ -626,7 +626,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/auth/page/login.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/page/login.ts",
 			"children": [
 				{
 					"id": 276,
@@ -1049,7 +1049,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/auth/page/password-reset.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/page/password-reset.ts",
 			"children": [
 				{
 					"id": 106,
@@ -1338,7 +1338,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/auth/page/signup.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/page/signup.ts",
 			"children": [
 				{
 					"id": 68,
@@ -1869,7 +1869,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/db/service/db.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/db/service/db.ts",
 			"children": [
 				{
 					"id": 2,
@@ -2282,7 +2282,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/db/service/place.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/db/service/place.ts",
 			"children": [
 				{
 					"id": 126,
@@ -2470,7 +2470,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/db/service/user.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/db/service/user.ts",
 			"children": [
 				{
 					"id": 31,
@@ -3010,7 +3010,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/events/page/event-page.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/events/page/event-page.ts",
 			"children": [
 				{
 					"id": 180,
@@ -3435,7 +3435,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/events/page/events-page.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/events/page/events-page.ts",
 			"children": [
 				{
 					"id": 209,
@@ -4063,7 +4063,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/events/services/events.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/events/services/events.ts",
 			"children": [
 				{
 					"id": 138,
@@ -4629,7 +4629,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "http://drmabuse23.github.io/football-planer/app/home/page/home-page.ts",
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/home/page/home-page.ts",
 			"children": [
 				{
 					"id": 255,
