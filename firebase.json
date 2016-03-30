@@ -1,9 +1,0 @@
-{
-  "firebase": "stuttgart-dev",
-  "public": "www",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
