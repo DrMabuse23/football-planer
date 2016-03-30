@@ -9,13 +9,13 @@ import {UserService***REMOVED*** from '../../db/service/user';
   templateUrl: 'build/auth/templates/signup.html'
 ***REMOVED***)
 export class SignupPage {
-  app: IonicApp;
-  nav: NavController;
-  form: any;
+  private app: IonicApp;
+  private nav: NavController;
+  private form: any;
 
-  dbService: DBService;
-  userService: UserService;
-  signupData: any;
+  private dbService: DBService;
+  private userService: UserService;
+  private signupData: any;
 
   constructor(app: IonicApp, nav: NavController, dbService: DBService, fb: FormBuilder, userService: UserService) {
 
