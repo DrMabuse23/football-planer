@@ -11,18 +11,18 @@ import {HomePage} from './../../home/page/home-page';
   templateUrl: 'build/auth/templates/login.html'
 })
 export class LoginPage {
-//   app: IonicApp;
-//   nav: NavController;
-//   form: ControlGroup;
-//
-//   localStore: any;
-//   userOnLogin: boolean;
-//   userService: UserService;
-//   dbService: DBService;
-//   homePage: any;
-//   signupPage: any;
-//   passwordResetPage: any;
-//   loginData: any;
+  private app: IonicApp;
+  private nav: NavController;
+  private form: ControlGroup;
+  private localStore: any;
+
+  public userOnLogin: boolean;
+  public userService: UserService;
+  private dbService: DBService;
+  private homePage: any;
+  private signupPage: any;
+  private passwordResetPage: any;
+  private loginData: any;
 
 
   constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService) {
@@ -60,7 +60,7 @@ export class LoginPage {
 
     } else {
       this.userOnLogin = false;
-      self.doAlert();
+      this.doAlert();
     }
     event.preventDefault();
   }
@@ -84,7 +84,8 @@ export class LoginPage {
       self.doAlert(err.message);
     });
   }
-  doAlert(message: String = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
+
+  doAlert(message: string = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
     let alert = Alert.create({
       title: title,
       message: message,

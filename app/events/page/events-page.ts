@@ -12,17 +12,18 @@ import {EventPage} from './event-page';
   providers: [EventsService]
 })
 export class EventsPage {
-  app: IonicApp;
-  pages: any;
-  root: any;
-  config: Config;
-  dbService: DBService;
-  userService: UserService;
-  eventService: EventsService
-  events: any = [];
-  eventsLoadedDone: any = false;
+  private app: IonicApp;
+  private pages: any;
+  private root: any;
+  private config: Config;
+  private dbService: DBService;
+  private userService: UserService;
+  private eventService: EventsService
+  private events: any = [];
+  private eventsLoadedDone: any = false;
+  private nav:NavController;
 
-  eventsLoaded: Observable = new Observable(
+  private eventsLoaded: Observable = new Observable(
     (eventsChanged: any) => {
       // console.log('Hey events', eventsChanged);
       this.eventsChange(eventsChanged);

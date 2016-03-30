@@ -5,19 +5,21 @@ import {PlaceService} from './../../db/service/place';
 import * as moment from 'moment';
 @Injectable()
 export class EventsService {
-  dbService: DBService;
-  placeService: PlaceService;
-  events: array = [];
-  ref: any;
-  eventsChanged: EventEmitter;
-  inProgress: boolean = false;
+  private dbService: DBService;
+  private db:any;
+  private placeService: PlaceService;
+  private events: [];
+  private ref: any;
+  public eventsChanged: EventEmitter;
+  public inProgress: boolean = false;
+  public hasChangeEvent: boolean = false;
+
   constructor(config: Config, dbService: DBService, placeService: PlaceService) {
     this.dbService = dbService;
+    this.db = this.dbService.getDb();
     this.placeService = placeService;
     this.eventsChanged = new EventEmitter();
-    this.ref = this.dbService.db.child("events");
-    this.inProgress = false;
-    this.hasChangeEvent = false;
+    this.ref = this.db.child("events");
     moment.locale(config.get('locale'));
   }
   findById(item) {

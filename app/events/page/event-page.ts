@@ -10,14 +10,18 @@ import {EventsService} from './../services/events';
   providers: [EventsService]
 })
 export class EventPage {
-  pages: any;
-  root: any;
-  config: Config;
-  userService: UserService;
-  eventService: EventsService
-  event: any;
+  private pages: any;
+  private root: any;
+  private config: Config;
+  private userService: UserService;
+  private eventService: EventsService
+  private event: any;
+  private isAndroid:any=null;
+  private players:any = null;
+  private tab:string='one';
+  private params:any;
 
-  eventsLoaded: Observable = new Observable(
+  public eventsLoaded: Observable = new Observable(
     (eventsChanged: any) => {
       this.eventsChange(eventsChanged);
     },
@@ -28,12 +32,12 @@ export class EventPage {
     this.isAndroid = config.get('mode') == 'md' ? '' : null;
     this.params = navParams;
     this.event = this.params.get('event');
-    this.players = null;
-    this.tab = 'one';
+
     userService.getProfilesByIds(this.event.data.players).then((profiles) => {
       this.players = profiles;
     });
   }
+
   loadMap() {
     let latlng = { lat: Number(this.event.place.address.lat), lng: Number(this.event.place.address.long) };
     var styleArray = [
