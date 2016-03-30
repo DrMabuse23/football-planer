@@ -1,0 +1,4952 @@
+{
+	"id": 0,
+	"name": "football-planer-ionic",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 304,
+			"name": "\"app\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/app.ts",
+			"children": [
+				{
+					"id": 316,
+					"name": "FootBallPlanerApp",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"decorators": [
+						{
+							"name": "App",
+							"type": {
+								"type": "reference",
+								"name": "App"
+							},
+							"arguments": {
+								"args": "{\n  templateUrl: 'build/main/main.html',\n  config: {\n    platforms: {\n      android: {\n        navbarStyle: 'primary',\n        tabbarStyle: 'primary'\n      }\n    },\n    backButtonText: '',\n    locale: 'de'\n  },\n  directives: [IONIC_DIRECTIVES],\n  providers:[DBService, UserService, PlaceService]\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 325,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 326,
+									"name": "new FootBallPlanerApp",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 327,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 328,
+											"name": "config",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Config"
+											}
+										},
+										{
+											"id": 329,
+											"name": "platform",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Platform"
+											}
+										},
+										{
+											"id": 330,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "FootBallPlanerApp",
+										"id": 316
+									}
+								}
+							]
+						},
+						{
+							"id": 317,
+							"name": "app",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "IonicApp"
+							}
+						},
+						{
+							"id": 324,
+							"name": "dbAuthChanged",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPublic": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Observable"
+							},
+							"defaultValue": " new Observable(\n  (dbAuth:boolean) => { this.authChange(dbAuth); },\n  (error) => { },\n  () => { })"
+						},
+						{
+							"id": 318,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 323,
+							"name": "dbServiceIsLoggedIn",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 319,
+							"name": "isMD",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " null"
+						},
+						{
+							"id": 320,
+							"name": "isTablet",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 321,
+							"name": "pages",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "tuple"
+							}
+						},
+						{
+							"id": 322,
+							"name": "root",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 333,
+							"name": "authChange",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 334,
+									"name": "authChange",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 335,
+											"name": "dbAuth",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 331,
+							"name": "setDb",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 332,
+									"name": "setDb",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								325
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								317,
+								324,
+								318,
+								323,
+								319,
+								320,
+								321,
+								322
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								333,
+								331
+							]
+						}
+					]
+				},
+				{
+					"id": 305,
+					"name": "Route",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 311,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 312,
+									"name": "new Route",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 313,
+											"name": "attrs",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Route",
+										"id": 305
+									}
+								}
+							]
+						},
+						{
+							"id": 309,
+							"name": "component",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							}
+						},
+						{
+							"id": 307,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "string"
+							},
+							"defaultValue": "\"\""
+						},
+						{
+							"id": 310,
+							"name": "model",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " new Map()"
+						},
+						{
+							"id": 308,
+							"name": "params",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " null"
+						},
+						{
+							"id": 306,
+							"name": "title",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "string"
+							},
+							"defaultValue": "\"\""
+						},
+						{
+							"id": 314,
+							"name": "attributes",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": [
+								{
+									"id": 315,
+									"name": "__get",
+									"kind": 524288,
+									"kindString": "Get signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								311
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								309,
+								307,
+								310,
+								308,
+								306
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								314
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						316,
+						305
+					]
+				}
+			]
+		},
+		{
+			"id": 336,
+			"name": "\"auth/component/error-required\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/component/error-required.ts",
+			"children": [
+				{
+					"id": 337,
+					"name": "ErrorItemComponent",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Component",
+							"type": {
+								"type": "reference",
+								"name": "Component"
+							},
+							"arguments": {
+								"obj": "{\n  selector: 'error-required',\n  template: `\n  <ion-item danger *ngIf=\"interface.expr\">\n    <p danger>{{interface.attr}} ist ein pflicht feld und darf nicht leer sein.</p>\n  </ion-item>`\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 339,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 340,
+									"name": "new ErrorItemComponent",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ErrorItemComponent",
+										"id": 337
+									}
+								}
+							]
+						},
+						{
+							"id": 338,
+							"name": "interface",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "ErrorItemInterface",
+								"id": 341
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								339
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								338
+							]
+						}
+					]
+				},
+				{
+					"id": 341,
+					"name": "ErrorItemInterface",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 343,
+							"name": "attr",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "string"
+							}
+						},
+						{
+							"id": 342,
+							"name": "expr",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								343,
+								342
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						337
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						341
+					]
+				}
+			]
+		},
+		{
+			"id": 275,
+			"name": "\"auth/page/login\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/page/login.ts",
+			"children": [
+				{
+					"id": 276,
+					"name": "LoginPage",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Page",
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							},
+							"arguments": {
+								"config": "{\n  templateUrl: 'build/auth/templates/login.html'\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 288,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 289,
+									"name": "new LoginPage",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 290,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 291,
+											"name": "nav",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "NavController"
+											}
+										},
+										{
+											"id": 292,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										},
+										{
+											"id": 293,
+											"name": "userService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "UserService",
+												"id": 31
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "LoginPage",
+										"id": 276
+									}
+								}
+							]
+						},
+						{
+							"id": 277,
+							"name": "app",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "IonicApp"
+							}
+						},
+						{
+							"id": 283,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 279,
+							"name": "form",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "ControlGroup"
+							}
+						},
+						{
+							"id": 284,
+							"name": "homePage",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 280,
+							"name": "localStore",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 287,
+							"name": "loginData",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 278,
+							"name": "nav",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "NavController"
+							}
+						},
+						{
+							"id": 286,
+							"name": "passwordResetPage",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 285,
+							"name": "signupPage",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 281,
+							"name": "userOnLogin",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 282,
+							"name": "userService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "UserService",
+								"id": 31
+							}
+						},
+						{
+							"id": 299,
+							"name": "doAlert",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 300,
+									"name": "doAlert",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 301,
+											"name": "message",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"Ein Fehler ist aufgereten\""
+										},
+										{
+											"id": 302,
+											"name": "title",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"Fehler\""
+										},
+										{
+											"id": 303,
+											"name": "cssClass",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"danger\""
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 294,
+							"name": "doLogin",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 295,
+									"name": "doLogin",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 296,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 297,
+							"name": "loginDb",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 298,
+									"name": "loginDb",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								288
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								277,
+								283,
+								279,
+								284,
+								280,
+								287,
+								278,
+								286,
+								285,
+								281,
+								282
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								299,
+								294,
+								297
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						276
+					]
+				}
+			]
+		},
+		{
+			"id": 105,
+			"name": "\"auth/page/password-reset\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/page/password-reset.ts",
+			"children": [
+				{
+					"id": 106,
+					"name": "PasswordResetPage",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Page",
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							},
+							"arguments": {
+								"config": "{\n  templateUrl: 'build/auth/templates/forgot-password.html'\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 111,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 112,
+									"name": "new PasswordResetPage",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 113,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 114,
+											"name": "nav",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "NavController"
+											}
+										},
+										{
+											"id": 115,
+											"name": "userService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "UserService",
+												"id": 31
+											}
+										},
+										{
+											"id": 116,
+											"name": "popup",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Popup"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PasswordResetPage",
+										"id": 106
+									}
+								}
+							]
+						},
+						{
+							"id": 110,
+							"name": "form",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 109,
+							"name": "nav",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 108,
+							"name": "popup",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Popup"
+							}
+						},
+						{
+							"id": 107,
+							"name": "userService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "UserService",
+								"id": 31
+							}
+						},
+						{
+							"id": 120,
+							"name": "doAlert",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 121,
+									"name": "doAlert",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 122,
+											"name": "message",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "String"
+											},
+											"defaultValue": "\"Ein Fehler ist aufgereten\""
+										},
+										{
+											"id": 123,
+											"name": "title",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"Fehler\""
+										},
+										{
+											"id": 124,
+											"name": "cssClass",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"danger\""
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 117,
+							"name": "resetPassword",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 118,
+									"name": "resetPassword",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 119,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								111
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								110,
+								109,
+								108,
+								107
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								120,
+								117
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						106
+					]
+				}
+			]
+		},
+		{
+			"id": 67,
+			"name": "\"auth/page/signup\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/auth/page/signup.ts",
+			"children": [
+				{
+					"id": 68,
+					"name": "SignupPage",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Page",
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							},
+							"arguments": {
+								"config": "{\n  templateUrl: 'build/auth/templates/signup.html'\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 75,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 76,
+									"name": "new SignupPage",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 77,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 78,
+											"name": "nav",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "NavController"
+											}
+										},
+										{
+											"id": 79,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										},
+										{
+											"id": 80,
+											"name": "fb",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "FormBuilder"
+											}
+										},
+										{
+											"id": 81,
+											"name": "userService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "UserService",
+												"id": 31
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "SignupPage",
+										"id": 68
+									}
+								}
+							]
+						},
+						{
+							"id": 69,
+							"name": "app",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "IonicApp"
+							}
+						},
+						{
+							"id": 72,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 71,
+							"name": "form",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 70,
+							"name": "nav",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "NavController"
+							}
+						},
+						{
+							"id": 74,
+							"name": "signupData",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 73,
+							"name": "userService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "UserService",
+								"id": 31
+							}
+						},
+						{
+							"id": 82,
+							"name": "areEqual",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 83,
+									"name": "areEqual",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 84,
+											"name": "group",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "ControlGroup"
+											}
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 85,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 86,
+													"name": "areEqual",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"type": {
+														"type": "instrinct",
+														"name": "boolean"
+													},
+													"defaultValue": "true"
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														86
+													]
+												}
+											]
+										}
+									}
+								}
+							]
+						},
+						{
+							"id": 100,
+							"name": "doAlert",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 101,
+									"name": "doAlert",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 102,
+											"name": "message",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"Ein Fehler ist aufgereten\""
+										},
+										{
+											"id": 103,
+											"name": "title",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"Fehler\""
+										},
+										{
+											"id": 104,
+											"name": "cssClass",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"danger\""
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 97,
+							"name": "doSignup",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 98,
+									"name": "doSignup",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 99,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 87,
+							"name": "isEmail",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 88,
+									"name": "isEmail",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 89,
+											"name": "control",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Control"
+											}
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 90,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 91,
+													"name": "isEmail",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"type": {
+														"type": "instrinct",
+														"name": "boolean"
+													},
+													"defaultValue": "true"
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														91
+													]
+												}
+											]
+										}
+									}
+								}
+							]
+						},
+						{
+							"id": 92,
+							"name": "isPhoneNumber",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 93,
+									"name": "isPhoneNumber",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 94,
+											"name": "control",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Control"
+											}
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 95,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 96,
+													"name": "isPhoneNumber",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"type": {
+														"type": "instrinct",
+														"name": "boolean"
+													},
+													"defaultValue": "true"
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														96
+													]
+												}
+											]
+										}
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								75
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								69,
+								72,
+								71,
+								70,
+								74,
+								73
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								82,
+								100,
+								97,
+								87,
+								92
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						68
+					]
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "\"db/service/db\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/db/service/db.ts",
+			"children": [
+				{
+					"id": 2,
+					"name": "DBService",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Injectable",
+							"type": {
+								"type": "reference",
+								"name": "Injectable"
+							},
+							"arguments": {}
+						}
+					],
+					"children": [
+						{
+							"id": 10,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 11,
+									"name": "new DBService",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 12,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 13,
+											"name": "http",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Http"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "DBService",
+										"id": 2
+									}
+								}
+							]
+						},
+						{
+							"id": 3,
+							"name": "app",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "IonicApp"
+							}
+						},
+						{
+							"id": 6,
+							"name": "cfg",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " null"
+						},
+						{
+							"id": 5,
+							"name": "db",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " null"
+						},
+						{
+							"id": 7,
+							"name": "dbAuth",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 8,
+							"name": "dbAuthChange",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "EventEmitter"
+							}
+						},
+						{
+							"id": 4,
+							"name": "http",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Http"
+							}
+						},
+						{
+							"id": 9,
+							"name": "loggedInUser",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " null"
+						},
+						{
+							"id": 19,
+							"name": "auth",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 20,
+									"name": "auth",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 25,
+							"name": "authWithPassword",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 26,
+									"name": "authWithPassword",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 27,
+											"name": "email",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										},
+										{
+											"id": 28,
+											"name": "password",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 14,
+							"name": "getConfig",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 15,
+									"name": "getConfig",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 21,
+							"name": "getDb",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 22,
+									"name": "getDb",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 16,
+							"name": "onAuthCallback",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 17,
+									"name": "onAuthCallback",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 18,
+											"name": "authData",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 23,
+							"name": "unauth",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 24,
+									"name": "unauth",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								10
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								3,
+								6,
+								5,
+								7,
+								8,
+								4,
+								9
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								19,
+								25,
+								14,
+								21,
+								16,
+								23
+							]
+						}
+					]
+				},
+				{
+					"id": 29,
+					"name": "Firebase",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"type": {
+						"type": "instrinct",
+						"name": "unknown"
+					},
+					"defaultValue": " require('firebase')"
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						29
+					]
+				}
+			]
+		},
+		{
+			"id": 125,
+			"name": "\"db/service/place\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/db/service/place.ts",
+			"children": [
+				{
+					"id": 126,
+					"name": "PlaceService",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Injectable",
+							"type": {
+								"type": "reference",
+								"name": "Injectable"
+							},
+							"arguments": {}
+						}
+					],
+					"children": [
+						{
+							"id": 129,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 130,
+									"name": "new PlaceService",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 131,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PlaceService",
+										"id": 126
+									}
+								}
+							]
+						},
+						{
+							"id": 127,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 128,
+							"name": "places",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Object"
+							}
+						},
+						{
+							"id": 132,
+							"name": "getPlaceById",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 133,
+									"name": "getPlaceById",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 134,
+											"name": "uuid",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 135,
+							"name": "getPlaces",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 136,
+									"name": "getPlaces",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								129
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								127,
+								128
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								132,
+								135
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						126
+					]
+				}
+			]
+		},
+		{
+			"id": 30,
+			"name": "\"db/service/user\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/db/service/user.ts",
+			"children": [
+				{
+					"id": 31,
+					"name": "UserService",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Injectable",
+							"type": {
+								"type": "reference",
+								"name": "Injectable"
+							},
+							"arguments": {}
+						}
+					],
+					"children": [
+						{
+							"id": 44,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 45,
+									"name": "new UserService",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 46,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "UserService",
+										"id": 31
+									}
+								}
+							]
+						},
+						{
+							"id": 43,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 42,
+							"name": "userProfile",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 58,
+							"name": "createProfile",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 59,
+									"name": "createProfile",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 60,
+											"name": "uuid",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										},
+										{
+											"id": 61,
+											"name": "self",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 53,
+							"name": "createUser",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 54,
+									"name": "createUser",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 62,
+							"name": "getProfilesByIds",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 63,
+									"name": "getProfilesByIds",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 64,
+											"name": "ids",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 65,
+							"name": "getUserProfile",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 66,
+									"name": "getUserProfile",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 47,
+							"name": "mapUser",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 48,
+									"name": "mapUser",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 49,
+											"name": "form",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 50,
+							"name": "registerUser",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 51,
+									"name": "registerUser",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 52,
+											"name": "form",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 55,
+							"name": "resetPassword",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 56,
+									"name": "resetPassword",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 57,
+											"name": "email",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "unknown"
+									}
+								}
+							]
+						},
+						{
+							"id": 35,
+							"name": "profile",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 39,
+									"name": "createdAt",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								},
+								{
+									"id": 36,
+									"name": "firstName",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								},
+								{
+									"id": 37,
+									"name": "lastName",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								},
+								{
+									"id": 38,
+									"name": "mobile",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								},
+								{
+									"id": 40,
+									"name": "updatedAt",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								},
+								{
+									"id": 41,
+									"name": "userUUid",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										39,
+										36,
+										37,
+										38,
+										40,
+										41
+									]
+								}
+							],
+							"type": {
+								"type": "instrinct",
+								"name": "object"
+							}
+						},
+						{
+							"id": 32,
+							"name": "user",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 33,
+									"name": "email",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								},
+								{
+									"id": 34,
+									"name": "password",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "instrinct",
+										"name": "null"
+									},
+									"defaultValue": " null"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										33,
+										34
+									]
+								}
+							],
+							"type": {
+								"type": "instrinct",
+								"name": "object"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								44
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								43,
+								42
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								58,
+								53,
+								62,
+								65,
+								47,
+								50,
+								55
+							]
+						},
+						{
+							"title": "Object literals",
+							"kind": 2097152,
+							"children": [
+								35,
+								32
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						31
+					]
+				}
+			]
+		},
+		{
+			"id": 179,
+			"name": "\"events/page/event-page\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/events/page/event-page.ts",
+			"children": [
+				{
+					"id": 180,
+					"name": "EventPage",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Page",
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							},
+							"arguments": {
+								"config": "{\n  templateUrl: 'build/events/templates/event.html',\n  providers: [EventsService]\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 192,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 193,
+									"name": "new EventPage",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 194,
+											"name": "navParams",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "NavParams"
+											}
+										},
+										{
+											"id": 195,
+											"name": "eventService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "EventsService",
+												"id": 138
+											}
+										},
+										{
+											"id": 196,
+											"name": "userService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "UserService",
+												"id": 31
+											}
+										},
+										{
+											"id": 197,
+											"name": "config",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Config"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "EventPage",
+										"id": 180
+									}
+								}
+							]
+						},
+						{
+							"id": 183,
+							"name": "config",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Config"
+							}
+						},
+						{
+							"id": 186,
+							"name": "event",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 185,
+							"name": "eventService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "EventsService",
+								"id": 138
+							}
+						},
+						{
+							"id": 191,
+							"name": "eventsLoaded",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Observable"
+							},
+							"defaultValue": " new Observable(\n    (eventsChanged: any) => {\n      this.eventsChange(eventsChanged);\n    },\n    (error) => { console.error(error) },\n    () => { })"
+						},
+						{
+							"id": 187,
+							"name": "isAndroid",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": "null"
+						},
+						{
+							"id": 181,
+							"name": "pages",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 190,
+							"name": "params",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 188,
+							"name": "players",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " null"
+						},
+						{
+							"id": 182,
+							"name": "root",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 189,
+							"name": "tab",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "string"
+							},
+							"defaultValue": "\"one\""
+						},
+						{
+							"id": 184,
+							"name": "userService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "UserService",
+								"id": 31
+							}
+						},
+						{
+							"id": 205,
+							"name": "eventsChange",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 206,
+									"name": "eventsChange",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 207,
+											"name": "eventsChanged",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 198,
+							"name": "loadMap",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 199,
+									"name": "loadMap",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 200,
+							"name": "onPageLoaded",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 201,
+									"name": "onPageLoaded",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 202,
+							"name": "onSegmentChanged",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 203,
+									"name": "onSegmentChanged",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 204,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								192
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								183,
+								186,
+								185,
+								191,
+								187,
+								181,
+								190,
+								188,
+								182,
+								189,
+								184
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								205,
+								198,
+								200,
+								202
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						180
+					]
+				}
+			]
+		},
+		{
+			"id": 208,
+			"name": "\"events/page/events-page\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/events/page/events-page.ts",
+			"children": [
+				{
+					"id": 209,
+					"name": "EventsPage",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Page",
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							},
+							"arguments": {
+								"config": "{\n  templateUrl: 'build/events/templates/events.html',\n  providers: [EventsService]\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 221,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 222,
+									"name": "new EventsPage",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 223,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 224,
+											"name": "config",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Config"
+											}
+										},
+										{
+											"id": 225,
+											"name": "nav",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "NavController"
+											}
+										},
+										{
+											"id": 226,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										},
+										{
+											"id": 227,
+											"name": "eventService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "EventsService",
+												"id": 138
+											}
+										},
+										{
+											"id": 228,
+											"name": "userService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "UserService",
+												"id": 31
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "EventsPage",
+										"id": 209
+									}
+								}
+							]
+						},
+						{
+							"id": 210,
+							"name": "app",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "IonicApp"
+							}
+						},
+						{
+							"id": 213,
+							"name": "config",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Config"
+							}
+						},
+						{
+							"id": 214,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 216,
+							"name": "eventService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "EventsService",
+								"id": 138
+							}
+						},
+						{
+							"id": 217,
+							"name": "events",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 220,
+							"name": "eventsLoaded",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "Observable"
+							},
+							"defaultValue": " new Observable(\n    (eventsChanged: any) => {\n      // console.log('Hey events', eventsChanged);\n      this.eventsChange(eventsChanged);\n    },\n  (error) => { console.error(error) },\n  () => { })"
+						},
+						{
+							"id": 218,
+							"name": "eventsLoadedDone",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 219,
+							"name": "nav",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "NavController"
+							}
+						},
+						{
+							"id": 211,
+							"name": "pages",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 212,
+							"name": "root",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 215,
+							"name": "userService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "UserService",
+								"id": 31
+							}
+						},
+						{
+							"id": 240,
+							"name": "byId",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 241,
+									"name": "byId",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 242,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "boolean"
+									}
+								}
+							]
+						},
+						{
+							"id": 243,
+							"name": "changed",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 244,
+									"name": "changed",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 245,
+											"name": "model",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 246,
+							"name": "eventsChange",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 247,
+									"name": "eventsChange",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 248,
+											"name": "eventsChanged",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 232,
+							"name": "getData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 233,
+									"name": "getData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 229,
+							"name": "goDetail",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 230,
+									"name": "goDetail",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 231,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 252,
+							"name": "import",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 253,
+									"name": "import",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 237,
+							"name": "prepareEvent",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 238,
+									"name": "prepareEvent",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 239,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 234,
+							"name": "setPlayer",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 235,
+									"name": "setPlayer",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 236,
+											"name": "index",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 249,
+							"name": "toggleVisible",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 250,
+									"name": "toggleVisible",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 251,
+											"name": "index",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								221
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								210,
+								213,
+								214,
+								216,
+								217,
+								220,
+								218,
+								219,
+								211,
+								212,
+								215
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								240,
+								243,
+								246,
+								232,
+								229,
+								252,
+								237,
+								234,
+								249
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						209
+					]
+				}
+			]
+		},
+		{
+			"id": 137,
+			"name": "\"events/services/events\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/events/services/events.ts",
+			"children": [
+				{
+					"id": 138,
+					"name": "EventsService",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Injectable",
+							"type": {
+								"type": "reference",
+								"name": "Injectable"
+							},
+							"arguments": {}
+						}
+					],
+					"children": [
+						{
+							"id": 147,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 148,
+									"name": "new EventsService",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 149,
+											"name": "config",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Config"
+											}
+										},
+										{
+											"id": 150,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										},
+										{
+											"id": 151,
+											"name": "placeService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "PlaceService",
+												"id": 126
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "EventsService",
+										"id": 138
+									}
+								}
+							]
+						},
+						{
+							"id": 140,
+							"name": "db",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 139,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 142,
+							"name": "events",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "tuple"
+							}
+						},
+						{
+							"id": 144,
+							"name": "eventsChanged",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "EventEmitter"
+							}
+						},
+						{
+							"id": 146,
+							"name": "hasChangeEvent",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 145,
+							"name": "inProgress",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 141,
+							"name": "placeService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "PlaceService",
+								"id": 126
+							}
+						},
+						{
+							"id": 143,
+							"name": "ref",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 169,
+							"name": "childChanged",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 170,
+									"name": "childChanged",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 152,
+							"name": "findById",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 153,
+									"name": "findById",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 154,
+											"name": "item",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "boolean"
+									}
+								}
+							]
+						},
+						{
+							"id": 163,
+							"name": "getEvents",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 164,
+									"name": "getEvents",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 155,
+							"name": "isPlayed",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 156,
+									"name": "isPlayed",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 157,
+											"name": "playedTime",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "boolean"
+									}
+								}
+							]
+						},
+						{
+							"id": 158,
+							"name": "prepareEvent",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 159,
+									"name": "prepareEvent",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 160,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 161,
+							"name": "prepareEvents",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 162,
+									"name": "prepareEvents",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 175,
+							"name": "setYear",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 176,
+									"name": "setYear",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 177,
+											"name": "year",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "number"
+											},
+											"defaultValue": "2016"
+										},
+										{
+											"id": 178,
+											"name": "place",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											},
+											"defaultValue": "\"-K-m_vkLkNXg5P-RRmx5\""
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 165,
+							"name": "togglePlayer",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 166,
+									"name": "togglePlayer",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 167,
+											"name": "id",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											}
+										},
+										{
+											"id": 168,
+											"name": "playerUuid",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 171,
+							"name": "updateEvent",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 172,
+									"name": "updateEvent",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 173,
+											"name": "id",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										},
+										{
+											"id": 174,
+											"name": "attr",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								147
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								140,
+								139,
+								142,
+								144,
+								146,
+								145,
+								141,
+								143
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								169,
+								152,
+								163,
+								155,
+								158,
+								161,
+								175,
+								165,
+								171
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						138
+					]
+				}
+			]
+		},
+		{
+			"id": 254,
+			"name": "\"home/page/home-page\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/pascalbrewing/web/football-planer/app/home/page/home-page.ts",
+			"children": [
+				{
+					"id": 255,
+					"name": "HomePage",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"decorators": [
+						{
+							"name": "Page",
+							"type": {
+								"type": "reference",
+								"name": "Page"
+							},
+							"arguments": {
+								"config": "{\n  templateUrl: 'build/home/templates/index.html'\n}"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 263,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 264,
+									"name": "new HomePage",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 265,
+											"name": "app",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IonicApp"
+											}
+										},
+										{
+											"id": 266,
+											"name": "userService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "UserService",
+												"id": 31
+											}
+										},
+										{
+											"id": 267,
+											"name": "dbService",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "DBService",
+												"id": 2
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "HomePage",
+										"id": 255
+									}
+								}
+							]
+						},
+						{
+							"id": 256,
+							"name": "app",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "IonicApp"
+							}
+						},
+						{
+							"id": 261,
+							"name": "dbService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "DBService",
+								"id": 2
+							}
+						},
+						{
+							"id": 262,
+							"name": "loginPage",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 259,
+							"name": "nav",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 257,
+							"name": "pages",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 258,
+							"name": "root",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "instrinct",
+								"name": "any"
+							}
+						},
+						{
+							"id": 260,
+							"name": "userService",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"name": "UserService",
+								"id": 31
+							}
+						},
+						{
+							"id": 268,
+							"name": "closeMenu",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 269,
+									"name": "closeMenu",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 273,
+							"name": "logout",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 274,
+									"name": "logout",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "instrinct",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 270,
+							"name": "openPage",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 271,
+									"name": "openPage",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 272,
+											"name": "page",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "instrinct",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "instrinct",
+										"name": "any"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								263
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								256,
+								261,
+								262,
+								259,
+								257,
+								258,
+								260
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								268,
+								273,
+								270
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						255
+					]
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				304,
+				336,
+				275,
+				105,
+				67,
+				1,
+				125,
+				30,
+				179,
+				208,
+				137,
+				254
+			]
+		}
+	]
+}
