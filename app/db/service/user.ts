@@ -1,5 +1,5 @@
 import {Injectable***REMOVED*** from 'angular2/core';
-import {DBService***REMOVED*** from './../../db/service/db';
+import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
 
 ***REMOVED***
 export class UserService {
@@ -16,9 +16,9 @@ export class UserService {
     userUUid: null
 ***REMOVED***;
   userProfile: any;
-  dbService: DBService;
+  dbService: NgFirebase.DBService;
 
-  constructor(dbService: DBService) {
+  constructor(dbService: NgFirebase.DBService) {
     this.dbService = dbService;
 ***REMOVED***
 

@@ -1,11 +1,11 @@
 import {Injectable, bind, EventEmitter***REMOVED*** from 'angular2/core';
 import {Config***REMOVED*** from 'ionic-angular';
-import {DBService***REMOVED*** from './../../db/service/db';
+import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
 import {PlaceService***REMOVED*** from './../../db/service/place';
 import * as moment from 'moment';
 ***REMOVED***
 export class EventsService {
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private db:any;
   private placeService: PlaceService;
   private events: [];
@@ -14,7 +14,7 @@ export class EventsService {
   public inProgress: boolean = false;
   public hasChangeEvent: boolean = false;
 
-  constructor(config: Config, dbService: DBService, placeService: PlaceService) {
+  constructor(config: Config, dbService: NgFirebase.DBService, placeService: PlaceService) {
     this.dbService = dbService;
     this.db = this.dbService.getDb();
     this.placeService = placeService;

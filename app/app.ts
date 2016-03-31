@@ -4,7 +4,7 @@ import {NgClass***REMOVED*** from 'angular2/common';
 ***REMOVED***
 
 import {LoginPage***REMOVED*** from './auth/page/login';
-import {DBService***REMOVED*** from './db/service/db';
+import {NgFirebase***REMOVED*** from './modules/ngfb/ng-firebase';
 import {UserService***REMOVED*** from './db/service/user';
 import {PlaceService***REMOVED*** from './db/service/place';
 
@@ -40,11 +40,11 @@ class Route {
     locale: 'de'
 ***REMOVED***,
   directives: [IONIC_DIRECTIVES],
-  providers:[DBService, UserService, PlaceService]
+  providers:[NgFirebase.DBService, UserService, PlaceService]
 ***REMOVED***)
 class FootBallPlanerApp {
   private app: IonicApp;
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private isMD: any = null;
   private isTablet:boolean=false;
   private pages: [];
@@ -56,7 +56,7 @@ class FootBallPlanerApp {
   (error) => { ***REMOVED***,
   () => { ***REMOVED***);
 
-  constructor(app: IonicApp, config: Config, platform: Platform, dbService: DBService) {
+  constructor(app: IonicApp, config: Config, platform: Platform, dbService: NgFirebase.DBService) {
     this.dbService = dbService;
     this.setDb();
     this.app = app;
