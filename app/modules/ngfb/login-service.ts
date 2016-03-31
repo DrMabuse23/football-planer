@@ -10,7 +10,7 @@ class LoginService extends Yolo.Model {
   public log: any = new EventEmitter();
 
   constructor() {
-    super({ email: 'drmabuse@posteo.de', password: 'VmB7sUKW2a4q', rememberMe: true });
+    super({ email: '', password: '', rememberMe: true });
     this.init();
     console.log('Login', this.attributes);
   }
