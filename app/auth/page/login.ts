@@ -1,4 +1,5 @@
-import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf***REMOVED*** from 'angular2/common';
+import {Validators, Control, ControlGroup, NgClass, NgIf***REMOVED*** from 'angular2/common';
+import {Component***REMOVED*** from 'angular2/core';
 import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic-angular';
 import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
 import {UserService***REMOVED*** from '../../db/service/user';
@@ -6,32 +7,39 @@ import {SignupPage***REMOVED*** from './../../auth/page/signup';
 import {PasswordResetPage***REMOVED*** from './../../auth/page/password-reset';
 import {HomePage***REMOVED*** from './../../home/page/home-page';
 
-
 @Page({
-  templateUrl: 'build/auth/templates/login.html'
+  templateUrl: 'build/auth/templates/login.html',
+  providers: [NgFirebase.LoginService]
 ***REMOVED***)
 export class LoginPage {
   private app: IonicApp;
   private nav: NavController;
   private form: ControlGroup;
   private localStore: any;
+  private _loginService: NgFirebase.LoginService;
+  private dbService: NgFirebase.DBService;
 
   public userOnLogin: boolean;
   public userService: UserService;
-  private dbService: NgFirebase.DBService;
+
   private homePage: any;
   private signupPage: any;
   private passwordResetPage: any;
   private loginData: any;
 
 
-  constructor(app: IonicApp, nav: NavController, dbService: NgFirebase.DBService, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, loginService: NgFirebase.LoginService, dbService: NgFirebase.DBService, userService: UserService) {
+    this.app = app;
+    this.nav = nav;
+
     this.userOnLogin = false;
     this.userService = userService;
     this.localStore = JSON.parse(localStorage.getItem('remember'));
     this.dbService = dbService;
-    this.app = app;
-    this.nav = nav;
+
+    this._loginService = loginService;
+    this._loginService.db = this.dbService.db;
+    debugger;
     this.form = new ControlGroup({
       email: new Control(this.localStore && this.localStore.remember ? this.localStore.email : '', Validators.required),
       password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
@@ -41,9 +49,9 @@ export class LoginPage {
     this.signupPage = SignupPage;
     this.homePage = HomePage;
     this.passwordResetPage = PasswordResetPage;
-    if (this.form.valid) {
-      this.loginDb();
-  ***REMOVED***
+    // if (this.form.valid) {
+    //   this.loginDb();
+    // ***REMOVED***
 ***REMOVED***
 
   doLogin(event) {

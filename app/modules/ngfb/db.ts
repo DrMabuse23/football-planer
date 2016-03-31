@@ -15,6 +15,7 @@ interface DBInterface {
   unauth(): any;
   authWithPassword(email: string, password: string): any;
 ***REMOVED***
+
 ***REMOVED***
 class DBService implements DBInterface {
   private _app: IonicApp;
@@ -38,18 +39,18 @@ class DBService implements DBInterface {
       return this._http.get('build/config.json')
         .map(res => res.json())
         .subscribe(
-        (data) => {
-          this._token = data.token;
-          this._uri = data.api;
-          this._db = new Firebase(this.uri);
-      ***REMOVED***,
-        err => { return reject(err) ***REMOVED***,
-        () => { return resolve(this.token) ***REMOVED***
+          (data) => {
+            this._token = data.token;
+            this._uri = data.api;
+            this._db = new Firebase(this.uri);
+        ***REMOVED***,
+          err => { return reject(err) ***REMOVED***,
+          () => { return resolve(this.token) ***REMOVED***
         );
   ***REMOVED***);
 ***REMOVED***
 
-  onAuthCallback(authData) {
+  public onAuthCallback(authData) {
 ***REMOVED***
 ***REMOVED***
   ***REMOVED*** else {
@@ -57,12 +58,7 @@ class DBService implements DBInterface {
   ***REMOVED***
 ***REMOVED***
 
-  auth() {
-    if (!this.token || !this.uri) {
-      return new Promise((resolve, reject) => {
-        return reject('No Config', this.token);
-    ***REMOVED***);
-  ***REMOVED***
+  private _authWithCustomToken() {
     let self = this;
     return new Promise((resolve, reject) => {
       return this.db.authWithCustomToken(this.token, function(err, data) {
@@ -78,14 +74,25 @@ class DBService implements DBInterface {
   ***REMOVED***);
 ***REMOVED***
 
-  getDb() {
+  public auth() {
+    if (!this.token || !this.uri) {
+      return this._getConfig().then(() => {
+        return this._authWithCustomToken();
+    ***REMOVED***);
+  ***REMOVED***
+***REMOVED***
+
+  public getDb() {
     return this.db;
 ***REMOVED***
 
-  unauth() {
+  public unauth() {
     return this.db.unauth();
 ***REMOVED***
-  authWithPassword(email, password) {
+  /**
+   * deprecated
+   */
+  public authWithPassword(email, password) {
     // console.log('(email, password', email, password);
     let self = this;
     //CryptoJS.HmacSHA256(password, this.cfg.token).toString()

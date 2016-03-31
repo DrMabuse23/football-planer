@@ -1,7 +1,7 @@
 import {Validators, Control, ControlGroup, FormBuilder***REMOVED*** from 'angular2/common';
 import {isBlank***REMOVED*** from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic-angular';
-import {DBService***REMOVED*** from '../../db/service/db';
+import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
 import {UserService***REMOVED*** from '../../db/service/user';
 // import {ErrorItemComponent***REMOVED*** from './../component/error-required';
 
@@ -13,11 +13,11 @@ export class SignupPage {
   private nav: NavController;
   private form: any;
 
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private userService: UserService;
   private signupData: any;
 
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, fb: FormBuilder, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, dbService: NgFirebase.DBService, fb: FormBuilder, userService: UserService) {
 
     this.dbService = dbService;
     this.userService = userService;

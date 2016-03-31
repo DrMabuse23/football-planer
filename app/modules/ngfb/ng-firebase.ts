@@ -1,9 +1,9 @@
 import {FireBaseRecordTemp***REMOVED*** from './firebase-record';
-import {LoginModelTemp***REMOVED*** from './login-model';
+import {LoginServiceTemp***REMOVED*** from './login-service';
 import {DBServiceTemp***REMOVED*** from './db';
 
 export namespace NgFirebase {
-  export import FireBaseRecord = FireBaseRecordTemp;
-  export import LoginModel = LoginModelTemp;
-  export import DBService = DBServiceTemp;
+  export import FireBaseRecord  = FireBaseRecordTemp;
+  export import LoginService    = LoginServiceTemp;
+  export import DBService       = DBServiceTemp;
 ***REMOVED***
