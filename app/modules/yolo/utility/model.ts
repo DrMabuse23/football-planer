@@ -11,19 +11,28 @@ interface ModelInterface {
 
 class Model implements ModelInterface {
   private _map: any = new Map();
-  private _attributes: string[];
+  private _attributes : string[] = [];
 
-  constructor(model:any, map: boolean = false) {
+  constructor(model:any) {
+    this._create(model);
+***REMOVED***
+
+  init() {
+    this.attributes.forEach(attr => {
+      this[`${attr***REMOVED***`] = this.map.get(attr);
+  ***REMOVED***);
+***REMOVED***
+
+  private _create(model: any) {
     Object.assign(this, model);
-    this.attributes = Object.keys(model);
+    Object.keys(model).forEach(attr => {
+      this._map.set(attr, model[attr])
+      this._attributes.push(attr);
+  ***REMOVED***);
 ***REMOVED***
 
-  public get attributes():string[] {
+  public get attributes(): string[] {
     return this._attributes;
-***REMOVED***
-
-  public set attributes(attrs: string[]) {
-    this._attributes = attrs;
 ***REMOVED***
   /**
    * public the map
@@ -32,14 +41,6 @@ class Model implements ModelInterface {
     return this._map;
 ***REMOVED***
 
-  /**
-   * set the map
-   */
-  public set map(model: any) {
-    Object.keys(model).forEach(attr => {
-      this._map.set(attr, this[attr]);
-  ***REMOVED***);
-***REMOVED***
 ***REMOVED***
 
 module Model { ***REMOVED***;
