@@ -6,38 +6,45 @@ import {App, IonicApp, IonicPlatform***REMOVED*** from 'ionic-angular';
 ***REMOVED***
 import {Http, HTTP_PROVIDERS***REMOVED*** from 'angular2/http';
 ***REMOVED***
-var Firebase = require('firebase');
+let Firebase = require('firebase');
 
+interface DBInterface {
+  db: any;
+  token: string;
+  uri: string;
+  unauth(): any;
+  authWithPassword(email: string, password: string): any;
 ***REMOVED***
-class DBService {
-
-  private app: IonicApp;
-  private http: Http;
-  public db: any = null;
-  private cfg: any = null;
+***REMOVED***
+class DBService implements DBInterface {
+  private _app: IonicApp;
+  private _http: Http;
+  private _cfg: any = null;
+  private _token: string;
+  private _uri: string;
+***REMOVED***
 
   public dbAuth: boolean = false
-  public dbAuthChange: EventEmitter;
+  public dbAuthChange: any = new EventEmitter();
   public loggedInUser: any = null;
 
   constructor(app: IonicApp, http: Http) {
-    this.app = app;
-    this.http = http;
-    this.dbAuthChange = new EventEmitter();
-    this.loggedInUser = null;
+    this._app = app;
+    this._http = http;
 ***REMOVED***
 
-  getConfig() {
+  private _getConfig() {
     return new Promise((resolve, reject) => {
-      return this.http.get('build/config.json')
+      return this._http.get('build/config.json')
         .map(res => res.json())
         .subscribe(
-          (data) => {
-            this.cfg = data;
-            this.db = new Firebase(this.cfg.api);
-        ***REMOVED***,
-          err => { return reject(err) ***REMOVED***,
-          () => {return resolve(this.cfg)***REMOVED***
+        (data) => {
+          this._token = data.token;
+          this._uri = data.api;
+          this._db = new Firebase(this.uri);
+      ***REMOVED***,
+        err => { return reject(err) ***REMOVED***,
+        () => { return resolve(this.token) ***REMOVED***
         );
   ***REMOVED***);
 ***REMOVED***
@@ -51,14 +58,14 @@ class DBService {
 ***REMOVED***
 
   auth() {
-    if (!this.cfg) {
+    if (!this.token || !this.uri) {
       return new Promise((resolve, reject) => {
-        return reject('No Config', this.cfg);
+        return reject('No Config', this.token);
     ***REMOVED***);
   ***REMOVED***
     let self = this;
     return new Promise((resolve, reject) => {
-      return this.db.authWithCustomToken(this.cfg.token, function (err, data) {
+      return this.db.authWithCustomToken(this.token, function(err, data) {
         if (err) {
           console.error(err);
           return reject(err);
@@ -71,7 +78,7 @@ class DBService {
   ***REMOVED***);
 ***REMOVED***
 
-  getDb(){
+  getDb() {
     return this.db;
 ***REMOVED***
 
@@ -100,6 +107,19 @@ class DBService {
     ***REMOVED***);
   ***REMOVED***);
 ***REMOVED***
+
+  public get token(): string {
+    return this._token;
+***REMOVED***
+
+  public get uri(): string {
+    return this._uri;
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
 ***REMOVED***
 module DBService { ***REMOVED***;
 export {DBService as DBServiceTemp***REMOVED***;

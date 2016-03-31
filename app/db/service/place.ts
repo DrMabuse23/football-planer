@@ -1,12 +1,12 @@
 import {Injectable***REMOVED*** from 'angular2/core';
-import {DBService***REMOVED*** from './db';
+import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
 
 ***REMOVED***
 export class PlaceService {
-  dbService: DBService;
+  dbService: NgFirebase.DBService;
   places: Object = {***REMOVED***;
 
-  constructor(dbService: DBService) {
+  constructor(dbService: NgFirebase.DBService) {
     this.dbService = dbService;
 ***REMOVED***
 
