@@ -1,9 +1,9 @@
-import {Injectable, bind, EventEmitter***REMOVED*** from 'angular2/core';
-import {Config***REMOVED*** from 'ionic-angular';
-import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
-import {PlaceService***REMOVED*** from './../../db/service/place';
+import {Injectable, bind, EventEmitter} from 'angular2/core';
+import {Config} from 'ionic-angular';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
+import {PlaceService} from './../../db/service/place';
 import * as moment from 'moment';
-***REMOVED***
+@Injectable()
 export class EventsService {
   private dbService: NgFirebase.DBService;
   private db:any;
@@ -21,17 +21,17 @@ export class EventsService {
     this.eventsChanged = new EventEmitter();
     this.ref = this.db.child("events");
     moment.locale(config.get('locale'));
-***REMOVED***
+  }
   findById(item) {
     return 'id' in item && item.id === this.toString();
-***REMOVED***
+  }
   isPlayed (playedTime) {
     let now = new Date().getTime();
     if (now > playedTime) {
       return false;
-  ***REMOVED***
+    }
     return true;
-***REMOVED***
+  }
 
   prepareEvent(event) {
     // debugger;
@@ -39,15 +39,15 @@ export class EventsService {
     event.date = moment(event.data.playDate).format('LLL');
     event.comments = [];
     return event;
-***REMOVED***
+  }
 
   prepareEvents() {
     let self = this;
     self.events.forEach((event, i) => {
       this.events[i] = self.prepareEvent(event);
-  ***REMOVED***);
+    });
     self.eventsChanged.next(true);
-***REMOVED***
+  }
 
   getEvents() {
     let self = this;
@@ -63,38 +63,38 @@ export class EventsService {
             let model = {
               data: data.val(),
               id: data.key()
-          ***REMOVED***;
+            };
             if (self.isPlayed(model.data.playDate)) {
               self.events.push(model);
               i++;
-          ***REMOVED*** else {
-              self.updateEvent(model.id, { 'played': true ***REMOVED***);
-          ***REMOVED***
-        ***REMOVED***);
+            } else {
+              self.updateEvent(model.id, { 'played': true });
+            }
+          });
           self.childChanged();
           self.prepareEvents();
           self.inProgress = false;
-      ***REMOVED***
-    ***REMOVED***, (err) => console.error(err));
-  ***REMOVED***
-***REMOVED***
+        }
+      }, (err) => console.error(err));
+    }
+  }
 
   togglePlayer(id:string, playerUuid:string) {
     let event = this.events.filter(this.findById, id)[0];
     let players = event.data.players;
     if (!players) {
-      this.updateEvent(event.id, { players: [playerUuid] ***REMOVED***)
-  ***REMOVED*** else {
+      this.updateEvent(event.id, { players: [playerUuid] })
+    } else {
       let index = players.indexOf(playerUuid);
       if (index !== -1) {
         players.splice(index, 1);
-        this.updateEvent(event.id, { players: players ***REMOVED***);
-    ***REMOVED*** else {
+        this.updateEvent(event.id, { players: players });
+      } else {
         players.push(playerUuid);
-        this.updateEvent(event.id, { players: players ***REMOVED***)
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+        this.updateEvent(event.id, { players: players })
+      }
+    }
+  }
 
   childChanged() {
     let self = this;
@@ -104,20 +104,20 @@ export class EventsService {
         method: 'changed',
         data: snapshot.val(),
         id: snapshot.key()
-    ***REMOVED***));
-  ***REMOVED***);
+      }));
+    });
     this.ref.on("child_added", function(snapshot) {
 
-  ***REMOVED***);
+    });
     this.ref.on("child_removed", function(snapshot) {
 
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
   updateEvent(id, attr) {
     let eventRef = this.ref.child(id);
     // debugger;
     return eventRef.update(attr);
-***REMOVED***;
+  };
 
   setYear(year = 2016, place = '-K-m_vkLkNXg5P-RRmx5') {
     let self = this;
@@ -137,16 +137,16 @@ export class EventsService {
           place: place,
           players: false,
           played: false
-      ***REMOVED***, (err) => {
+        }, (err) => {
           //debugger;
           if (err) {
             console.log("Data could not be saved." + err);
-        ***REMOVED*** else {
+          } else {
             console.log("Data saved successfully.");
-        ***REMOVED***
-        ***REMOVED***);
+          }
+          });
           time = time + oneWeek;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+      }
+    }
+  }
+}

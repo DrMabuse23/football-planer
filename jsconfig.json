@@ -2,8 +2,8 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "commonjs"
-  ***REMOVED***,
+    },
     "filesGlob": [
         "./app/**/*.js"
     ]
-***REMOVED***
+}

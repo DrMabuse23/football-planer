@@ -1,4 +1,4 @@
-import {Component***REMOVED*** from 'angular2/core';
+import {Component} from 'angular2/core';
 /**
  * example Loader component shows an animated loader
  * ```html
@@ -16,5 +16,5 @@ import {Component***REMOVED*** from 'angular2/core';
     <span></span>
     <span></span>
   </figure>` // makes all Ionic directives available to your component
-***REMOVED***)
-export class CircleLoader {***REMOVED***
+})
+export class CircleLoader {}

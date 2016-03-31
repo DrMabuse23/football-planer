@@ -1,16 +1,16 @@
-import {Validators, Control, ControlGroup, NgClass, NgIf***REMOVED*** from 'angular2/common';
-import {Component***REMOVED*** from 'angular2/core';
-import {IonicApp, Page, NavController, Alert***REMOVED*** from 'ionic-angular';
-import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
-import {UserService***REMOVED*** from '../../db/service/user';
-import {SignupPage***REMOVED*** from './../../auth/page/signup';
-import {PasswordResetPage***REMOVED*** from './../../auth/page/password-reset';
-import {HomePage***REMOVED*** from './../../home/page/home-page';
+import {Validators, Control, ControlGroup, NgClass, NgIf} from 'angular2/common';
+import {Component} from 'angular2/core';
+import {IonicApp, Page, NavController, Alert} from 'ionic-angular';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
+import {UserService} from '../../db/service/user';
+import {SignupPage} from './../../auth/page/signup';
+import {PasswordResetPage} from './../../auth/page/password-reset';
+import {HomePage} from './../../home/page/home-page';
 
 @Page({
   templateUrl: 'build/auth/templates/login.html',
   providers: [NgFirebase.LoginService]
-***REMOVED***)
+})
 export class LoginPage {
   private app: IonicApp;
   private nav: NavController;
@@ -44,34 +44,34 @@ export class LoginPage {
       email: new Control(this.localStore && this.localStore.remember ? this.localStore.email : '', Validators.required),
       password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
       remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : true)
-  ***REMOVED***);
-    this.loginData = {***REMOVED***;
+    });
+    this.loginData = {};
     this.signupPage = SignupPage;
     this.homePage = HomePage;
     this.passwordResetPage = PasswordResetPage;
     // if (this.form.valid) {
     //   this.loginDb();
-    // ***REMOVED***
-***REMOVED***
+    // }
+  }
 
   doLogin(event) {
     let self = this;
     if (this.form.valid) {
       if (self.form.value.remember) {
         localStorage.setItem('remember', JSON.stringify(self.form.value));
-    ***REMOVED*** else {
+      } else {
         localStorage.removeItem('remember');
-    ***REMOVED***
+      }
       this.userOnLogin = true;
       let nav = this.app.getComponent('nav');
       this.loginDb();
 
-  ***REMOVED*** else {
+    } else {
       this.userOnLogin = false;
       this.doAlert();
-  ***REMOVED***
+    }
     event.preventDefault();
-***REMOVED***
+  }
 
   loginDb() {
     let self = this;
@@ -82,23 +82,23 @@ export class LoginPage {
         if (resp.password.isTemporaryPassword) {
           // console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
           //console.table(resp);
-      ***REMOVED*** else {
+        } else {
           self.nav.setRoot(self.homePage);
-      ***REMOVED***
-    ***REMOVED***);
-  ***REMOVED***).catch((err) => {
+        }
+      });
+    }).catch((err) => {
       // console.table(error);
       this.userOnLogin = false;
       self.doAlert(err.message);
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   doAlert(message: string = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
     let alert = Alert.create({
       title: title,
       message: message,
       cssClass: cssClass
-  ***REMOVED***);
+    });
     this.nav.present(alert);
-***REMOVED***
-***REMOVED***
+  }
+}

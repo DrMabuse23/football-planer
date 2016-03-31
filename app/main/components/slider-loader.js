@@ -1,4 +1,4 @@
-import {Component, NgIf***REMOVED*** from 'angular2/core';
+import {Component, NgIf} from 'angular2/core';
 @Component({
   selector: 'slider-loader',
   template: `
@@ -12,7 +12,7 @@ import {Component, NgIf***REMOVED*** from 'angular2/core';
   </div>
   `,
   properties: ['showing'],
-***REMOVED***)
+})
 export class SliderLoader{
   showing: boolean;
-***REMOVED***
+}

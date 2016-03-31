@@ -19,5 +19,5 @@ gulp.task("typedoc", function() {
       exclude: '*./node_modules/**/**',
       ignoreCompilerErrors: true,
 			version: true
-		***REMOVED***));
-***REMOVED***);
+		}));
+});

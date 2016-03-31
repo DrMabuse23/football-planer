@@ -1,5 +1,5 @@
-import {ModelTemp***REMOVED*** from './utility/model';
-import {ActiveRecordTemp***REMOVED*** from './utility/active-record';
+import {ModelTemp} from './utility/model';
+import {ActiveRecordTemp} from './utility/active-record';
 
 export namespace Yolo {
   /**
@@ -10,4 +10,4 @@ export namespace Yolo {
    * a Model who can be crud actions
    */
   export import ActiveRecord = ActiveRecordTemp;
-***REMOVED***
+}

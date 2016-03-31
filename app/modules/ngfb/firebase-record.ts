@@ -1,27 +1,27 @@
-***REMOVED***
+import {Yolo} from './../yolo/yolo';
 
 interface FirebaseRecordInterface {
   db: any;
-***REMOVED***
+}
 /**
  * FireBaseRecord
  */
 class FireBaseRecord extends Yolo.ActiveRecord implements FirebaseRecordInterface{
 
-***REMOVED***
+  private _db: any;
 
   constructor(parameters) {
     super(parameters);
-***REMOVED***
+  }
 
   public get db() : any {
-***REMOVED***
-***REMOVED***
+    return this._db;
+  }
 
   public set db(v : any) {
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    this._db = v;
+  }
+}
 
-module FireBaseRecord { ***REMOVED***;
-export {FireBaseRecord as FireBaseRecordTemp***REMOVED***;
+module FireBaseRecord { };
+export {FireBaseRecord as FireBaseRecordTemp};

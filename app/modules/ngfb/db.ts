@@ -2,10 +2,10 @@
  * Created by drmabuse on 04/10/15.
  */
 'use strict';
-import {App, IonicApp, IonicPlatform***REMOVED*** from 'ionic-angular';
-***REMOVED***
-import {Http, HTTP_PROVIDERS***REMOVED*** from 'angular2/http';
-***REMOVED***
+import {App, IonicApp, IonicPlatform} from 'ionic-angular';
+import {Injectable, EventEmitter} from 'angular2/core';
+import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import 'rxjs/add/operator/map';
 let Firebase = require('firebase');
 
 interface DBInterface {
@@ -14,16 +14,16 @@ interface DBInterface {
   uri: string;
   unauth(): any;
   authWithPassword(email: string, password: string): any;
-***REMOVED***
+}
 
-***REMOVED***
+@Injectable()
 class DBService implements DBInterface {
   private _app: IonicApp;
   private _http: Http;
   private _cfg: any = null;
   private _token: string;
   private _uri: string;
-***REMOVED***
+  private _db: any;
 
   public dbAuth: boolean = false
   public dbAuthChange: any = new EventEmitter();
@@ -32,7 +32,7 @@ class DBService implements DBInterface {
   constructor(app: IonicApp, http: Http) {
     this._app = app;
     this._http = http;
-***REMOVED***
+  }
 
   private _getConfig() {
     return new Promise((resolve, reject) => {
@@ -43,20 +43,20 @@ class DBService implements DBInterface {
             this._token = data.token;
             this._uri = data.api;
             this._db = new Firebase(this.uri);
-        ***REMOVED***,
-          err => { return reject(err) ***REMOVED***,
-          () => { return resolve(this.token) ***REMOVED***
+          },
+          err => { return reject(err) },
+          () => { return resolve(this.token) }
         );
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   public onAuthCallback(authData) {
-***REMOVED***
-***REMOVED***
-  ***REMOVED*** else {
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    if (authData) {
+      // console.log("Authenticated with uid:", authData);
+    } else {
+      // console.log("Client unauthenticated.")
+    }
+  }
 
   private _authWithCustomToken() {
     let self = this;
@@ -65,30 +65,30 @@ class DBService implements DBInterface {
         if (err) {
           console.error(err);
           return reject(err);
-      ***REMOVED***
+        }
         self.dbAuth = true;
         //debugger;
         self.dbAuthChange.subscribe(self.dbAuth);
         return resolve(data);
-    ***REMOVED***);
-  ***REMOVED***);
-***REMOVED***
+      });
+    });
+  }
 
   public auth() {
     if (!this.token || !this.uri) {
       return this._getConfig().then(() => {
         return this._authWithCustomToken();
-    ***REMOVED***);
-  ***REMOVED***
-***REMOVED***
+      });
+    }
+  }
 
   public getDb() {
     return this.db;
-***REMOVED***
+  }
 
   public unauth() {
     return this.db.unauth();
-***REMOVED***
+  }
   /**
    * deprecated
    */
@@ -101,32 +101,32 @@ class DBService implements DBInterface {
       return this.db.authWithPassword({
         "email": email,
         "password": password
-    ***REMOVED***, function(error, authData) {
+      }, function(error, authData) {
         self.db.onAuth(self.onAuthCallback);
         self.db.offAuth(self.onAuthCallback);
-  ***REMOVED***
+        if (error) {
           console.error(error);
           return reject(error);
-      ***REMOVED*** else {
+        } else {
           self.loggedInUser = authData;
           return resolve(authData);
-      ***REMOVED***
-    ***REMOVED***);
-  ***REMOVED***);
-***REMOVED***
+        }
+      });
+    });
+  }
 
   public get token(): string {
     return this._token;
-***REMOVED***
+  }
 
   public get uri(): string {
     return this._uri;
-***REMOVED***
+  }
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  public get db(): any {
+    return this._db;
+  }
 
-***REMOVED***
-module DBService { ***REMOVED***;
-export {DBService as DBServiceTemp***REMOVED***;
+}
+module DBService { };
+export {DBService as DBServiceTemp};

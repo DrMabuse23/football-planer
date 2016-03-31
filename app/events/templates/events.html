@@ -6,7 +6,7 @@
 </ion-navbar>
 <ion-content class="events-content" padding>
   <div class="loader">
-    <div class="relative" [ngClass]="{hide: eventsLoadedDone***REMOVED***">
+    <div class="relative" [ngClass]="{hide: eventsLoadedDone}">
       <div class="slider-loader">
         <div pink-dark class="line"></div>
         <div light class="break dot1"></div>
@@ -22,10 +22,10 @@
     <ion-card *ngFor="#event of events; var index=index" class="event-item show">
       <ion-card-content>
         <span class="date" blue-grey>
-          <i>{{event.date***REMOVED******REMOVED***</i>
+          <i>{{event.date}}</i>
         </span>
         <button (click)="goDetail(event)" ion-item>
-          <h2 item-left>{{event.place?.name***REMOVED******REMOVED***</h2>
+          <h2 item-left>{{event.place?.name}}</h2>
         </button>
         <div class="animated show">
           <button clear
@@ -35,17 +35,17 @@
             danger:event.playerCount< 2,
             lime: event.playerCount < 5 && event.playerCount > 2,
             green: event.playerCount >= 5
-        ***REMOVED***">
+          }">
             Spieler <ion-badge
             [ngClass]="{
               danger:event.playerCount< 2,
               lime: event.playerCount < 5 && event.playerCount > 2,
               green: event.playerCount >= 5
-          ***REMOVED***"
-            >{{event.playerCount***REMOVED******REMOVED***</ion-badge>
+            }"
+            >{{event.playerCount}}</ion-badge>
           </button>
           <button clear blue-grey item-right>
-            <ion-badge blue-grey>{{event.comments?.length***REMOVED******REMOVED***</ion-badge> Kommentare
+            <ion-badge blue-grey>{{event.comments?.length}}</ion-badge> Kommentare
           </button>
         </div>
       </ion-card-content>
@@ -54,7 +54,7 @@
       [ngClass]="{
       'button-blue-grey': !event.uuidInPlayers,
       'button-green': event.uuidInPlayers
-    ***REMOVED***"
+      }"
       >
         <ion-icon class="icon light ion-ios-football"></ion-icon>
       </button>

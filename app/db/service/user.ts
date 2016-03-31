@@ -1,12 +1,12 @@
-import {Injectable***REMOVED*** from 'angular2/core';
-import {NgFirebase***REMOVED*** from './../../modules/ngfb/ng-firebase';
+import {Injectable} from 'angular2/core';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
 
-***REMOVED***
+@Injectable()
 export class UserService {
   user: any = {
     email: null,
     password: null
-***REMOVED***;
+  };
   profile: any = {
     firstName: null,
     lastName: null,
@@ -14,13 +14,13 @@ export class UserService {
     createdAt: null,
     updatedAt: null,
     userUUid: null
-***REMOVED***;
+  };
   userProfile: any;
   dbService: NgFirebase.DBService;
 
   constructor(dbService: NgFirebase.DBService) {
     this.dbService = dbService;
-***REMOVED***
+  }
 
   mapUser(form) {
     //console.log(form);
@@ -31,13 +31,13 @@ export class UserService {
     this.profile.lastName = form.value.lastName;
     this.profile.mobile = form.value.mobile;
     this.profile.createdAt = this.profile.updatedAt = new Date().getTime();
-***REMOVED***
+  }
 
   registerUser(form) {
     this.mapUser(form);
     // console.log(this.user, this.profile, CryptoJS);
     return this.createUser();
-***REMOVED***
+  }
 
   createUser() {
     var self = this;
@@ -45,31 +45,31 @@ export class UserService {
       this.dbService.db.createUser({
         email: this.user.email,
         password: this.user.password
-    ***REMOVED***, function(error, userData) {
-  ***REMOVED***
+      }, function(error, userData) {
+        if (error) {
           return reject(error);
-      ***REMOVED*** else {
+        } else {
           // console.log("Successfully created user account with uid:", userData);
           return resolve(self.createProfile(userData.uid, self));
-      ***REMOVED***
-    ***REMOVED***)
-  ***REMOVED***);
-***REMOVED***
+        }
+      })
+    });
+  }
 
   resetPassword(email) {
-    console.log(`reset assword for ${email***REMOVED***`);
+    console.log(`reset assword for ${email}`);
     return new Promise((resolve, reject) => {
       this.dbService.db.resetPassword({
         email: email
-    ***REMOVED***, function(err) {
+      }, function(err) {
         if (err) {
           console.error(err);
           return reject(err);
-      ***REMOVED***
+        }
         return resolve(true);
-    ***REMOVED***);
-  ***REMOVED***);
-***REMOVED***
+      });
+    });
+  }
 
   createProfile(uuid, self) {
     self.profile.userUUid = uuid;
@@ -78,11 +78,11 @@ export class UserService {
       profileRef.push(self.profile, (err, profile) => {
         if (err) {
           return reject(err);
-      ***REMOVED***
+        }
         return resolve(true);
-    ***REMOVED***);
-  ***REMOVED***);
-***REMOVED***
+      });
+    });
+  }
 
   getProfilesByIds(ids) {
 
@@ -91,7 +91,7 @@ export class UserService {
     return new Promise((resolve, reject) => {
       if (!ids) {
         return resolve([]);
-    ***REMOVED***
+      }
       return profileRef.orderByChild("lastName").once("value", (snapshot) => {
         if (typeof snapshot === 'object') {
           snapshot.forEach((data) => {
@@ -100,22 +100,22 @@ export class UserService {
               userProfiles.push({
                 id: data.key(),
                 data: profile
-            ***REMOVED***);
-          ***REMOVED***
-        ***REMOVED***);
+              });
+            }
+          });
           return resolve(userProfiles);
-      ***REMOVED***
-    ***REMOVED***, (err) => {
+        }
+      }, (err) => {
         console.error(err);
         return reject(err);
-    ***REMOVED***);
-  ***REMOVED***)
-***REMOVED***
+      });
+    })
+  }
 
   getUserProfile() {
     let authData = this.dbService.db.getAuth();
     let self = this;
-***REMOVED***
+    if (authData) {
       let profileRef = this.dbService.db.child("playerProfiles");
       return new Promise((resolve, reject) => {
         return profileRef.orderByChild("userUUid").equalTo(authData.uid).on("value", (snapshot) => {
@@ -124,15 +124,15 @@ export class UserService {
               self.userProfile = {
                 authData: authData,
                 profile: data.val()
-            ***REMOVED***
-          ***REMOVED***);
+              }
+            });
             return resolve(self.userProfile);
-        ***REMOVED***
-      ***REMOVED***, (err) => {
+          }
+        }, (err) => {
           console.error(err);
           return reject(err);
-      ***REMOVED***);
-    ***REMOVED***)
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+        });
+      })
+    }
+  }
+}

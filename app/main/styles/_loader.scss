@@ -22,48 +22,48 @@
 //       border-color: transparent;
 //       border-width: 10px 5px 0;
 //       @include backface-visibility(hidden);
-//   ***REMOVED***
+//     }
 
 //     $time : 2s;
 //     @for $i from 1 through 6 {
-//       &:nth-child(#{$i***REMOVED***) {
-//         @include transform(rotate3d(0, 0, 1, #{($i*60deg)+30deg***REMOVED***));
+//       &:nth-child(#{$i}) {
+//         @include transform(rotate3d(0, 0, 1, #{($i*60deg)+30deg}));
 //         &:after {
 //           border-top-color: adjust-hue(map-get($colors, light), $i*5);
 //           @include transform(rotate3d(0.5, 1, 0, 180deg));
-//           @include animation(split $time #{(0 + $i)*($time/18)***REMOVED*** ease infinite);
-//       ***REMOVED***
-//     ***REMOVED***
-//   ***REMOVED***
-// ***REMOVED***
-// ***REMOVED***
+//           @include animation(split $time #{(0 + $i)*($time/18)} ease infinite);
+//         }
+//       }
+//     }
+//   }
+// }
 
 // @include keyframes(split) {
 
 //   0% {
 //     @include transform-origin(50% 100%);
 //     @include transform(rotate3d(0.5, 1, 0, 180deg));
-// ***REMOVED***
+//   }
 
 //   25% {
 //     @include transform-origin(50% 100%);
 //     @include transform(rotate3d(0, 1, 0, 360deg));
-// ***REMOVED***
+//   }
 
 //   50% {
 //     opacity:1;
 //     @include transform-origin(100% 0%);
 //     @include transform(rotate3d(0, 1, 0, 360deg));
-// ***REMOVED***
+//   }
 
 //   75% {
 //     opacity:0;
 //     @include transform(rotate3d(0.5, 1, 0, 180deg));
-// ***REMOVED***
+//   }
 
 //   100% {
 //     opacity:1;
 //     @include transform(rotate3d(0.5, 1, 0, 180deg));
-// ***REMOVED***
+//   }
 
-// ***REMOVED***
+// }

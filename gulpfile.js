@@ -41,7 +41,7 @@ var standard = ['sass', 'html', 'fonts', 'scripts', 'copy.json', 'copy.images'];
 gulp.task('copy.images', function() {
   return gulp.src('app/**/*.+(png|jpg|svg|gif|jpeg)')
     .pipe(gulp.dest('www/build'));
-***REMOVED***);
+});
 
 /******************************************************************************
  * copy.json
@@ -50,13 +50,13 @@ gulp.task('copy.images', function() {
 gulp.task('copy.json', function(){
   return gulp.src('app/**/*.json')
     .pipe(gulp.dest('www/build'));
-***REMOVED***);
+});
 
 gulp.task('watch', standard, function(){
-  gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); ***REMOVED***);
-  gulpWatch('app/**/*.html', function(){ gulp.start('html'); ***REMOVED***);
-  return buildBrowserify({ watch: true ***REMOVED***);
-***REMOVED***);
+  gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
+  gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+  return buildBrowserify({ watch: true });
+});
 
 gulp.task('build', standard, buildBrowserify);
 gulp.task('sass', buildSass);
@@ -65,4 +65,4 @@ gulp.task('fonts', copyFonts);
 gulp.task('scripts', copyScripts);
 gulp.task('clean', function(done){
   del('www/build', done);
-***REMOVED***);
+});

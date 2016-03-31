@@ -10,27 +10,27 @@ declare type PropertyKey = string | number | symbol;
 interface IteratorResult<T> {
     done: boolean;
     value?: T;
-***REMOVED***
+}
 
 interface IterableShim<T> {
     /**
       * Shim for an ES6 iterable. Not intended for direct use by user code.
       */
     "_es6-shim iterator_"(): Iterator<T>;
-***REMOVED***
+}
 
 interface Iterator<T> {
     next(value?: any): IteratorResult<T>;
     return?(value?: any): IteratorResult<T>;
     throw?(e?: any): IteratorResult<T>;
-***REMOVED***
+}
 
 interface IterableIteratorShim<T> extends IterableShim<T>, Iterator<T> {
     /**
       * Shim for an ES6 iterable iterator. Not intended for direct use by user code.
       */
     "_es6-shim iterator_"(): IterableIteratorShim<T>;
-***REMOVED***
+}
 
 interface StringConstructor {
     /**
@@ -47,7 +47,7 @@ interface StringConstructor {
       * @param substitutions A set of substitution values.
       */
     raw(template: TemplateStringsArray, ...substitutions: any[]): string;
-***REMOVED***
+}
 
 interface String {
     /**
@@ -138,7 +138,7 @@ interface String {
       * Shim for an ES6 iterable. Not intended for direct use by user code.
       */
     "_es6-shim iterator_"(): IterableIteratorShim<string>;
-***REMOVED***
+}
 
 interface ArrayConstructor {
     /**
@@ -174,7 +174,7 @@ interface ArrayConstructor {
       * @param items A set of elements to include in the new array object.
       */
     of<T>(...items: T[]): Array<T>;
-***REMOVED***
+}
 
 interface Array<T> {
     /**
@@ -239,7 +239,7 @@ interface Array<T> {
       * Shim for an ES6 iterable. Not intended for direct use by user code.
       */
     "_es6-shim iterator_"(): IterableIteratorShim<T>;
-***REMOVED***
+}
 
 interface NumberConstructor {
     /**
@@ -305,7 +305,7 @@ interface NumberConstructor {
       * All other strings are considered decimal.
       */
     parseInt(string: string, radix?: number): number;
-***REMOVED***
+}
 
 interface ObjectConstructor {
     /**
@@ -330,7 +330,7 @@ interface ObjectConstructor {
       * @remarks Requires `__proto__` support.
       */
     setPrototypeOf(o: any, proto: any): any;
-***REMOVED***
+}
 
 interface RegExp {
     /**
@@ -346,7 +346,7 @@ interface RegExp {
       * If no flags are set, the value is the empty string.
       */
     flags: string;
-***REMOVED***
+}
 
 interface Math {
     /**
@@ -458,7 +458,7 @@ interface Math {
       * @param x A numeric expression.
       */
     cbrt(x: number): number;
-***REMOVED***
+}
 
 interface PromiseLike<T> {
     /**
@@ -469,7 +469,7 @@ interface PromiseLike<T> {
     */
     then<TResult>(onfulfilled?: (value: T) => TResult | PromiseLike<TResult>, onrejected?: (reason: any) => TResult | PromiseLike<TResult>): PromiseLike<TResult>;
     then<TResult>(onfulfilled?: (value: T) => TResult | PromiseLike<TResult>, onrejected?: (reason: any) => void): PromiseLike<TResult>;
-***REMOVED***
+}
 
 /**
  * Represents the completion of an asynchronous operation
@@ -491,7 +491,7 @@ interface Promise<T> {
      */
     catch(onrejected?: (reason: any) => T | PromiseLike<T>): Promise<T>;
     catch(onrejected?: (reason: any) => void): Promise<T>;
-***REMOVED***
+}
 
 interface PromiseConstructor {
     /**
@@ -549,7 +549,7 @@ interface PromiseConstructor {
      * @returns A resolved promise.
      */
     resolve(): Promise<void>;
-***REMOVED***
+}
 
 declare var Promise: PromiseConstructor;
 
@@ -564,13 +564,13 @@ interface Map<K, V> {
     entries(): IterableIteratorShim<[K, V]>;
     keys(): IterableIteratorShim<K>;
     values(): IterableIteratorShim<V>;
-***REMOVED***
+}
 
 interface MapConstructor {
     new <K, V>(): Map<K, V>;
     new <K, V>(iterable: IterableShim<[K, V]>): Map<K, V>;
     prototype: Map<any, any>;
-***REMOVED***
+}
 
 declare var Map: MapConstructor;
 
@@ -584,13 +584,13 @@ interface Set<T> {
     entries(): IterableIteratorShim<[T, T]>;
     keys(): IterableIteratorShim<T>;
     values(): IterableIteratorShim<T>;
-***REMOVED***
+}
 
 interface SetConstructor {
     new <T>(): Set<T>;
     new <T>(iterable: IterableShim<T>): Set<T>;
     prototype: Set<any>;
-***REMOVED***
+}
 
 declare var Set: SetConstructor;
 
@@ -599,13 +599,13 @@ interface WeakMap<K, V> {
     get(key: K): V;
     has(key: K): boolean;
     set(key: K, value?: V): WeakMap<K, V>;
-***REMOVED***
+}
 
 interface WeakMapConstructor {
     new <K, V>(): WeakMap<K, V>;
     new <K, V>(iterable: IterableShim<[K, V]>): WeakMap<K, V>;
     prototype: WeakMap<any, any>;
-***REMOVED***
+}
 
 declare var WeakMap: WeakMapConstructor;
 
@@ -613,13 +613,13 @@ interface WeakSet<T> {
     add(value: T): WeakSet<T>;
     delete(value: T): boolean;
     has(value: T): boolean;
-***REMOVED***
+}
 
 interface WeakSetConstructor {
     new <T>(): WeakSet<T>;
     new <T>(iterable: IterableShim<T>): WeakSet<T>;
     prototype: WeakSet<any>;
-***REMOVED***
+}
 
 declare var WeakSet: WeakSetConstructor;
 
@@ -638,7 +638,7 @@ declare module Reflect {
     function preventExtensions(target: any): boolean;
     function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
     function setPrototypeOf(target: any, proto: any): boolean;
-***REMOVED***
+}
 
 declare module "es6-shim" {
     var String: StringConstructor;
@@ -666,5 +666,5 @@ declare module "es6-shim" {
         function preventExtensions(target: any): boolean;
         function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
         function setPrototypeOf(target: any, proto: any): boolean;
-  ***REMOVED***
-***REMOVED***
+    }
+}

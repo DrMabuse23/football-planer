@@ -7,20 +7,20 @@
   .item{
     background-color: transparent;
     border: none;
-***REMOVED***
+  }
   .padding-top{
     padding-top: 10%;
-***REMOVED***
-***REMOVED***
+  }
+}
 .login-content{
   .loader{
     height: 2px;
     width: 100%;
-***REMOVED***
-***REMOVED***
+  }
+}
 .signup-content{
   background-image: url('../images/soccer-8.png');
-***REMOVED***
+}
 .forget-password-content{
   background-image: url('../images/soccer-13.png');
   background-size: contain;
@@ -34,19 +34,19 @@
       color: black;
       padding: 10px;
       @include placeholder(#ccc);
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 .ios{
   .login-content{
     ion-list > .item:first-child {
       border-top: 0;
-  ***REMOVED***
+    }
     ion-switch switch-icon{
       &:after,&:before{
         background-color: #F6F6F6;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+      }
+    }
+  }
+}

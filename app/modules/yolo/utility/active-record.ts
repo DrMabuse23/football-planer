@@ -1,4 +1,4 @@
-import {ModelTemp as Model***REMOVED*** from './model';
+import {ModelTemp as Model} from './model';
 
 interface ActiveRecordInterface {
   /**
@@ -17,14 +17,14 @@ interface ActiveRecordInterface {
    * return <Array>;
    */
   relations?();
-***REMOVED***
+}
 
 class ActiveRecord extends Model implements ActiveRecordInterface {
   public form: any;
 
   constructor(model:any) {
     super(model);
-***REMOVED***
+  }
 
   /**
    * relations
@@ -32,14 +32,14 @@ class ActiveRecord extends Model implements ActiveRecordInterface {
    */
   public relations() {
     return [];
-***REMOVED***
+  }
 
   /**
    * beforeSave
    */
   public beforeSave(model: ActiveRecord): boolean {
     return model.validate();
-***REMOVED***
+  }
 
   /**
    * validate
@@ -47,7 +47,7 @@ class ActiveRecord extends Model implements ActiveRecordInterface {
   public validate(): boolean {
     console.log('validate');
     return this.map;
-***REMOVED***
+  }
 
   /**
    * save
@@ -56,8 +56,8 @@ class ActiveRecord extends Model implements ActiveRecordInterface {
     console.log('save');
     this.beforeSave(model);
     return model;
-***REMOVED***
-***REMOVED***
+  }
+}
 
-module ActiveRecord { ***REMOVED***;
-export {ActiveRecord as ActiveRecordTemp***REMOVED***;
+module ActiveRecord { };
+export {ActiveRecord as ActiveRecordTemp};

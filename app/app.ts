@@ -1,12 +1,12 @@
 import 'es6-shim';
-import {App, IonicApp, Config, Platform, IONIC_DIRECTIVES, Page***REMOVED*** from 'ionic-angular';
-import {NgClass***REMOVED*** from 'angular2/common';
-***REMOVED***
+import {App, IonicApp, Config, Platform, IONIC_DIRECTIVES, Page} from 'ionic-angular';
+import {NgClass} from 'angular2/common';
+import {Observable} from 'rxjs/Observable';
 
-import {LoginPage***REMOVED*** from './auth/page/login';
-import {NgFirebase***REMOVED*** from './modules/ngfb/ng-firebase';
-import {UserService***REMOVED*** from './db/service/user';
-import {PlaceService***REMOVED*** from './db/service/place';
+import {LoginPage} from './auth/page/login';
+import {NgFirebase} from './modules/ngfb/ng-firebase';
+import {UserService} from './db/service/user';
+import {PlaceService} from './db/service/place';
 
 class Route {
   private title: string = '';
@@ -19,13 +19,13 @@ class Route {
     Object.assign(this, attrs);
     Object.keys(attrs).forEach(attr => {
       this.model.set(attr, this[attr]);
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   // get attributes(){
   //   Object.keys(this.model);
-  // ***REMOVED***
-***REMOVED***
+  // }
+}
 
 @App({
   templateUrl: 'build/main/main.html',
@@ -34,27 +34,27 @@ class Route {
       android: {
         navbarStyle: 'primary',
         tabbarStyle: 'primary'
-    ***REMOVED***
-  ***REMOVED***,
+      }
+    },
     backButtonText: '',
     locale: 'de'
-***REMOVED***,
+  },
   directives: [IONIC_DIRECTIVES],
   providers:[NgFirebase.DBService, UserService, PlaceService]
-***REMOVED***)
+})
 class FootBallPlanerApp {
   private app: IonicApp;
   private dbService: NgFirebase.DBService;
   private isMD: any = null;
   private isTablet:boolean=false;
-  private pages: {***REMOVED***[];
+  private pages: {}[];
   private root: any;
   private dbServiceIsLoggedIn: boolean = false;
 
   public dbAuthChanged: Observable = new Observable(
-  (dbAuth:any) => { this.authChange(dbAuth); ***REMOVED***,
-  (error) => { ***REMOVED***,
-  () => { ***REMOVED***);
+  (dbAuth:any) => { this.authChange(dbAuth); },
+  (error) => { },
+  () => { });
 
   constructor(app: IonicApp, config: Config, platform: Platform, dbService: NgFirebase.DBService) {
     this.dbService = dbService;
@@ -68,18 +68,18 @@ class FootBallPlanerApp {
       title: 'Login',
       component: LoginPage,
       icon: 'log-in'
-  ***REMOVED***);
+    });
     this.pages = [loginRoute.model];
     this.root = LoginPage;
-***REMOVED***
+  }
 
   setDb(){
     this.dbService.dbAuthChange.subscribe(this.dbAuthChanged);
     this.dbService.auth();
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
-***REMOVED***
+  }
 
   authChange (dbAuth:any) {
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
-***REMOVED***
-***REMOVED***
+  }
+}

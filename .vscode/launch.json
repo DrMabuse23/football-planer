@@ -5,14 +5,14 @@
 			"name": "Launch Extension",
 			"type": "extensionHost",
 			"request": "launch",
-			"runtimeExecutable": "${execPath***REMOVED***",
+			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceRoot***REMOVED***"
+				"--extensionDevelopmentPath=${workspaceRoot}"
 			],
 			"stopOnEntry": false,
 			"sourceMaps": true,
 			"outDir": "out",
 			"preLaunchTask": "npm"
-		***REMOVED***
+		}
 	]
-***REMOVED***
+}

@@ -1,10 +1,10 @@
 <ion-navbar *navbar teal>
-  <ion-title teal-lite> {{event.place?.name***REMOVED******REMOVED***</ion-title>
+  <ion-title teal-lite> {{event.place?.name}}</ion-title>
 </ion-navbar>
 <ion-content class="events-content" padding>
   <ion-card>
     <ion-card-header>
-      {{event.date***REMOVED******REMOVED***
+      {{event.date}}
     </ion-card-header>
     <ion-list class="map-card">
       <div item id="map"></div>
@@ -12,11 +12,11 @@
   </ion-card>
   <ion-card>
     <ion-card-header>
-      Mitspieler {{event.playerCount***REMOVED******REMOVED***
+      Mitspieler {{event.playerCount}}
     </ion-card-header>
     <ion-list>
-      <a href="tel:{{player.data?.mobile***REMOVED******REMOVED***" ion-item *ngFor="#player of players">
-        {{player.data.firstName***REMOVED******REMOVED*** {{player.data.lastName***REMOVED******REMOVED***
+      <a href="tel:{{player.data?.mobile}}" ion-item *ngFor="#player of players">
+        {{player.data.firstName}} {{player.data.lastName}}
         <ion-icon name="call" class="blue-gray" item-right ></ion-icon>
       </a>
     </ion-list>

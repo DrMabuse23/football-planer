@@ -1,14 +1,14 @@
-import {NgClass, Disabled, NgIf, NgFor, NgSwitch, NgModel***REMOVED*** from 'angular2/common';
-import {Page, NavParams, Config***REMOVED*** from 'ionic-angular';
-***REMOVED***
-import {findIndex***REMOVED*** from 'lodash';
-import {UserService***REMOVED*** from '../../db/service/user';
-import {EventsService***REMOVED*** from './../services/events';
+import {NgClass, Disabled, NgIf, NgFor, NgSwitch, NgModel} from 'angular2/common';
+import {Page, NavParams, Config} from 'ionic-angular';
+import {Observable} from 'rxjs/Observable';
+import {findIndex} from 'lodash';
+import {UserService} from '../../db/service/user';
+import {EventsService} from './../services/events';
 
 @Page({
   templateUrl: 'build/events/templates/event.html',
   providers: [EventsService]
-***REMOVED***)
+})
 export class EventPage {
   private pages: any;
   private root: any;
@@ -24,9 +24,9 @@ export class EventPage {
   public eventsLoaded: Observable = new Observable(
     (eventsChanged: any) => {
       this.eventsChange(eventsChanged);
-  ***REMOVED***,
-    (error) => { console.error(error) ***REMOVED***,
-    () => { ***REMOVED***);
+    },
+    (error) => { console.error(error) },
+    () => { });
 
   constructor(navParams: NavParams, eventService: EventsService, userService: UserService, config: Config) {
     this.isAndroid = config.get('mode') == 'md' ? '' : null;
@@ -35,31 +35,31 @@ export class EventPage {
 
     userService.getProfilesByIds(this.event.data.players).then((profiles) => {
       this.players = profiles;
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   loadMap() {
-    let latlng = { lat: Number(this.event.place.address.lat), lng: Number(this.event.place.address.long) ***REMOVED***;
+    let latlng = { lat: Number(this.event.place.address.lat), lng: Number(this.event.place.address.long) };
     var styleArray = [
       {
         featureType: "all",
         stylers: [
-          { saturation: -80 ***REMOVED***
+          { saturation: -80 }
         ]
-    ***REMOVED***, {
+      }, {
         featureType: "road.arterial",
         elementType: "geometry",
         stylers: [
-          { hue: "#E8EAF6" ***REMOVED***,
-          { saturation: 50 ***REMOVED***
+          { hue: "#E8EAF6" },
+          { saturation: 50 }
         ]
-    ***REMOVED***, {
+      }, {
         featureType: "poi.business",
         elementType: "labels",
         stylers: [
-          { visibility: "off" ***REMOVED***
+          { visibility: "off" }
         ]
-    ***REMOVED***
+      }
     ];
 
     let map = new google.maps.Map(
@@ -67,25 +67,25 @@ export class EventPage {
       {
         zoom: 16,
         center: latlng
-    ***REMOVED***
+      }
     );
 
     let marker = new google.maps.Marker({
       position: latlng,
       map: map,
       title: this.event.place.name
-  ***REMOVED***);
+    });
 
-***REMOVED***
+  }
   onPageLoaded() {
     this.loadMap();
-***REMOVED***
+  }
 
   onSegmentChanged(event) {
     this.tab = event;
-***REMOVED***
+  }
 
   eventsChange(eventsChanged: any) {
     console.log(eventsChanged);
-***REMOVED***
-***REMOVED***
+  }
+}
