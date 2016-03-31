@@ -1,12 +1,12 @@
 import {Injectable} from 'angular2/core';
-import {DBService} from './db';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
 
 @Injectable()
 export class PlaceService {
-  dbService: DBService;
+  dbService: NgFirebase.DBService;
   places: Object = {};
 
-  constructor(dbService: DBService) {
+  constructor(dbService: NgFirebase.DBService) {
     this.dbService = dbService;
   }
 
