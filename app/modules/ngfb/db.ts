@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 var Firebase = require('firebase');
 
 @Injectable()
-export class DBService {
+class DBService {
 
   private app: IonicApp;
   private http: Http;
@@ -17,7 +17,7 @@ export class DBService {
   private cfg: any = null;
 
   public dbAuth: boolean = false
-  public dbAuthChange: EventEmitter
+  public dbAuthChange: EventEmitter;
   public loggedInUser: any = null;
 
   constructor(app: IonicApp, http: Http) {
@@ -100,5 +100,6 @@ export class DBService {
       });
     });
   }
-
 }
+module DBService { };
+export {DBService as DBServiceTemp};

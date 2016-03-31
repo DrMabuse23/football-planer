@@ -1,6 +1,6 @@
 import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf} from 'angular2/common';
 import {IonicApp, Page, NavController, Alert} from 'ionic-angular';
-import {DBService} from './../../db/service/db';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
 import {UserService} from '../../db/service/user';
 import {SignupPage} from './../../auth/page/signup';
 import {PasswordResetPage} from './../../auth/page/password-reset';
@@ -18,14 +18,14 @@ export class LoginPage {
 
   public userOnLogin: boolean;
   public userService: UserService;
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private homePage: any;
   private signupPage: any;
   private passwordResetPage: any;
   private loginData: any;
 
 
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, dbService: NgFirebase.DBService, userService: UserService) {
     this.userOnLogin = false;
     this.userService = userService;
     this.localStore = JSON.parse(localStorage.getItem('remember'));

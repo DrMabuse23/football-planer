@@ -2,7 +2,7 @@ import {Component, Validators, Control, ControlGroup, NgClass, Disabled, NgIf, N
 import {IonicApp, Config, Page, NavController} from 'ionic-angular';
 import {Observable} from 'rxjs/Observable';
 import {findIndex} from 'lodash';
-import {DBService} from './../../db/service/db';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
 import {UserService} from '../../db/service/user';
 import {EventsService} from './../services/events';
 import {EventPage} from './event-page';
@@ -16,7 +16,7 @@ export class EventsPage {
   private pages: any;
   private root: any;
   private config: Config;
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private userService: UserService;
   private eventService: EventsService
   private events: any = [];
@@ -31,7 +31,7 @@ export class EventsPage {
   (error) => { console.error(error) },
   () => { });
 
-  constructor(app: IonicApp, config: Config, nav: NavController, dbService: DBService, eventService: EventsService, userService: UserService) {
+  constructor(app: IonicApp, config: Config, nav: NavController, dbService: NgFirebase.DBService, eventService: EventsService, userService: UserService) {
     this.app = app;
     this.config = config;
     this.eventService = eventService;

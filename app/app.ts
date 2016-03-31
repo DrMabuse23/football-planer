@@ -4,7 +4,7 @@ import {NgClass} from 'angular2/common';
 import {Observable} from 'rxjs/Observable';
 
 import {LoginPage} from './auth/page/login';
-import {DBService} from './db/service/db';
+import {NgFirebase} from './modules/ngfb/ng-firebase';
 import {UserService} from './db/service/user';
 import {PlaceService} from './db/service/place';
 
@@ -40,11 +40,11 @@ class Route {
     locale: 'de'
   },
   directives: [IONIC_DIRECTIVES],
-  providers:[DBService, UserService, PlaceService]
+  providers:[NgFirebase.DBService, UserService, PlaceService]
 })
 class FootBallPlanerApp {
   private app: IonicApp;
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private isMD: any = null;
   private isTablet:boolean=false;
   private pages: [];
@@ -56,7 +56,7 @@ class FootBallPlanerApp {
   (error) => { },
   () => { });
 
-  constructor(app: IonicApp, config: Config, platform: Platform, dbService: DBService) {
+  constructor(app: IonicApp, config: Config, platform: Platform, dbService: NgFirebase.DBService) {
     this.dbService = dbService;
     this.setDb();
     this.app = app;

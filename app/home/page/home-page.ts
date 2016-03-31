@@ -1,7 +1,7 @@
 import {NgFor} from 'angular2/core';
 import {IonicApp, Page, NavController} from 'ionic-angular';
 import {UserService} from '../../db/service/user';
-import {DBService} from '../../db/service/db';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
 import {LoginPage} from './../../auth/page/login';
 import {EventsPage} from '../../events/page/events-page';
 @Page({
@@ -13,9 +13,9 @@ export class HomePage {
   root: any;
   nav: any;
   userService: UserService;
-  dbService: DBService;
+  dbService: NgFirebase.DBService;
   loginPage: any;
-  constructor(app: IonicApp, userService: UserService, dbService:DBService) {
+  constructor(app: IonicApp, userService: UserService, dbService: NgFirebase.DBService) {
     this.app = app;
     this.root = EventsPage;
     this.dbService = dbService;
