@@ -1,9 +1,9 @@
 import {FireBaseRecordTemp} from './firebase-record';
-import {LoginModelTemp} from './login-model';
+import {LoginServiceTemp} from './login-service';
 import {DBServiceTemp} from './db';
 
 export namespace NgFirebase {
-  export import FireBaseRecord = FireBaseRecordTemp;
-  export import LoginModel = LoginModelTemp;
-  export import DBService = DBServiceTemp;
+  export import FireBaseRecord  = FireBaseRecordTemp;
+  export import LoginService    = LoginServiceTemp;
+  export import DBService       = DBServiceTemp;
 }

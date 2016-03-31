@@ -1,26 +1,28 @@
 import {Injectable, EventEmitter} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {DBService} from './db';
+//import {NgFirebase} from './ng-firebase';
 import {Yolo} from './../yolo/yolo';
 
-
 @Injectable()
-class Login extends Yolo.Model {
+class LoginService extends Yolo.Model {
   private _db: any;
   private _email: string = '';
   private _password: string = '';
   private _rememberMe: boolean = false;
 
   public log: any = new EventEmitter();
-  constructor(DbService: DBService) {
+
+  constructor() {
+    //DbService: NgFirebase.DBService
     super({
       email: '',
       password: '',
       rememberMe: false
     });
-    this._db = DbService.db;
-    console.log('Login', this.attributes);
+    // debugger;
+    // // this._db = DbService.db;
+    // console.log('Login', this.attributes);
   }
   public onOutCallback(authData) {
     if (authData) {
@@ -29,7 +31,7 @@ class Login extends Yolo.Model {
       // console.log("Client unauthenticated.")
     }
   }
-  public auth(): any {
+  public authWithPassword(): any {
     return this._db.authWithPassword({
       "email": this.map.get('email'),
       "password": this.map.get('password')
@@ -61,7 +63,11 @@ class Login extends Yolo.Model {
     this._db = v;
   }
 
+  public get db() : any {
+    return this._db;
+  }
+
 }
 
-module LoginModel { };
-export {LoginModel as LoginModelTemp};
+module LoginService { };
+export {LoginService as LoginServiceTemp};

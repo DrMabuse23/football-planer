@@ -1,7 +1,7 @@
 import {Validators, Control, ControlGroup, FormBuilder} from 'angular2/common';
 import {isBlank} from 'angular2/src/facade/lang';
 import {IonicApp, Page, NavController, Alert} from 'ionic-angular';
-import {DBService} from '../../db/service/db';
+import {NgFirebase} from './../../modules/ngfb/ng-firebase';
 import {UserService} from '../../db/service/user';
 // import {ErrorItemComponent} from './../component/error-required';
 
@@ -13,11 +13,11 @@ export class SignupPage {
   private nav: NavController;
   private form: any;
 
-  private dbService: DBService;
+  private dbService: NgFirebase.DBService;
   private userService: UserService;
   private signupData: any;
 
-  constructor(app: IonicApp, nav: NavController, dbService: DBService, fb: FormBuilder, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, dbService: NgFirebase.DBService, fb: FormBuilder, userService: UserService) {
 
     this.dbService = dbService;
     this.userService = userService;

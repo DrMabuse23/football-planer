@@ -15,6 +15,7 @@ interface DBInterface {
   unauth(): any;
   authWithPassword(email: string, password: string): any;
 }
+
 @Injectable()
 class DBService implements DBInterface {
   private _app: IonicApp;
@@ -38,18 +39,18 @@ class DBService implements DBInterface {
       return this._http.get('build/config.json')
         .map(res => res.json())
         .subscribe(
-        (data) => {
-          this._token = data.token;
-          this._uri = data.api;
-          this._db = new Firebase(this.uri);
-        },
-        err => { return reject(err) },
-        () => { return resolve(this.token) }
+          (data) => {
+            this._token = data.token;
+            this._uri = data.api;
+            this._db = new Firebase(this.uri);
+          },
+          err => { return reject(err) },
+          () => { return resolve(this.token) }
         );
     });
   }
 
-  onAuthCallback(authData) {
+  public onAuthCallback(authData) {
     if (authData) {
       // console.log("Authenticated with uid:", authData);
     } else {
@@ -57,12 +58,7 @@ class DBService implements DBInterface {
     }
   }
 
-  auth() {
-    if (!this.token || !this.uri) {
-      return new Promise((resolve, reject) => {
-        return reject('No Config', this.token);
-      });
-    }
+  private _authWithCustomToken() {
     let self = this;
     return new Promise((resolve, reject) => {
       return this.db.authWithCustomToken(this.token, function(err, data) {
@@ -78,14 +74,25 @@ class DBService implements DBInterface {
     });
   }
 
-  getDb() {
+  public auth() {
+    if (!this.token || !this.uri) {
+      return this._getConfig().then(() => {
+        return this._authWithCustomToken();
+      });
+    }
+  }
+
+  public getDb() {
     return this.db;
   }
 
-  unauth() {
+  public unauth() {
     return this.db.unauth();
   }
-  authWithPassword(email, password) {
+  /**
+   * deprecated
+   */
+  public authWithPassword(email, password) {
     // console.log('(email, password', email, password);
     let self = this;
     //CryptoJS.HmacSHA256(password, this.cfg.token).toString()

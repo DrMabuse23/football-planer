@@ -12,7 +12,7 @@ class Route {
   private title: string = '';
   private icon: string = '';
   private params: any = null;
-  private component: Page;
+  private component: any;
   public model: any = new Map();
 
   constructor(attrs){
@@ -22,9 +22,9 @@ class Route {
     });
   }
 
-  get attributes(){
-    Object.keys(this.model);
-  }
+  // get attributes(){
+  //   Object.keys(this.model);
+  // }
 }
 
 @App({
@@ -47,12 +47,12 @@ class FootBallPlanerApp {
   private dbService: NgFirebase.DBService;
   private isMD: any = null;
   private isTablet:boolean=false;
-  private pages: [];
+  private pages: {}[];
   private root: any;
   private dbServiceIsLoggedIn: boolean = false;
 
   public dbAuthChanged: Observable = new Observable(
-  (dbAuth:boolean) => { this.authChange(dbAuth); },
+  (dbAuth:any) => { this.authChange(dbAuth); },
   (error) => { },
   () => { });
 
@@ -75,9 +75,7 @@ class FootBallPlanerApp {
 
   setDb(){
     this.dbService.dbAuthChange.subscribe(this.dbAuthChanged);
-    this.dbService.getConfig().then((res) =>{
-      this.dbService.auth();
-    }).catch(err => console.error(err));
+    this.dbService.auth();
     this.dbServiceIsLoggedIn = this.dbService.dbAuth;
   }
 
