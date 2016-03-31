@@ -7,23 +7,14 @@ import {Yolo} from './../yolo/yolo';
 @Injectable()
 class LoginService extends Yolo.Model {
   private _db: any;
-  private _email: string = '';
-  private _password: string = '';
-  private _rememberMe: boolean = false;
-
   public log: any = new EventEmitter();
 
   constructor() {
-    //DbService: NgFirebase.DBService
-    super({
-      email: '',
-      password: '',
-      rememberMe: false
-    });
-    // debugger;
-    // // this._db = DbService.db;
-    // console.log('Login', this.attributes);
+    super({ email: 'drmabuse@posteo.de', password: 'VmB7sUKW2a4q', rememberMe: true });
+    this.init();
+    console.log('Login', this.attributes);
   }
+
   public onOutCallback(authData) {
     if (authData) {
       // console.log("Authenticated with uid:", authData);
@@ -33,8 +24,8 @@ class LoginService extends Yolo.Model {
   }
   public authWithPassword(): any {
     return this._db.authWithPassword({
-      "email": this.map.get('email'),
-      "password": this.map.get('password')
+      "email": this.email,
+      "password": this.password
     }, function(error, authData) {
       this._db.onAuth(this.onOutCallback);
       this._db.offAuth(this.onOutCallback);
@@ -47,6 +38,7 @@ class LoginService extends Yolo.Model {
       }
     });
   }
+
   public set email(v: string) {
     this.map.set('email', v);
   }
@@ -59,11 +51,23 @@ class LoginService extends Yolo.Model {
     this.map.set('rememberMe', v);
   }
 
+  public get email(): string {
+    return this.map.get('email');
+  }
+
+  public get password(): string {
+    return this.map.get('password');
+  }
+
+  public get rememberMe(): boolean {
+    return this.map.get('rememberMe');
+  }
+
   public set db(v: any) {
     this._db = v;
   }
 
-  public get db() : any {
+  public get db(): any {
     return this._db;
   }
 

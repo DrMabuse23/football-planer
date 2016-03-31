@@ -1,0 +1,69 @@
+// @import 'bourbon';
+
+// figure {
+//   position:absolute;
+//   width:0;
+//   height:0;
+//   left:50%;
+//   top:50%;
+//   margin:-10px 60px;
+//   @include transform-style(preserve-3d);
+//   @include perspective(600);
+
+//   span {
+//     display:block;
+//     position: absolute;
+//     @include transform-origin(50% 100%);
+
+//     &:after {
+//       display:block;
+//       content:'';
+//       border-style: solid;
+//       border-color: transparent;
+//       border-width: 10px 5px 0;
+//       @include backface-visibility(hidden);
+//     }
+
+//     $time : 2s;
+//     @for $i from 1 through 6 {
+//       &:nth-child(#{$i}) {
+//         @include transform(rotate3d(0, 0, 1, #{($i*60deg)+30deg}));
+//         &:after {
+//           border-top-color: adjust-hue(map-get($colors, light), $i*5);
+//           @include transform(rotate3d(0.5, 1, 0, 180deg));
+//           @include animation(split $time #{(0 + $i)*($time/18)} ease infinite);
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @include keyframes(split) {
+
+//   0% {
+//     @include transform-origin(50% 100%);
+//     @include transform(rotate3d(0.5, 1, 0, 180deg));
+//   }
+
+//   25% {
+//     @include transform-origin(50% 100%);
+//     @include transform(rotate3d(0, 1, 0, 360deg));
+//   }
+
+//   50% {
+//     opacity:1;
+//     @include transform-origin(100% 0%);
+//     @include transform(rotate3d(0, 1, 0, 360deg));
+//   }
+
+//   75% {
+//     opacity:0;
+//     @include transform(rotate3d(0.5, 1, 0, 180deg));
+//   }
+
+//   100% {
+//     opacity:1;
+//     @include transform(rotate3d(0.5, 1, 0, 180deg));
+//   }
+
+// }
