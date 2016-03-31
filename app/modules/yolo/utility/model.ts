@@ -11,22 +11,34 @@ interface ModelInterface {
 
 class Model implements ModelInterface {
   private _map: any = new Map();
+  private _attributes: string[];
 
   constructor(model:any, map: boolean = false) {
     Object.assign(this, model);
-    Object.keys(model).forEach(attr => {
-      this._map.set(attr, this[attr]);
-  ***REMOVED***);
+    this.attributes = Object.keys(model);
 ***REMOVED***
 
-  get attributes():string[] {
-    return Object.keys(this._map);
+  public get attributes():string[] {
+    return this._attributes;
+***REMOVED***
+
+  public set attributes(attrs: string[]) {
+    this._attributes = attrs;
 ***REMOVED***
   /**
    * public the map
    */
-  get map(): any {
+  public get map(): any {
     return this._map;
+***REMOVED***
+
+  /**
+   * set the map
+   */
+  public set map(model: any) {
+    Object.keys(model).forEach(attr => {
+      this._map.set(attr, this[attr]);
+  ***REMOVED***);
 ***REMOVED***
 ***REMOVED***
 
