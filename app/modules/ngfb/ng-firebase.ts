@@ -1,5 +1,5 @@
 import {FireBaseRecordTemp} from './firebase-record';
-import {LoginServiceTemp} from './login-service';
+import {LoginServiceTemp} from './login-serv';
 import {DBServiceTemp} from './db';
 
 export namespace NgFirebase {
