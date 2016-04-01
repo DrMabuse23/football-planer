@@ -41,6 +41,20 @@ class Model implements ModelInterface {
     return this._map;
   }
 
+  public clear() {
+    this.map.clear();
+  }
+
+  public entries() : string[] {
+    return this.map.entries();
+  }
+
+  public unsetAttribute(attrName: string): any {
+    if (this.map.has(attrName)) {
+      this.map.delete(attrName);
+    }
+    return this.map.has(attrName);
+  }
 }
 
 module Model { };
