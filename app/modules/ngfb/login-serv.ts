@@ -1,3 +1,4 @@
+import {Validators, Control, ControlGroup} from 'angular2/common';
 import {Injectable, EventEmitter} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -10,7 +11,11 @@ class LoginService extends Yolo.Model {
   public log: any = new EventEmitter();
 
   constructor() {
-    super({ email: '', password: '', rememberMe: true });
+    super({ email: '', password: '', remember: true });
+    this.rules = {
+      email: [Validators.required],
+      password: [Validators.required]
+    };
     this.init();
     console.log('Login', this.attributes);
   }
@@ -27,8 +32,6 @@ class LoginService extends Yolo.Model {
       "email": this.email,
       "password": this.password
     }, function(error, authData) {
-      this._db.onAuth(this.onOutCallback);
-      this._db.offAuth(this.onOutCallback);
       if (error) {
         return this.log.error(error);
       } else {
@@ -47,8 +50,8 @@ class LoginService extends Yolo.Model {
     this.map.set('password', v);
   }
 
-  public set rememberMe(v: boolean) {
-    this.map.set('rememberMe', v);
+  public set remember(v: boolean) {
+    this.map.set('remember', v);
   }
 
   public get email(): string {
@@ -59,8 +62,8 @@ class LoginService extends Yolo.Model {
     return this.map.get('password');
   }
 
-  public get rememberMe(): boolean {
-    return this.map.get('rememberMe');
+  public get remember(): boolean {
+    return this.map.get('remember');
   }
 
   public set db(v: any) {
