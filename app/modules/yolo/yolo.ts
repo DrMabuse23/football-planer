@@ -11,3 +11,12 @@ export namespace Yolo {
    */
   export import ActiveRecord = ActiveRecordTemp;
 }
+
+// let Yolo = {
+//   Model: ModelTemp,
+//   ActiveRecord: ActiveRecordTemp
+// };
+
+// export {
+//   Yolo
+// }

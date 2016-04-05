@@ -8,6 +8,11 @@ import {NgFirebase} from './modules/ngfb/ng-firebase';
 import {UserService} from './db/service/user';
 import {PlaceService} from './db/service/place';
 
+/**
+ * @class Route
+ * @todo export into single file
+ */
+
 class Route {
   private title: string = '';
   private icon: string = '';

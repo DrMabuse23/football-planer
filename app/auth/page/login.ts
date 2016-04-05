@@ -17,7 +17,6 @@ export class LoginPage {
   private form: ControlGroup;
   private localStore: any;
   private _loginService: NgFirebase.LoginService;
-  private dbService: NgFirebase.DBService;
 
   public userOnLogin: boolean;
   public userService: UserService;
@@ -28,17 +27,15 @@ export class LoginPage {
   private loginData: any;
 
 
-  constructor(app: IonicApp, nav: NavController, loginService: NgFirebase.LoginService, dbService: NgFirebase.DBService, userService: UserService) {
+  constructor(app: IonicApp, nav: NavController, loginService: NgFirebase.LoginService, userService: UserService) {
     this.app = app;
     this.nav = nav;
 
     this.userOnLogin = false;
     this.userService = userService;
     this.localStore = JSON.parse(localStorage.getItem('remember'));
-    this.dbService = dbService;
 
     this._loginService = loginService;
-    this._loginService.db = this.dbService.db;
 
     this.form = this._loginService.controlGroup;
     this.loginData = {};
@@ -52,6 +49,8 @@ export class LoginPage {
 
   doLogin(event) {
     let self = this;
+    this._loginService.apply(this.form.value);
+    //debugger;
     if (this.form.valid) {
       if (self.form.value.remember) {
         localStorage.setItem('remember', JSON.stringify(self.form.value));
@@ -60,33 +59,12 @@ export class LoginPage {
       }
       this.userOnLogin = true;
       let nav = this.app.getComponent('nav');
-      this.loginDb();
-
+      this._loginService.authWithPassword();
     } else {
       this.userOnLogin = false;
       this.doAlert();
     }
     event.preventDefault();
-  }
-
-  loginDb() {
-    let self = this;
-    this._loginService.authWithPassword().then((resp:any) => {
-      self.userOnLogin = false;
-      // console.log("Authenticated user with uid:", resp.uid)
-      self.userService.getUserProfile().then(() => {
-        if (resp.password.isTemporaryPassword) {
-          // console.log('resp.password.isTemporaryPassword', resp.password.isTemporaryPassword);
-          //console.table(resp);
-        } else {
-          self.nav.setRoot(self.homePage);
-        }
-      });
-    }).catch((err) => {
-      // console.table(error);
-      this.userOnLogin = false;
-      self.doAlert(err.message);
-    });
   }
 
   doAlert(message: string = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
