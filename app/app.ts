@@ -21,10 +21,6 @@ class Route {
       this.model.set(attr, this[attr]);
     });
   }
-
-  // get attributes(){
-  //   Object.keys(this.model);
-  // }
 }
 
 @App({
