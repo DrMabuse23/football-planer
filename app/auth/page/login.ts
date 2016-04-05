@@ -39,12 +39,8 @@ export class LoginPage {
 
     this._loginService = loginService;
     this._loginService.db = this.dbService.db;
-    debugger;
-    this.form = new ControlGroup({
-      email: new Control(this.localStore && this.localStore.remember ? this.localStore.email : '', Validators.required),
-      password: new Control(this.localStore && this.localStore.remember ? this.localStore.password : '', Validators.required),
-      remember: new Control(this.localStore && this.localStore.remember ? this.localStore.remember : true)
-    });
+
+    this.form = this._loginService.controlGroup;
     this.loginData = {};
     this.signupPage = SignupPage;
     this.homePage = HomePage;
@@ -75,7 +71,7 @@ export class LoginPage {
 
   loginDb() {
     let self = this;
-    this.dbService.authWithPassword(this.form.value.email, this.form.value.password).then((resp) => {
+    this._loginService.authWithPassword().then((resp:any) => {
       self.userOnLogin = false;
       // console.log("Authenticated user with uid:", resp.uid)
       self.userService.getUserProfile().then(() => {
