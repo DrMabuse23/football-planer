@@ -13,7 +13,6 @@ interface DBInterface {
   token: string;
   uri: string;
   unauth(): any;
-  authWithPassword(email: string, password: string): any;
 }
 
 @Injectable()
@@ -27,7 +26,6 @@ class DBService implements DBInterface {
 
   public dbAuth: boolean = false
   public dbAuthChange: any = new EventEmitter();
-  public loggedInUser: any = null;
 
   constructor(app: IonicApp, http: Http) {
     this._app = app;
@@ -45,7 +43,7 @@ class DBService implements DBInterface {
             this._db = new Firebase(this.uri);
           },
           err => { return reject(err) },
-          () => { return resolve(this.token) }
+          () => { return resolve(this.token) } //finally
         );
     });
   }
@@ -88,31 +86,6 @@ class DBService implements DBInterface {
 
   public unauth() {
     return this.db.unauth();
-  }
-  /**
-   * deprecated
-   */
-  public authWithPassword(email, password) {
-    // console.log('(email, password', email, password);
-    let self = this;
-    //CryptoJS.HmacSHA256(password, this.cfg.token).toString()
-    return new Promise((resolve, reject) => {
-
-      return this.db.authWithPassword({
-        "email": email,
-        "password": password
-      }, function(error, authData) {
-        self.db.onAuth(self.onAuthCallback);
-        self.db.offAuth(self.onAuthCallback);
-        if (error) {
-          console.error(error);
-          return reject(error);
-        } else {
-          self.loggedInUser = authData;
-          return resolve(authData);
-        }
-      });
-    });
   }
 
   public get token(): string {
