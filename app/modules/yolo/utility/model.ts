@@ -1,4 +1,4 @@
-import {Validators, ControlGroup, Control} from 'angular2/common';
+import {Validators} from 'angular2/common';
 interface ModelInterface {
   /**
    * returns a an Array from the model attributes
@@ -36,18 +36,17 @@ class Model implements ModelInterface {
    */
   private _attributes: string[] = [];
   private _rules: Object;
-  private _form: ControlGroup;
-  private _controlGroup: ControlGroup;
+
 
   constructor(model: any) {
     this._create(model);
+    this.init();
   }
 
   init() {
     this.attributes.forEach(attr => {
       this[`${attr}`] = this._map.get(attr);
     });
-    this.controlGroup = this._prepareRules();
   }
 
   private _create(model: any) {
@@ -58,51 +57,34 @@ class Model implements ModelInterface {
     });
   }
 
-  private _prepareRules(): ControlGroup {
-    let temp: any = {};
-    let self = this;
-    this.attributes.forEach((attr) => {
-      if (self.rules[attr]) {
-        temp[attr] = new Control(self[attr], Validators.compose(self.rules[attr]));
-      } else {
-        temp[attr] = new Control(self[attr]);
-      }
-    });
-    return new ControlGroup(temp);
-  }
-
-  public pristine() {
-    return this.controlGroup.pristine;
-  }
-
   public get attributes(): string[] {
     return this._attributes;
   }
   /**
    * apply a Model Structure
    */
-  public apply(v: any) {
+  public apply(v: Object) {
     this.attributes.forEach(attr => {
-      if (v[attr] && this.attributes.indexOf(attr)) {
-        this[`${attr}`] = v[attr];
+      if (v[attr] && this.attributes.indexOf(attr) !== -1) {
+        console.log(`set ${attr} with ${v[attr]}`);
+        this.set(attr, v[attr]);
       }
-    });
+    }, (this));
   }
 
   /**
    * get a attr from Model
    */
   public get(attr: string) {
-    return this._map.get(attr);
+    return this[attr];
   }
 
   /**
    * set a attr to Model
    */
   public set(attrName: string, attrValue: any) {
-    this._map.set(attrValue);
+    this[attrName] = attrValue;
   }
-
 
   /**
    * clean the model
@@ -130,13 +112,6 @@ class Model implements ModelInterface {
     return this._map.has(attrName);
   }
   /**
-   * @link AbstractControl angular2/src/common/AbstractControl
-   * @link https://angular.io/docs/ts/latest/api/common/AbstractControl-class.html
-   */
-  public validate(form: ControlGroup) {
-    return form.valid;
-  }
-  /**
    * return a array of Validator Rules
    * @link https://angular.io/docs/ts/latest/api/common/Validators-class.html
    */
@@ -157,22 +132,6 @@ class Model implements ModelInterface {
   public set rules(v: Object) {
     this._rules = v;
   }
-
-  /**
-   * return a Model form Object which assign the value to the model
-   * @link https://angular.io/docs/ts/latest/api/common/ControlGroup-class.html
-   */
-  public get controlGroup(): ControlGroup {
-    return this._controlGroup;
-  }
-  /**
-   * set a Model form Object which assign the value to the model
-   * @link https://angular.io/docs/ts/latest/api/common/ControlGroup-class.html
-   */
-  public set controlGroup(v: ControlGroup) {
-    this._controlGroup = v;
-  }
-
 }
 
 module Model { };

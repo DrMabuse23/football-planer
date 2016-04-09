@@ -12,13 +12,16 @@
       </div>
     </div>
   </div>
-  <form (submit)="doLogin($event)" [ngFormModel]="_loginService.controlGroup">
+  <form (submit)="_loginService.login($event)" [ngFormModel]="_loginService.controlGroup">
     <ion-list>
       <ion-item clearInput>
         <ion-input ngControl="email" type="email" placeholder="Deine E-mail"></ion-input>
       </ion-item>
-      <ion-item *ngIf="_loginService.controlGroup.hasError('required', 'email') && _loginService.controlGroup.controls.email.dirty">
+      <ion-item *ngIf="_loginService.controlGroup.hasError('required') && _loginService.controlGroup.controls.email.dirty">
         <p danger>Email ist ein pflicht feld und darf nicht leer sein.</p>
+      </ion-item>
+      <ion-item *ngIf="_loginService.controlGroup.hasError('email', 'email') && _loginService.controlGroup.controls.email.dirty">
+        <p danger>Email ist nicht valide.</p>
       </ion-item>
       <ion-item clearInput>
         <ion-input ngControl="password" type="password" placeholder="Dein Passwort"></ion-input>
@@ -28,11 +31,11 @@
       </ion-item>
       <ion-item>
       <ion-label>Zugangsdaten merken</ion-label>
-      <ion-toggle ngControl="remember" pink-dark></ion-toggle>
+      <ion-toggle ngControl="remember" checked="_loginService.controlGroup.controls.remember.value" pink-dark></ion-toggle>
     </ion-item>
 
     </ion-list>
-    <button small pink full type="submit" [disabled]="!form.valid" >Einloggen</button>
+    <button small pink full type="submit" [disabled]="!_loginService.controlGroup.valid" >Einloggen</button>
     <div class="options">
       <a button pink-light clear block [navPush]="passwordResetPage">Passwort vergessen?</a>
       <a button pink-light clear block [navPush]="signupPage">Registrieren</a>

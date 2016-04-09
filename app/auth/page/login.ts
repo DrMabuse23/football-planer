@@ -14,17 +14,14 @@ import {HomePage} from './../../home/page/home-page';
 export class LoginPage {
   private app: IonicApp;
   private nav: NavController;
-  private form: ControlGroup;
   private localStore: any;
   private _loginService: NgFirebase.LoginService;
 
   public userOnLogin: boolean;
   public userService: UserService;
 
-  private homePage: any;
   private signupPage: any;
   private passwordResetPage: any;
-  private loginData: any;
 
 
   constructor(app: IonicApp, nav: NavController, loginService: NgFirebase.LoginService, userService: UserService) {
@@ -34,45 +31,36 @@ export class LoginPage {
     this.userOnLogin = false;
     this.userService = userService;
     this.localStore = JSON.parse(localStorage.getItem('remember'));
-
     this._loginService = loginService;
 
-    this.form = this._loginService.controlGroup;
-    this.loginData = {};
     this.signupPage = SignupPage;
-    this.homePage = HomePage;
     this.passwordResetPage = PasswordResetPage;
-    // if (this.form.valid) {
-    //   this.loginDb();
-    // }
+    this.logListener();
   }
 
-  doLogin(event) {
-    let self = this;
-    this._loginService.apply(this.form.value);
-    //debugger;
-    if (this.form.valid) {
-      if (self.form.value.remember) {
-        localStorage.setItem('remember', JSON.stringify(self.form.value));
-      } else {
-        localStorage.removeItem('remember');
-      }
-      this.userOnLogin = true;
-      let nav = this.app.getComponent('nav');
-      this._loginService.authWithPassword();
-    } else {
-      this.userOnLogin = false;
-      this.doAlert();
+  logListener() {
+    this._loginService.log.subscribe(
+      this.loginSuccess.bind(this),
+      this.loginFail.bind(this),
+      this.loginFinally.bind(this)
+    );
+  }
+
+  loginSuccess(authData: any) {
+    this.userOnLogin = true;
+    console.log('authData', authData);
+  }
+
+  loginFail(err) {
+    this.userOnLogin = false;
+    console.error(err);
+  }
+
+  loginFinally() {
+    debugger;
+    if (this.userOnLogin) {
+      this.nav.setRoot(HomePage);
+      this._loginService.log.unsubscribe();
     }
-    event.preventDefault();
-  }
-
-  doAlert(message: string = 'Ein Fehler ist aufgereten', title = 'Fehler', cssClass = 'danger') {
-    let alert = Alert.create({
-      title: title,
-      message: message,
-      cssClass: cssClass
-    });
-    this.nav.present(alert);
   }
 }

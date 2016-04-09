@@ -1,22 +1,11 @@
 import {ModelTemp} from './utility/model';
+import {ModelFormTemp} from './utility/model-form';
 import {ActiveRecordTemp} from './utility/active-record';
+import {ValidatorsTemp} from './utility/validators';
 
 export namespace Yolo {
-  /**
-   * a Simple Model
-   */
   export import Model = ModelTemp;
-  /**
-   * a Model who can be crud actions
-   */
+  export import Form = ModelFormTemp;
   export import ActiveRecord = ActiveRecordTemp;
+  export import Validators  = ValidatorsTemp;
 }
-
-// let Yolo = {
-//   Model: ModelTemp,
-//   ActiveRecord: ActiveRecordTemp
-// };
-
-// export {
-//   Yolo
-// }
