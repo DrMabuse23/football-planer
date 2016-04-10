@@ -12,7 +12,7 @@ interface ModelInterface {
 
 /**
 * @class Model
-*  ````js
+*  ```js
 * class foo extends Yolo.Model {
 *  constructor(){
 *    super({email:'', password: ''});
@@ -20,9 +20,14 @@ interface ModelInterface {
 *      email: [Validators.required],
 *      password: [Validators.required]
 *    };
-*   this.init();
 *  }
 * }
+* let bar = new foo();
+* bar.set('email', 'a@b.c');
+* bar.get('email');
+* bar.apply({email: 'my@you.us', 'password': 'secret', whooza: 'test'});
+* console.log(bar.values());
+* // {email: 'my@you.us', 'password': 'secret'}
 * ```
 *
 */
@@ -48,15 +53,19 @@ class Model implements ModelInterface {
       this[`${attr}`] = this._map.get(attr);
     });
   }
-
+  /**
+   * add attributes
+   */
   private _create(model: any) {
     Object.assign(this, model);
     Object.keys(model).forEach(attr => {
-      this._map.set(attr, model[attr])
+      this._map.set(attr, model[attr]);
       this._attributes.push(attr);
     });
   }
-
+  /**
+   * return an Array of string with the model attributes
+   */
   public get attributes(): string[] {
     return this._attributes;
   }
@@ -68,6 +77,8 @@ class Model implements ModelInterface {
       if (v[attr] && this.attributes.indexOf(attr) !== -1) {
         console.log(`set ${attr} with ${v[attr]}`);
         this.set(attr, v[attr]);
+      } else {
+        console.log(`${attr} not exist on this model`);
       }
     }, (this));
   }
@@ -122,7 +133,7 @@ class Model implements ModelInterface {
   /**
    * set a Object of Validator Rules
    * @link https://angular.io/docs/ts/latest/api/common/Validators-class.html
-   * ````js
+   * ```js
    * this.rules = {
       email: [Validators.required],
       password: [Validators.required]

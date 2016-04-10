@@ -5,7 +5,22 @@ export interface ModelFormInterface {
   onChange: boolean;
   form: ControlGroup;
 }
-
+/**
+* @class ModelForm
+* ```js
+* class fooForm {
+*  constructor(){
+*   this.model = new Yolo.Model({email:'', password: ''});
+*   this.model.rules = {
+*     email: [Validators.required, Yolo.Validators.email],
+*     password: [Validators.required]
+*   };
+*   this.formModel = new Yolo.ModelForm(this.model);
+*   console.log(this.formModel.form);
+*  }
+* }
+* ```
+*/
 class ModelForm implements ModelFormInterface{
 
   private _model: ModelTemp;
